@@ -23,10 +23,10 @@
 		<!--演示内容开始-->
 		<div class="swipe">
 			<ul id="slider">
-				<li style="display:block"><img width="100%" src="__PUBLIC__/images/banner1.jpg"/></li>
-				<li><img width="100%" src="__PUBLIC__/images/banner2.jpg"/></li>
-				<li><img width="100%" src="__PUBLIC__/images/banner3.jpg"/></li>
-				<li><img width="100%" src="__PUBLIC__/images/banner4.jpg"/></li>
+				<a href="{:U('Topic/index')}?topic_id={$topic[0].id}"><li style="display:block"><img width="100%" src="{$topic[0].pic}"/></li></a>
+				<volist name="topic" id="vo" offset="1" length='3'>
+				<a href="{:U('Topic/index')}?topic_id={$vo.id}"><li><img width="100%" src="{$vo.pic}"/></li></a>
+				</volist>
 			</ul>
 			<div id="pagenavi">
 				<a href="javascript:void(0);" class="active">1</a>

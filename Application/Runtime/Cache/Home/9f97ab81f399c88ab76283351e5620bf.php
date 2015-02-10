@@ -23,10 +23,8 @@
 		<!--演示内容开始-->
 		<div class="swipe">
 			<ul id="slider">
-				<li style="display:block"><img width="100%" src="/tuan/Public/images/banner1.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner2.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner3.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner4.jpg"/></li>
+				<a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($topic[0]["id"]); ?>"><li style="display:block"><img width="100%" src="<?php echo ($topic[0]["pic"]); ?>"/></li></a>
+				<?php if(is_array($topic)): $i = 0; $__LIST__ = array_slice($topic,1,3,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($vo["id"]); ?>"><li><img width="100%" src="<?php echo ($vo["pic"]); ?>"/></li></a><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>
 			<div id="pagenavi">
 				<a href="javascript:void(0);" class="active">1</a>
@@ -53,25 +51,44 @@
 			<div class="main">
 				<div class="tt">商品浏览</div>
 				<div class="tc">
-					<form action="" method="post">
+					<form action="<?php echo U('View/view');;?>" method="post">
 						<div>
-							学校:<select name="" id="">
-								<option value="">全部</option>
+							学校:<select name="school_id" id="">
+								<option value="0">全部</option>
+								<?php if(is_array($school)): $i = 0; $__LIST__ = $school;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 							</select>
-							商品类型:<select name="" id="">
-								<option value="">全部</option>
+							商品类型:<select name="goods_id" id="">
+								<option value="0">全部</option>
+								<?php if(is_array($goods)): $i = 0; $__LIST__ = $goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["type"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 							</select>
-							<input type="submit" value="浏览">
+							<input type="submit" value="浏览" style="margin: 0.8em;margin-left: 1em;padding: 0.2em;border-radius:0.3em;">
 						</div>
 					</form>
 					<!-- 随便看看 -->
-					<div></div>
+						<?php if(is_array($store)): $i = 0; $__LIST__ = $store;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style="float:left;width: 100%;">
+								<a href="<?php echo ($vo["link"]); ?>">
+									<div style="float: left;display: inline;">
+										<img src="<?php echo ($vo["show_pic"]); ?>">
+									</div>
+									<div style="float: left;display: inline;padding: 0.4em">
+										<ul>
+											<li>店铺名: <?php echo ($vo["store_name"]); ?></li>
+											<li>
+												商品:
+												<?php foreach($vo['goods_type'] as $v){echo $v['type'].'  ';} ?>
+											</li>
+											<li>
+												标签:
+												<?php foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';} ?>
+											</li>
+											<li>店主: <a href="<?php echo U('Person/index');?>?person_id=<?php echo ($vo["person_id"]); ?>"><?php echo ($vo["nickname"]); ?></a></li>
+										</ul>
+									</div>
+								</a>
+							</div><?php endforeach; endif; else: echo "" ;endif; ?>
 				</div>
 		</div>
 	</section>
-	<!-- <div class="body_footer">
-		
-	</div> -->
 </div>
 </body>
 </html>

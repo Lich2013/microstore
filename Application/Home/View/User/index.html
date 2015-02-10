@@ -1,0 +1,66 @@
+<include file="Public/header" />
+		<div class="trip">
+			<div class="main">
+				<div style="  text-align: end;">{$name}, <a href="{:U('Login/loginout');}" style="color: blue">退出</a> </div>
+				<div class="tt">信息修改</div>
+				<div class="tc">
+					<form action="{:U('User/update');}" method="post" enctype="multipart/form-data">
+						<div></div>
+						<div>微店信息修改</div>
+						<div>微店名: <input type="text" value="{$info.store.store_name}" name="store_name"/></div>
+						<div>微店链接: <input type="text" value="{$info.store.link}" name="store_link"/></div>
+						<div>
+							商品类型:
+							<select name="goods_type" id="">
+								<volist name="goods" id="vo">
+									<option value="{$vo.id}" <php>$a = $vo['id']==$info['goods']['id']? 'selected="selected"':'';echo $a; </php>>{$vo.type}</option>
+								</volist>
+							</select>
+						</div>
+						<div>标签1:
+							<input type="hidden" value="{$info.tags.0.id}" name="tags_id[]"/>
+							<input type="text" value="{$info.tags.0.tag_name}" name="tags[]"/>
+						</div>
+						<div>标签2:
+							<input type="hidden" value="{$info.tags.1.id}" name="tags_id[]"/>
+							<input type="text" value="{$info.tags.1.tag_name}" name="tags[]"/>
+						</div>
+						<div>标签3:
+							<input type="hidden" value="{$info.tags.2.id}" name="tags_id[]"/>
+							<input type="text" value="{$info.tags.2.tag_name}" name="tags[]"/>
+						</div>
+						<div>标签4:
+							<input type="hidden" value="{$info.tags.3.id}" name="tags_id[]"/>
+							<input type="text" value="{$info.tags.3.tag_name}" name="tags[]"/>
+						</div>
+						<div>标签5:
+							<input type="hidden" value="{$info.tags.4.id}" name="tags_id[]"/>
+							<input type="text" value="{$info.tags.4.tag_name}" name="tags[]"/>
+						</div>
+
+						<div>店铺首页图:<input type="file" name="store_pic"/></div>
+
+						<div>个人风采信息修改</div>
+						<div>姓名:<input type="text" value="{$info.person.name}" name="person_name"/></div>
+						<div>学校:
+							<select name="person_school">
+								<volist name="school" id="vs">
+									<option value="{$vs.id}" <php>$a = $vs['id']==$info['person']['school_id']? 'selected="selected"':'';echo $a; </php>>{$vs.school_name}</option>
+								</volist>
+							</select>
+						</div>
+						<div>专业:<input type="text" value="{$info.person.major}" name="person_major"/></div>
+						<div>个人介绍:<input type="text" value="{$info.person.introduce}" name="person_introduce"/></div>
+						<div>相关配图:<input type="file" value="" name="person_pic"/></div>
+						<div><input type="submit"/></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- <div class="body_footer">
+		
+	</div> -->
+</div>
+</body>
+</html>

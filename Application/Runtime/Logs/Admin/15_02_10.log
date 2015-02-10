@@ -1,0 +1,204 @@
+[ 2015-02-10T14:23:08+08:00 ] ::1 /tuan/index.php/Admin/Info/type.html
+ERR: 非法操作:type
+
+[ 2015-02-10T14:34:27+08:00 ] ::1 /tuan/index.php/Admin/Info/storeUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001397s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002370s ]
+NOTIC: [8] Undefined index: store_id D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 64 行.
+NOTIC: [8] Undefined index: store_name D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 65 行.
+NOTIC: [8] Undefined index: link D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 66 行.
+NOTIC: [8] Undefined index: goods_type_id D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 67 行.
+NOTIC: [8] Undefined index: school_id D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 68 行.
+SQL: SHOW COLUMNS FROM `store` [ RunTime:0.0040s ]
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2015-02-10T14:34:40+08:00 ] ::1 /tuan/index.php/Admin/Info/typeUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001671s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003707s ]
+NOTIC: [8] Undefined index: type D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 136 行.
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'microstore.type' doesn't exist
+
+[ 2015-02-10T14:35:19+08:00 ] ::1 /tuan/index.php/Admin/Info/typeUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000979s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001786s ]
+NOTIC: [8] Undefined index: type D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 136 行.
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'microstore.type' doesn't exist
+
+[ 2015-02-10T14:35:40+08:00 ] ::1 /tuan/index.php/Admin/Info/typeUpdate.html
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'microstore.type' doesn't exist
+
+[ 2015-02-10T14:35:59+08:00 ] ::1 /tuan/index.php/Admin/Info/typeUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000958s ]
+NOTIC: [8] Undefined index: type D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 136 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0044s ]
+SQL: UPDATE `goods` SET `type`=NULL WHERE ( id = 1 ) [ RunTime:0.0011s ]
+
+[ 2015-02-10T14:36:02+08:00 ] ::1 /tuan/index.php/Admin/Info/typeUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001927s ]
+NOTIC: [8] Undefined index: type D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 136 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0021s ]
+SQL: UPDATE `goods` SET `type`=NULL WHERE ( id = 1 ) [ RunTime:0.0002s ]
+
+[ 2015-02-10T14:36:22+08:00 ] ::1 /tuan/index.php/Admin/Info/typeUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003077s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0039s ]
+SQL: UPDATE `goods` SET `type`='1' WHERE ( id = 1 ) [ RunTime:0.0003s ]
+
+[ 2015-02-10T14:36:28+08:00 ] ::1 /tuan/index.php/Admin/Info/typeUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002908s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0021s ]
+SQL: UPDATE `goods` SET `type`='衣服' WHERE ( id = 1 ) [ RunTime:0.0003s ]
+
+[ 2015-02-10T14:39:31+08:00 ] ::1 /tuan/index.php/Admin/Info/school.html
+ERR: 非法操作:school
+
+[ 2015-02-10T14:44:00+08:00 ] ::1 /tuan/index.php/Admin/Info/adminDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002816s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004551s ]
+NOTIC: [8] Undefined index: id D:\wamp\www\tuan\Application\Admin\Controller\InfoController.class.php 第 134 行.
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0057s ]
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2015-02-10T14:44:52+08:00 ] ::1 /tuan/index.php/Admin/Info/adminDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000997s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002467s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0045s ]
+SQL: DELETE FROM `admin` WHERE ( id = 5 ) [ RunTime:0.0586s ]
+
+[ 2015-02-10T14:44:55+08:00 ] ::1 /tuan/index.php/Admin/Info/adminDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000935s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001781s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0038s ]
+SQL: DELETE FROM `admin` WHERE ( id = 4 ) [ RunTime:0.0010s ]
+
+[ 2015-02-10T14:45:55+08:00 ] ::1 /tuan/index.php/Admin/Info/typeDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001057s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001989s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0021s ]
+SQL: DELETE FROM `goods` WHERE ( id = 1 ) [ RunTime:0.0003s ]
+
+[ 2015-02-10T15:08:51+08:00 ] ::1 /tuan/index.php/Admin/Info/school.html
+ERR: 非法操作:school
+
+[ 2015-02-10T15:22:52+08:00 ] ::1 /tuan/index.php/Admin/Info/schoolUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002831s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005035s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0063s ]
+SQL: UPDATE `school` SET `school_name`='' WHERE ( id = 1 ) [ RunTime:0.0017s ]
+
+[ 2015-02-10T15:23:30+08:00 ] ::1 /tuan/index.php/Admin/Info/schoolUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002648s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004032s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0032s ]
+SQL: UPDATE `school` SET `school_name`='' WHERE ( id = 1 ) [ RunTime:0.0004s ]
+
+[ 2015-02-10T15:24:47+08:00 ] ::1 /tuan/index.php/Admin/Info/schoolUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004172s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0045s ]
+SQL: UPDATE `school` SET `school_name`='
+                                    &lt;div&gt;&lt;input type=&quot;text&quot; name=&quot;store_name&quot; placeholder=&quot;修改学校名称&quot; style=&quot;padding: 6px;border-radius: 4px;border: 1px solid #d5d5d5&quot;&gt;&lt;/div&gt;' WHERE ( id = 1 ) [ RunTime:0.0011s ]
+
+[ 2015-02-10T15:25:33+08:00 ] ::1 /tuan/index.php/Admin/Info/schoolUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001986s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003332s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0034s ]
+SQL: UPDATE `school` SET `school_name`='
+                                    &lt;div&gt;&lt;input type=&quot;text&quot; name=&quot;store_name&quot; placeholder=&quot;修改学校名称&quot; style=&quot;padding: 6px;border-radius: 4px;border: 1px solid #d5d5d5&quot;&gt;&lt;/div&gt;' WHERE ( id = 1 ) [ RunTime:0.0003s ]
+
+[ 2015-02-10T15:25:57+08:00 ] ::1 /tuan/index.php/Admin/Info/schoolUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001855s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0031s ]
+SQL: UPDATE `school` SET `school_name`='' WHERE ( id = 1 ) [ RunTime:0.0003s ]
+
+[ 2015-02-10T15:26:27+08:00 ] ::1 /tuan/index.php/Admin/Info/schoolUpdate.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002389s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0046s ]
+SQL: UPDATE `school` SET `school_name`='重庆邮电大学' WHERE ( id = 1 ) [ RunTime:0.0003s ]
+
+[ 2015-02-10T15:27:01+08:00 ] ::1 /tuan/index.php/Admin/Info/typeDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001225s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002180s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0026s ]
+SQL: DELETE FROM `goods` WHERE ( id = 5 ) [ RunTime:0.0002s ]
+
+[ 2015-02-10T15:27:44+08:00 ] ::1 /tuan/index.php/Admin/Info/typeDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000792s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001507s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0041s ]
+SQL: DELETE FROM `goods` WHERE ( id = 5 ) [ RunTime:0.0008s ]
+
+[ 2015-02-10T15:27:50+08:00 ] ::1 /tuan/index.php/Admin/Info/typeDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002604s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0023s ]
+SQL: DELETE FROM `goods` WHERE ( id = 5 ) [ RunTime:0.0002s ]
+
+[ 2015-02-10T15:28:01+08:00 ] ::1 /tuan/index.php/Admin/Info/typeDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000967s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002417s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0029s ]
+SQL: DELETE FROM `goods` WHERE ( id = 5 ) [ RunTime:0.0003s ]
+
+[ 2015-02-10T15:28:03+08:00 ] ::1 /tuan/index.php/Admin/Info/typeDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002179s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004625s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0053s ]
+SQL: DELETE FROM `goods` WHERE ( id = 5 ) [ RunTime:0.0002s ]
+
+[ 2015-02-10T15:28:16+08:00 ] ::1 /tuan/index.php/Admin/Info/typeDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002671s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003829s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0081s ]
+SQL: DELETE FROM `goods` WHERE ( id = 5 ) [ RunTime:0.0003s ]
+
+[ 2015-02-10T15:28:17+08:00 ] ::1 /tuan/index.php/Admin/Info/typeDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001095s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002500s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0026s ]
+SQL: DELETE FROM `goods` WHERE ( id = 5 ) [ RunTime:0.0002s ]
+
+[ 2015-02-10T15:29:08+08:00 ] ::1 /tuan/index.php/Admin/Info/typeDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002796s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005429s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0052s ]
+SQL: DELETE FROM `goods` WHERE ( id = 4 ) [ RunTime:0.0003s ]
+
+[ 2015-02-10T15:30:31+08:00 ] ::1 /tuan/index.php/Admin/Info/schoolDelete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000998s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001737s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0046s ]
+SQL: DELETE FROM `school` WHERE ( id = 5 ) [ RunTime:0.0015s ]
+

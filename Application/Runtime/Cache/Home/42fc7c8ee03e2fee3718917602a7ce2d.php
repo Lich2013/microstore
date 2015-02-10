@@ -23,10 +23,8 @@
 		<!--演示内容开始-->
 		<div class="swipe">
 			<ul id="slider">
-				<li style="display:block"><img width="100%" src="/tuan/Public/images/banner1.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner2.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner3.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner4.jpg"/></li>
+				<a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($topic[0]["id"]); ?>"><li style="display:block"><img width="100%" src="<?php echo ($topic[0]["pic"]); ?>"/></li></a>
+				<?php if(is_array($topic)): $i = 0; $__LIST__ = array_slice($topic,1,3,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($vo["id"]); ?>"><li><img width="100%" src="<?php echo ($vo["pic"]); ?>"/></li></a><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>
 			<div id="pagenavi">
 				<a href="javascript:void(0);" class="active">1</a>
@@ -43,7 +41,7 @@
 	<section class="body_main">
 		<div class="trip" id="nav">
 			<ul class="nav">
-				<li><a href="<?php echo U('Index/index');;?>"><img src="/tuan/Public/images/nov03.png"><br>商品浏览</a></li>
+				<li><a href="<?php echo U('View/index');;?>"><img src="/tuan/Public/images/nov03.png"><br>商品浏览</a></li>
 				<li><a href="<?php echo U('List/index');;?>"><img src="/tuan/Public/images/nov04.png"><br>排行榜</a></li>
 				<li><a href="<?php echo U('Search/index');;?>"><img src="/tuan/Public/images/nov02.png"><br>搜索微商</a></li>
 				<li><a href="<?php echo U('Join/index');;?>"><img src="/tuan/Public/images/nov01.png"><br>申请入驻</a></li>
@@ -52,93 +50,33 @@
 		<div class="trip">
 			<div class="main">
 				<div class="tt">排行榜</div>
-				<div class="tt" style="font-size:1.1em; padding:0.5em"><a href="#">商家排行榜</a> | <a href="#">标签排行榜</a></div>
+				<div class="tt" style="font-size:1.1em; padding:0.5em"><a href="<?php echo U('List/index');;?>">商家排行榜</a> | <a href="<?php echo U('List/tag');;?>">标签排行榜</a></div>
 				<div class="tc">
-					<div style="float:left;width: 100%;">
-						<div style="float: left;display: inline;">
-							<img src="/tuan/Public/images/img01.jpg">
-						</div>
-						<div style="float: left;display: inline;padding: 0.4em">
-							<ul>
-								<li>店铺名: 吃吃吃吃吃吃吃吃吃吃</li>
-								<li>商品:</li>
-								<li>标签:</li>
-								<li>店主:</li>
-							</ul>
-						</div>
-					</div>
-					<div style="float:left;width: 100%;">
-						<div style="float: left;display: inline;">
-							<img src="/tuan/Public/images/img01.jpg">
-						</div>
-						<div style="float: left;display: inline;padding: 0.4em">
-							<ul>
-								<li>店铺名:</li>
-								<li>商品:</li>
-								<li>标签:</li>
-								<li>店主:</li>
-							</ul>
-						</div>
-					</div>
-					<div style="float:left;width: 100%;">
-						<div style="float: left;display: inline;">
-							<img src="/tuan/Public/images/img01.jpg">
-						</div>
-						<div style="float: left;display: inline;padding: 0.4em">
-							<ul>
-								<li>店铺名:</li>
-								<li>商品:</li>
-								<li>标签:</li>
-								<li>店主:</li>
-							</ul>
-						</div>
-					</div>			
-					<div style="float:left;width: 100%;">
-						<div style="float: left;display: inline;">
-							<img src="/tuan/Public/images/img01.jpg">
-						</div>
-						<div style="float: left;display: inline;padding: 0.4em">
-							<ul>
-								<li>店铺名:</li>
-								<li>商品:</li>
-								<li>标签:</li>
-								<li>店主:</li>
-							</ul>
-						</div>
-					</div>			
-					<div style="float:left;width: 100%;">
-						<div style="float: left;display: inline;">
-							<img src="/tuan/Public/images/img01.jpg">
-						</div>
-						<div style="float: left;display: inline;padding: 0.4em">
-							<ul>
-								<li>店铺名:</li>
-								<li>商品:</li>
-								<li>标签:</li>
-								<li>店主:</li>
-							</ul>
-						</div>
-					</div>			
-					<div style="float:left;width: 100%;">
-						<div style="float: left;display: inline;">
-							<img src="/tuan/Public/images/img01.jpg">
-						</div>
-						<div style="float: left;display: inline;padding: 0.4em">
-							<ul>
-								<li>店铺名:</li>
-								<li>商品:</li>
-								<li>标签:</li>
-								<li>店主:</li>
-							</ul>
-						</div>
-					</div>										
+					<?php if(is_array($store)): $i = 0; $__LIST__ = $store;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style="float:left;width: 100%;">
+							<a href="<?php echo ($vo["link"]); ?>">
+								<div style="float: left;display: inline;">
+									<img src="<?php echo ($vo["show_pic"]); ?>">
+								</div>
+								<div style="float: left;display: inline;padding: 0.4em">
+									<ul>
+										<li>店铺名: <?php echo ($vo["store_name"]); ?></li>
+										<li>
+											商品:
+											<?php foreach($vo['goods_type'] as $v){echo $v['type'].'  ';} ?>
+										</li>
+										<li>
+											标签:
+											<?php foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';} ?>
+										</li>
+										<li>店主:<?php echo ($vo["nickname"]); ?></li>
+									</ul>
+								</div>
+							</a>
+						</div><?php endforeach; endif; else: echo "" ;endif; ?>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- <div class="body_footer">
-		
-	</div> -->
 </div>
 </body>
 </html>

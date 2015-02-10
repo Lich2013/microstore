@@ -1,0 +1,20 @@
+<include file="Public/header" />
+		<div class="trip">
+			<div class="main">
+				<div class="tt">排行榜</div>
+				<div class="tt" style="font-size:1.1em; padding:0.5em"><a href="{:U('List/index');}">商家排行榜</a> | <a href="{:U('List/tag');}">标签排行榜</a></div>
+				<div class="tc">
+					<volist name="tags" id="vo">
+						<div style="padding: 1em;padding-left: 3em">
+							<a href="#" style="font-size: 2em; color: #FF9933;font-family: monospace;">
+								{$i}.&nbsp&nbsp {$vo.tag_name}
+							</a>
+						</div>
+					</volist>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>

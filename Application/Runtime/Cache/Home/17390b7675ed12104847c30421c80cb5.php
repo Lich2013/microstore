@@ -23,10 +23,8 @@
 		<!--演示内容开始-->
 		<div class="swipe">
 			<ul id="slider">
-				<li style="display:block"><img width="100%" src="/tuan/Public/images/banner1.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner2.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner3.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner4.jpg"/></li>
+				<a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($topic[0]["id"]); ?>"><li style="display:block"><img width="100%" src="<?php echo ($topic[0]["pic"]); ?>"/></li></a>
+				<?php if(is_array($topic)): $i = 0; $__LIST__ = array_slice($topic,1,3,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($vo["id"]); ?>"><li><img width="100%" src="<?php echo ($vo["pic"]); ?>"/></li></a><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>
 			<div id="pagenavi">
 				<a href="javascript:void(0);" class="active">1</a>
@@ -43,7 +41,7 @@
 	<section class="body_main">
 		<div class="trip" id="nav">
 			<ul class="nav">
-				<li><a href="<?php echo U('Index/index');;?>"><img src="/tuan/Public/images/nov03.png"><br>商品浏览</a></li>
+				<li><a href="<?php echo U('View/index');;?>"><img src="/tuan/Public/images/nov03.png"><br>商品浏览</a></li>
 				<li><a href="<?php echo U('List/index');;?>"><img src="/tuan/Public/images/nov04.png"><br>排行榜</a></li>
 				<li><a href="<?php echo U('Search/index');;?>"><img src="/tuan/Public/images/nov02.png"><br>搜索微商</a></li>
 				<li><a href="<?php echo U('Join/index');;?>"><img src="/tuan/Public/images/nov01.png"><br>申请入驻</a></li>
@@ -51,28 +49,49 @@
 		</div>
 		<div class="trip">
 			<div class="main">
-				<div style="  text-align: end;"><a href="#">已有微店? 点我登陆</a> </div>
+				<div style="  text-align: end;"><a href="<?php echo U('Login/index');;?>">已有微店? 点我登陆</a> </div>
 				<div class="tt">申请入驻</div>
 				<div class="tc">
-					<form action="" method="post" enctype="multipart/form-data">
-					<div>店铺名: &nbsp&nbsp&nbsp&nbsp<input type="text"></div>
-					<div>经营商品类型: <select name="" id=""><option value="">123</option></select></div>
-					<div>标签:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"></div>
-					<div>店铺首页图上传: <input type="file"></div>
+					<form action="<?php echo U('Join/join');;?>" method="post" enctype="multipart/form-data">
+						<!--店铺信息-->
+					<div>店铺名: &nbsp&nbsp&nbsp&nbsp<input type="text" name="store_name" placeholder="10字以内"></div>
+					<div>店铺链接: http://<input type="text" name="link" placeholder="www.taobao.com"></div>
+					<div>经营商品类型:
+						<select name="goods_type">
+							<?php if(is_array($goods_type)): $i = 0; $__LIST__ = $goods_type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$type): $mod = ($i % 2 );++$i;?><option value="<?php echo ($type["id"]); ?>"><?php echo ($type["type"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+						</select>
+					</div>
+					<div>标签1:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
+					<div>标签2:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
+					<div>标签3:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
+					<div>标签4:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
+					<div>标签5:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
+					<div>店铺首页图上传: <input type="file" name="store_pic"></div>
 					<div> &nbsp</div>
+						<!--商户信息-->
 					<div>商户管理者信息:</div>
-					<div>昵称:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"></div>
-					<div>真实姓名:  <input type="text"></div>
-					<div>身份证号:  <input type="text"></div>
-					<div>登陆密码:  <input type="password"></div>
-					<div>学校:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="" id=""><option value="">111</option></select>
-					<div>专业:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text">
+					<div>昵称:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="nickname" placeholder="8字以内"></div>
+					<div>真实姓名:  <input type="text" name="realname"></div>
+					<div>身份证号:  <input type="text" name="id_num"></div>
+					<div>登陆密码:  <input type="password" name="password" placeholder="6位以上"></div>
+					<div>学校:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<select name="manage_shool" >
+							<?php if(is_array($school)): $i = 0; $__LIST__ = $school;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$school): $mod = ($i % 2 );++$i;?><option value="<?php echo ($school["id"]); ?>"><?php echo ($school["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+						</select>
+					</div>
+					<div>专业:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="manage_major" placeholder="10字以内"></div>
+						<div>&nbsp</div>
+						<!--个人信息-->
 					<div>个人风采展示: </div>	
-					<div>姓名: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"></div>
-					<div>学校: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"></div>
-					<div>专业: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"></div>
-					<div>个人介绍: <input type="text"></div>
-					<div>相关配图: <input type="file"></div>
+					<div>姓名: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_name"></div>
+					<div>学校:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<select name="person_school">
+							<?php if(is_array($school_1)): $i = 0; $__LIST__ = $school_1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$school_1): $mod = ($i % 2 );++$i;?><option value="<?php echo ($school_1["id"]); ?>"><?php echo ($school_1["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+						</select>
+					</div>
+					<div>专业: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_major" placeholder="8字以内"></div>
+					<div>个人介绍: <input type="text" name="person_introduce" placeholder="300字以内"></div>
+					<div>相关配图: <input type="file" name="person_pic"></div>
 
 					<div>&nbsp</div>
 					<div style="text-align:center"><input type="submit" value="提交" style="padding: 0.5em;border-radius: 0.5em;"></div>

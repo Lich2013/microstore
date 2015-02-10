@@ -1,0 +1,15 @@
+[ 2015-02-06T13:15:52+08:00 ] ::1 /tuan/index.php/Home/View/view.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2015-02-06T14:48:11+08:00 ] ::1 /tuan/index.php/Home/Person/index.html?person_id=2
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in where clause is ambiguous
+
+[ 2015-02-06T14:50:36+08:00 ] ::1 /tuan/index.php/Home/Person/index.html?person_id=2
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in where clause is ambiguous
+
+[ 2015-02-06T16:51:41+08:00 ] ::1 /tuan/index.php/Home/admin
+ERR: 无法加载控制器:Admin
+
+[ 2015-02-06T16:53:19+08:00 ] ::1 /tuan/index.php/Home/admin
+ERR: 无法加载控制器:Admin
+

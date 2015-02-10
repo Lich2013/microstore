@@ -1,0 +1,18 @@
+[ 2015-02-10T16:28:10+08:00 ] ::1 /tuan/index.php/Home/User/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous
+
+[ 2015-02-10T16:51:30+08:00 ] ::1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-10T16:53:37+08:00 ] ::1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-10T17:31:42+08:00 ] ::1 /tuan/index.php/Home/User/update.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+
+[ 2015-02-10T17:33:32+08:00 ] ::1 /tuan/index.php/Home/User/update.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+
+[ 2015-02-10T17:34:13+08:00 ] ::1 /tuan/index.php/Home/User/update.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+

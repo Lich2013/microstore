@@ -23,10 +23,8 @@
 		<!--演示内容开始-->
 		<div class="swipe">
 			<ul id="slider">
-				<li style="display:block"><img width="100%" src="/tuan/Public/images/banner1.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner2.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner3.jpg"/></li>
-				<li><img width="100%" src="/tuan/Public/images/banner4.jpg"/></li>
+				<a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($topic[0]["id"]); ?>"><li style="display:block"><img width="100%" src="<?php echo ($topic[0]["pic"]); ?>"/></li></a>
+				<?php if(is_array($topic)): $i = 0; $__LIST__ = array_slice($topic,1,3,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($vo["id"]); ?>"><li><img width="100%" src="<?php echo ($vo["pic"]); ?>"/></li></a><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>
 			<div id="pagenavi">
 				<a href="javascript:void(0);" class="active">1</a>
@@ -69,9 +67,6 @@
 			</div>
 		</div>
 	</section>
-	<!-- <div class="body_footer">
-		
-	</div> -->
 </div>
 </body>
 </html>

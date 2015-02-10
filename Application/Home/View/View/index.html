@@ -3,19 +3,47 @@
 			<div class="main">
 				<div class="tt">商品浏览</div>
 				<div class="tc">
-					<form action="" method="post">
+					<form action="{:U('View/view');}" method="post">
 						<div>
-							学校:<select name="" id="">
-								<option value="">全部</option>
+							学校:<select name="school_id" id="">
+								<option value="0">全部</option>
+								<volist id="vo" name="school">
+									<option value="{$vo.id}">{$vo.school_name}</option>
+								</volist>
 							</select>
-							商品类型:<select name="" id="">
-								<option value="">全部</option>
+							商品类型:<select name="goods_id" id="">
+								<option value="0">全部</option>
+								<volist id="vo" name="goods">
+									<option value="{$vo.id}">{$vo.type}</option>
+								</volist>
 							</select>
-							<input type="submit" value="浏览">
+							<input type="submit" value="浏览" style="margin: 0.8em;margin-left: 1em;padding: 0.2em;border-radius:0.3em;">
 						</div>
 					</form>
 					<!-- 随便看看 -->
-					<div></div>
+						<volist name="store" id="vo">
+							<div style="float:left;width: 100%;">
+								<a href="{$vo.link}">
+									<div style="float: left;display: inline;">
+										<img src="{$vo.show_pic}">
+									</div>
+									<div style="float: left;display: inline;padding: 0.4em">
+										<ul>
+											<li>店铺名: {$vo.store_name}</li>
+											<li>
+												商品:
+												<php>foreach($vo['goods_type'] as $v){echo $v['type'].'  ';}</php>
+											</li>
+											<li>
+												标签:
+												<php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php>
+											</li>
+											<li>店主: <a href="{:U('Person/index')}?person_id={$vo.person_id}">{$vo.nickname}</a></li>
+										</ul>
+									</div>
+								</a>
+							</div>
+						</volist>
 				</div>
 		</div>
 	</section>
