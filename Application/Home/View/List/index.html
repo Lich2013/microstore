@@ -5,12 +5,12 @@
 				<div class="tt" style="font-size:1.1em; padding:0.5em"><a href="{:U('List/index');}">商家排行榜</a> | <a href="{:U('List/tag');}">标签排行榜</a></div>
 				<div class="tc">
 					<volist name="store" id="vo">
-						<div style="float:left;width: 100%;">
+						<div style="float:left;width: 100%;padding-bottom: 2em;padding-top: 1em;">
 							<a href="{$vo.link}">
 								<div style="float: left;display: inline;">
 									<img src="{$vo.show_pic}">
 								</div>
-								<div style="float: left;display: inline;padding: 0.4em">
+								<div style="float: left;display: inline;padding-left: 1em;">
 									<ul>
 										<li>店铺名: {$vo.store_name}</li>
 										<li>

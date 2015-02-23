@@ -55,6 +55,18 @@
                     <ul>
                         <li><a href="<?php echo U('Topic/index');?>">发布一个新专题</a></li>
                         <li><a  href="<?php echo U('Topic/manage');?>">管理专题</a></li>
+                        <li><a  href="<?php echo U('Topic/homepage');?>">首页宣传图管理</a></li>
+                    </ul>
+                </li>
+                <li> <a href="#" class="nav-top-item <?php $class = ("/tuan/index.php/Admin/Topic" == "/tuan/index.php/Admin/Info")? 'current':' '; echo $class; ?>">
+                    <!-- Add the class "current" to current menu item -->
+                    信息管理</a>
+                    <ul>
+                        <li><a href="<?php echo U('Info/index');?>">商店信息</a></li>
+                        <li><a  href="<?php echo U('Info/user');?>">用户信息</a></li>
+                        <li><a  href="<?php echo U('Info/admin');?>">管理员信息</a></li>
+                        <li><a  href="<?php echo U('Info/type');?>">商品类型管理</a></li>
+                        <li><a  href="<?php echo U('Info/school');?>">学校管理</a></li>
                     </ul>
                 </li>
 

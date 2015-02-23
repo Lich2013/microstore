@@ -11,6 +11,7 @@ class LoginController extends BaseController {
         $this->display();
     }
     public function login(){
+
         $realname = I('post.realname');
         $idcard = I('post.idcard');
         $password = md5(md5(I('post.password')).'Lich');

@@ -16,3 +16,30 @@ ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error i
 [ 2015-02-10T17:34:13+08:00 ] ::1 /tuan/index.php/Home/User/update.html
 ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
 
+[ 2015-02-10T20:17:52+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-10T22:34:36+08:00 ] ::1 /tuan/index.php/Home/Search/search.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'tags'
+
+[ 2015-02-10T22:35:10+08:00 ] ::1 /tuan/index.php/Home/Search/search.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'school_id' in where clause is ambiguous
+
+[ 2015-02-10T22:50:04+08:00 ] ::1 /tuan/index.php/Home/Search/search.html
+ERR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'id'
+
+[ 2015-02-10T22:53:31+08:00 ] ::1 /tuan/index.php/Home/Search/search.html
+ERR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'id'
+
+[ 2015-02-10T23:01:29+08:00 ] ::1 /tuan/index.php/Home/Search/search.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in group statement is ambiguous
+
+[ 2015-02-10T23:03:00+08:00 ] ::1 /tuan/index.php/Home/Search/search.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous
+
+[ 2015-02-10T23:05:35+08:00 ] ::1 /tuan/index.php/Home/Search/search.html
+ERR: 模板不存在:./Application/Home/View/Search/search.html
+
+[ 2015-02-10T23:12:49+08:00 ] ::1 /tuan/index.php/Home/Search/search.html
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'show.pic' in 'field list'
+

@@ -3,26 +3,33 @@
 			<div class="main">
 				<div class="tt">搜索</div>
 				<div class="tc">
-					<form action="" method="post">
+					<form action="{:U('Search/search')}" method="post">
 						<div>
-							学校:<select name="" id="">
-								<option value="">全部</option>
+							学校:<select name="school_id" class="input-select">
+										<option value="0">全部</option>
+									<volist name="school" id="vo">
+										<option value="{$vo.id}">{$vo.school_name}</option>
+									</volist>
 							</select><br/>
-							商品类别:<select name="" id="">
-								<option value="">全部</option>
+							商品类别:<select name="goods_type" class="input-select">
+											<option value="0">全部</option>
+										<volist name="goods_type" id="v">
+											<option value="{$v.id}">{$v.type}</option>
+										</volist>
+									</select><br/>
+							标签:<select name="tag" class="input-select">
+								<option value="0">全部</option>
+								<option value="1">不按标签搜索</option>
 							</select><br/>
-							标签:<select name="" id="">
-								<option value="">全部</option>
-								<option value="">不搜索标签</option>
-							</select><br/>
-							卖家:<select name="" id="">
-								<option value="">全部</option>
+							卖家:<select name="seller" class="input-select">
+								<option value="0">全部</option>
+								<option value="0">不按卖家搜索</option>
 							</select><br/>
 						</div>
 						<div>
-							搜索内容: <input type="text">
+							搜索内容: <input type="text" name="content" class="input-text">
 						</div>
-						<div><input type="submit" value="搜索" style="padding: 0.2em;border-radius:0.3em;"></div>
+						<div><input type="submit" value="搜索" class="input-submit"></div>
 					</form>
 					<!-- 搜索结果展示 -->
 					<div></div>

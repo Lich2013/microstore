@@ -55,6 +55,7 @@
                     <ul>
                         <li><a href="<?php echo U('Topic/index');?>">发布一个新专题</a></li>
                         <li><a  href="<?php echo U('Topic/manage');?>">管理专题</a></li>
+                        <li><a  href="<?php echo U('Topic/homepage');?>">首页宣传图管理</a></li>
                     </ul>
                 </li>
                 <li> <a href="#" class="nav-top-item <?php $class = ("/tuan/index.php/Admin/Index" == "/tuan/index.php/Admin/Info")? 'current':' '; echo $class; ?>">

@@ -9,6 +9,27 @@
 <link type="text/css" rel="stylesheet" href="/tuan/Public/css/style.css">
 <script type="text/javascript" src="/tuan/Public/js/html5.js"></script>
 <script type="text/javascript" src="/tuan/Public/js/jquery.1.4.2-min.js"></script>
+	<style>
+		.input-text{
+			padding: 0.2em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+			margin-left: 1.5em;
+		}
+		.input-select{
+			padding: 0.2em;
+			margin-left: 1.5em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+		}
+		.input-submit{
+			background-color: #313131;
+			padding: 4px 7px 4px 7px !important;
+			border-radius: 0.3em;
+			border: 1px solid #313131;
+			color: #fff !important;
+		}
+	</style>
 </head>
 <body>
 <div class="pw">
@@ -52,10 +73,10 @@
 				<div class="tt">登录</div>
 				<div class="tc">
 					<form action="<?php echo U('Login/login');;?>" method="post">
-						<div>真实姓名: &nbsp;&nbsp;&nbsp;<input type="text" placeholder="真实姓名" name="realname" /></div>
-						<div>身份证号码: <input type="text" placeholder="身份证号码" name="idcard" /></div>
-						<div>密码: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="密码" name="password" /></div>
-						<div style="text-align:center"><input type="submit" value="登录" style="padding: 0.5em;border-radius: 0.5em;"></div>
+						<div>真实姓名: &nbsp;&nbsp;&nbsp;<input type="text" placeholder="真实姓名" name="realname" class="input-text"/></div>
+						<div>身份证号码: <input type="text" placeholder="身份证号码" name="idcard" class="input-text"/></div>
+						<div>密码: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="密码" name="password" class="input-text"/></div>
+						<div style="text-align:center"><input type="submit" value="登录" class="input-submit"></div>
 					</form>
 				</div>
 			</div>

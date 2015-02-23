@@ -1,0 +1,81 @@
+[ 2015-02-11T14:11:30+08:00 ] 192.168.199.1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T14:14:13+08:00 ] 192.168.199.1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T14:14:16+08:00 ] 192.168.199.1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T14:21:34+08:00 ] 192.168.199.1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T14:49:05+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T14:49:10+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T14:55:03+08:00 ] ::1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:04:00+08:00 ] ::1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:04:03+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:04:14+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:04:39+08:00 ] ::1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:14:08+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:14:13+08:00 ] ::1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:20:36+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:21:29+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:22:02+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:22:05+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:22:05+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:22:33+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:22:36+08:00 ] ::1 /tuan/index.php/Home/View/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:22:40+08:00 ] ::1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:25:17+08:00 ] ::1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:31:04+08:00 ] ::1 /tuan/index.php/Home/List/43
+ERR: 非法操作:43
+
+[ 2015-02-11T15:49:03+08:00 ] ::1 /tuan/index.php/Home/Index/index.html
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'microstore.index' doesn't exist
+
+[ 2015-02-11T16:04:25+08:00 ] ::1 /tuan/index.php/Home/Index/Array
+ERR: 非法操作:Array
+
+[ 2015-02-11T16:04:29+08:00 ] ::1 /tuan/index.php/Home/Index/Array
+ERR: 非法操作:Array
+
+[ 2015-02-11T16:20:36+08:00 ] ::1 /tuan/index.php/Home/Topic/www.taobao.com
+ERR: 非法操作:www.taobao.com
+

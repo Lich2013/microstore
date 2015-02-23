@@ -9,6 +9,27 @@
 <link type="text/css" rel="stylesheet" href="/tuan/Public/css/style.css">
 <script type="text/javascript" src="/tuan/Public/js/html5.js"></script>
 <script type="text/javascript" src="/tuan/Public/js/jquery.1.4.2-min.js"></script>
+	<style>
+		.input-text{
+			padding: 0.2em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+			margin-left: 1.5em;
+		}
+		.input-select{
+			padding: 0.2em;
+			margin-left: 1.5em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+		}
+		.input-submit{
+			background-color: #313131;
+			padding: 4px 7px 4px 7px !important;
+			border-radius: 0.3em;
+			border: 1px solid #313131;
+			color: #fff !important;
+		}
+	</style>
 </head>
 <body>
 <div class="pw">
@@ -43,7 +64,7 @@
 			<ul class="nav">
 				<li><a href="<?php echo U('View/index');;?>"><img src="/tuan/Public/images/nov03.png"><br>商品浏览</a></li>
 				<li><a href="<?php echo U('List/index');;?>"><img src="/tuan/Public/images/nov04.png"><br>排行榜</a></li>
-				<li><a href="<?php echo U('Info/index');;?>"><img src="/tuan/Public/images/nov02.png"><br>搜索微商</a></li>
+				<li><a href="<?php echo U('Search/index');;?>"><img src="/tuan/Public/images/nov02.png"><br>搜索微商</a></li>
 				<li><a href="<?php echo U('Join/index');;?>"><img src="/tuan/Public/images/nov01.png"><br>申请入驻</a></li>
 			</ul>
 		</div>
@@ -53,7 +74,7 @@
 				<div class="tt" style="font-size:1.1em; padding:0.5em"><a href="<?php echo U('List/index');;?>">商家排行榜</a> | <a href="<?php echo U('List/tag');;?>">标签排行榜</a></div>
 				<div class="tc">
 					<?php if(is_array($tags)): $i = 0; $__LIST__ = $tags;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style="padding: 1em;padding-left: 3em">
-							<a href="#" style="font-size: 2em; color: #FF9933;font-family: monospace;">
+							<a href="<?php echo U('Search/tag');?>?tag_name=<?php echo ($vo["tag_name"]); ?>" style="font-size: 2em; color: #FF9933;font-family: monospace;">
 								<?php echo ($i); ?>.&nbsp&nbsp <?php echo ($vo["tag_name"]); ?>
 							</a>
 						</div><?php endforeach; endif; else: echo "" ;endif; ?>

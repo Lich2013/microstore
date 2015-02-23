@@ -28,6 +28,9 @@ class TopicController extends BaseController {
            $this->display();
        }
 
+        public function homepage(){
+            $this->display();
+        }
 
 
        //发布专题
@@ -48,7 +51,7 @@ class TopicController extends BaseController {
                     $image = new \Think\Image();
                     $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                     $image->open($path);
-                    $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                    $image->thumb(640, 300,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                     $cover = __ROOT__.'/'.$path;
                 }
             }
@@ -102,7 +105,7 @@ class TopicController extends BaseController {
                 $image = new \Think\Image();
                 $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                 $image->open($path);
-                $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $image->thumb(640, 300,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                 $cover = __ROOT__.'/'.$path;
             }
         }
@@ -158,6 +161,35 @@ class TopicController extends BaseController {
                 }
                 break;
         }
+    }
+
+
+    public function homepageup(){
+
+        //上传封面图
+        $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小
+        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->rootPath  =     'Public/uploads/'; // 设置附件上传根目录
+        // 上传文件
+        $info   =   $upload->upload();
+        if(!$info) {// 上传错误提示错误信息
+            $this->error($upload->getError());
+        }else{// 上传成功 获取上传文件信息
+            foreach($info as $file){
+                $image = new \Think\Image();
+                $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
+                $image->open($path);
+                $image->thumb(410, 740,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $cover = __ROOT__.'/'.$path;
+            }
+        }
+        $data = array(
+            'path' => $cover,
+            'time' => date('Y-m-d H:i:s', time()),
+        );
+        M('index')->data($data)->add();
+        $this->success('成功');
     }
 
     //删除专题

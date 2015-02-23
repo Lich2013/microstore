@@ -6,53 +6,53 @@
 				<div class="tc">
 					<form action="{:U('Join/join');}" method="post" enctype="multipart/form-data">
 						<!--店铺信息-->
-					<div>店铺名: &nbsp&nbsp&nbsp&nbsp<input type="text" name="store_name" placeholder="10字以内"></div>
-					<div>店铺链接: http://<input type="text" name="link" placeholder="www.taobao.com"></div>
+					<div>店铺名: &nbsp&nbsp&nbsp&nbsp<input type="text" name="store_name" placeholder="10字以内" class="input-text"></div>
+					<div>店铺链接: http://<input type="text" name="link" placeholder="www.taobao.com" class="input-text" style="width: 50%"></div>
 					<div>经营商品类型:
-						<select name="goods_type">
+						<select name="goods_type" class="input-select">
 							<volist name="goods_type" id="type">
 								<option value="{$type.id}">{$type.type}</option>
 							</volist>
 						</select>
 					</div>
-					<div>标签1:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
-					<div>标签2:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
-					<div>标签3:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
-					<div>标签4:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
-					<div>标签5:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
+					<div>标签1:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填" ></div>
+					<div>标签2:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
+					<div>标签3:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
+					<div>标签4:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
+					<div>标签5:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
 					<div>店铺首页图上传: <input type="file" name="store_pic"></div>
 					<div> &nbsp</div>
 						<!--商户信息-->
 					<div>商户管理者信息:</div>
-					<div>昵称:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="nickname" placeholder="8字以内"></div>
-					<div>真实姓名:  <input type="text" name="realname"></div>
-					<div>身份证号:  <input type="text" name="id_num"></div>
-					<div>登陆密码:  <input type="password" name="password" placeholder="6位以上"></div>
+					<div>昵称:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="nickname" placeholder="8字以内" class="input-text"></div>
+					<div>真实姓名:  <input type="text" name="realname" class="input-text"></div>
+					<div>身份证号:  <input type="text" name="id_num" class="input-text"></div>
+					<div>登陆密码:  <input type="password" name="password" placeholder="6位以上" class="input-text"></div>
 					<div>学校:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-						<select name="manage_shool" >
+						<select name="manage_shool" class="input-select">
 							<volist name="school" id="school">
 								<option value="{$school.id}">{$school.school_name}</option>
 							</volist>
 						</select>
 					</div>
-					<div>专业:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="manage_major" placeholder="10字以内"></div>
+					<div>专业:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="manage_major" placeholder="10字以内" class="input-text"></div>
 						<div>&nbsp</div>
 						<!--个人信息-->
 					<div>个人风采展示: </div>	
-					<div>姓名: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_name"></div>
+					<div>姓名: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_name" class="input-text"></div>
 					<div>学校:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-						<select name="person_school">
+						<select name="person_school" class="input-select">
 							<volist name="school_1" id="school_1">
 								<option value="{$school_1.id}">{$school_1.school_name}</option>
 							</volist>
 						</select>
 					</div>
-					<div>专业: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_major" placeholder="8字以内"></div>
-					<div>个人介绍: <input type="text" name="person_introduce" placeholder="300字以内"></div>
+					<div>专业: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_major" placeholder="8字以内" class="input-text"></div>
+					<div>个人介绍: <input type="text" name="person_introduce" placeholder="300字以内" class="input-text"></div>
 					<div>相关配图: <input type="file" name="person_pic"></div>
 
 					<div>&nbsp</div>
-					<div style="text-align:center"><input type="submit" value="提交" style="padding: 0.5em;border-radius: 0.5em;"></div>
+					<div style="text-align:center"><input type="submit" value="提交" class="input-submit"></div>
 					</form>
 				</div>
 			</div>

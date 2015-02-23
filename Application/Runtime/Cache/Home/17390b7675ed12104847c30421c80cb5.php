@@ -9,6 +9,27 @@
 <link type="text/css" rel="stylesheet" href="/tuan/Public/css/style.css">
 <script type="text/javascript" src="/tuan/Public/js/html5.js"></script>
 <script type="text/javascript" src="/tuan/Public/js/jquery.1.4.2-min.js"></script>
+	<style>
+		.input-text{
+			padding: 0.2em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+			margin-left: 1.5em;
+		}
+		.input-select{
+			padding: 0.2em;
+			margin-left: 1.5em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+		}
+		.input-submit{
+			background-color: #313131;
+			padding: 4px 7px 4px 7px !important;
+			border-radius: 0.3em;
+			border: 1px solid #313131;
+			color: #fff !important;
+		}
+	</style>
 </head>
 <body>
 <div class="pw">
@@ -54,47 +75,47 @@
 				<div class="tc">
 					<form action="<?php echo U('Join/join');;?>" method="post" enctype="multipart/form-data">
 						<!--店铺信息-->
-					<div>店铺名: &nbsp&nbsp&nbsp&nbsp<input type="text" name="store_name" placeholder="10字以内"></div>
-					<div>店铺链接: http://<input type="text" name="link" placeholder="www.taobao.com"></div>
+					<div>店铺名: &nbsp&nbsp&nbsp&nbsp<input type="text" name="store_name" placeholder="10字以内" class="input-text"></div>
+					<div>店铺链接: http://<input type="text" name="link" placeholder="www.taobao.com" class="input-text" style="width: 50%"></div>
 					<div>经营商品类型:
-						<select name="goods_type">
+						<select name="goods_type" class="input-select">
 							<?php if(is_array($goods_type)): $i = 0; $__LIST__ = $goods_type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$type): $mod = ($i % 2 );++$i;?><option value="<?php echo ($type["id"]); ?>"><?php echo ($type["type"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 						</select>
 					</div>
-					<div>标签1:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
-					<div>标签2:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
-					<div>标签3:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
-					<div>标签4:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
-					<div>标签5:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" placeholder="5字以内, 选填"></div>
+					<div>标签1:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填" ></div>
+					<div>标签2:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
+					<div>标签3:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
+					<div>标签4:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
+					<div>标签5:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
 					<div>店铺首页图上传: <input type="file" name="store_pic"></div>
 					<div> &nbsp</div>
 						<!--商户信息-->
 					<div>商户管理者信息:</div>
-					<div>昵称:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="nickname" placeholder="8字以内"></div>
-					<div>真实姓名:  <input type="text" name="realname"></div>
-					<div>身份证号:  <input type="text" name="id_num"></div>
-					<div>登陆密码:  <input type="password" name="password" placeholder="6位以上"></div>
+					<div>昵称:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="nickname" placeholder="8字以内" class="input-text"></div>
+					<div>真实姓名:  <input type="text" name="realname" class="input-text"></div>
+					<div>身份证号:  <input type="text" name="id_num" class="input-text"></div>
+					<div>登陆密码:  <input type="password" name="password" placeholder="6位以上" class="input-text"></div>
 					<div>学校:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-						<select name="manage_shool" >
+						<select name="manage_shool" class="input-select">
 							<?php if(is_array($school)): $i = 0; $__LIST__ = $school;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$school): $mod = ($i % 2 );++$i;?><option value="<?php echo ($school["id"]); ?>"><?php echo ($school["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 						</select>
 					</div>
-					<div>专业:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="manage_major" placeholder="10字以内"></div>
+					<div>专业:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="manage_major" placeholder="10字以内" class="input-text"></div>
 						<div>&nbsp</div>
 						<!--个人信息-->
 					<div>个人风采展示: </div>	
-					<div>姓名: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_name"></div>
+					<div>姓名: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_name" class="input-text"></div>
 					<div>学校:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-						<select name="person_school">
+						<select name="person_school" class="input-select">
 							<?php if(is_array($school_1)): $i = 0; $__LIST__ = $school_1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$school_1): $mod = ($i % 2 );++$i;?><option value="<?php echo ($school_1["id"]); ?>"><?php echo ($school_1["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 						</select>
 					</div>
-					<div>专业: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_major" placeholder="8字以内"></div>
-					<div>个人介绍: <input type="text" name="person_introduce" placeholder="300字以内"></div>
+					<div>专业: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_major" placeholder="8字以内" class="input-text"></div>
+					<div>个人介绍: <input type="text" name="person_introduce" placeholder="300字以内" class="input-text"></div>
 					<div>相关配图: <input type="file" name="person_pic"></div>
 
 					<div>&nbsp</div>
-					<div style="text-align:center"><input type="submit" value="提交" style="padding: 0.5em;border-radius: 0.5em;"></div>
+					<div style="text-align:center"><input type="submit" value="提交" class="input-submit"></div>
 					</form>
 				</div>
 			</div>

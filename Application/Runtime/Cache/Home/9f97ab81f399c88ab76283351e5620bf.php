@@ -9,6 +9,27 @@
 <link type="text/css" rel="stylesheet" href="/tuan/Public/css/style.css">
 <script type="text/javascript" src="/tuan/Public/js/html5.js"></script>
 <script type="text/javascript" src="/tuan/Public/js/jquery.1.4.2-min.js"></script>
+	<style>
+		.input-text{
+			padding: 0.2em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+			margin-left: 1.5em;
+		}
+		.input-select{
+			padding: 0.2em;
+			margin-left: 1.5em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+		}
+		.input-submit{
+			background-color: #313131;
+			padding: 4px 7px 4px 7px !important;
+			border-radius: 0.3em;
+			border: 1px solid #313131;
+			color: #fff !important;
+		}
+	</style>
 </head>
 <body>
 <div class="pw">
@@ -53,24 +74,24 @@
 				<div class="tc">
 					<form action="<?php echo U('View/view');;?>" method="post">
 						<div>
-							学校:<select name="school_id" id="">
+							学校:<select name="school_id" class="input-select">
 								<option value="0">全部</option>
 								<?php if(is_array($school)): $i = 0; $__LIST__ = $school;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-							</select>
-							商品类型:<select name="goods_id" id="">
+							</select><br/>
+							商品类型:<select name="goods_id" class="input-select">
 								<option value="0">全部</option>
 								<?php if(is_array($goods)): $i = 0; $__LIST__ = $goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["type"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 							</select>
-							<input type="submit" value="浏览" style="margin: 0.8em;margin-left: 1em;padding: 0.2em;border-radius:0.3em;">
+							<input type="submit" value="浏览" class="input-submit">
 						</div>
 					</form>
 					<!-- 随便看看 -->
-						<?php if(is_array($store)): $i = 0; $__LIST__ = $store;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style="float:left;width: 100%;">
+						<?php if(is_array($store)): $i = 0; $__LIST__ = $store;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style="float:left;width: 100%;padding-bottom: 2em;padding-top: 1em;">
 								<a href="<?php echo ($vo["link"]); ?>">
 									<div style="float: left;display: inline;">
 										<img src="<?php echo ($vo["show_pic"]); ?>">
 									</div>
-									<div style="float: left;display: inline;padding: 0.4em">
+									<div style="float: left;display: inline;padding-left: 1em;">
 										<ul>
 											<li>店铺名: <?php echo ($vo["store_name"]); ?></li>
 											<li>

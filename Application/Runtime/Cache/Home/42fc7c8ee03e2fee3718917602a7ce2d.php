@@ -9,6 +9,27 @@
 <link type="text/css" rel="stylesheet" href="/tuan/Public/css/style.css">
 <script type="text/javascript" src="/tuan/Public/js/html5.js"></script>
 <script type="text/javascript" src="/tuan/Public/js/jquery.1.4.2-min.js"></script>
+	<style>
+		.input-text{
+			padding: 0.2em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+			margin-left: 1.5em;
+		}
+		.input-select{
+			padding: 0.2em;
+			margin-left: 1.5em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+		}
+		.input-submit{
+			background-color: #313131;
+			padding: 4px 7px 4px 7px !important;
+			border-radius: 0.3em;
+			border: 1px solid #313131;
+			color: #fff !important;
+		}
+	</style>
 </head>
 <body>
 <div class="pw">
@@ -52,12 +73,12 @@
 				<div class="tt">排行榜</div>
 				<div class="tt" style="font-size:1.1em; padding:0.5em"><a href="<?php echo U('List/index');;?>">商家排行榜</a> | <a href="<?php echo U('List/tag');;?>">标签排行榜</a></div>
 				<div class="tc">
-					<?php if(is_array($store)): $i = 0; $__LIST__ = $store;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style="float:left;width: 100%;">
+					<?php if(is_array($store)): $i = 0; $__LIST__ = $store;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style="float:left;width: 100%;padding-bottom: 2em;padding-top: 1em;">
 							<a href="<?php echo ($vo["link"]); ?>">
 								<div style="float: left;display: inline;">
 									<img src="<?php echo ($vo["show_pic"]); ?>">
 								</div>
-								<div style="float: left;display: inline;padding: 0.4em">
+								<div style="float: left;display: inline;padding-left: 1em;">
 									<ul>
 										<li>店铺名: <?php echo ($vo["store_name"]); ?></li>
 										<li>

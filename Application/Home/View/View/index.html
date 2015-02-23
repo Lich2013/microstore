@@ -5,29 +5,29 @@
 				<div class="tc">
 					<form action="{:U('View/view');}" method="post">
 						<div>
-							学校:<select name="school_id" id="">
+							学校:<select name="school_id" class="input-select">
 								<option value="0">全部</option>
 								<volist id="vo" name="school">
 									<option value="{$vo.id}">{$vo.school_name}</option>
 								</volist>
-							</select>
-							商品类型:<select name="goods_id" id="">
+							</select><br/>
+							商品类型:<select name="goods_id" class="input-select">
 								<option value="0">全部</option>
 								<volist id="vo" name="goods">
 									<option value="{$vo.id}">{$vo.type}</option>
 								</volist>
 							</select>
-							<input type="submit" value="浏览" style="margin: 0.8em;margin-left: 1em;padding: 0.2em;border-radius:0.3em;">
+							<input type="submit" value="浏览" class="input-submit">
 						</div>
 					</form>
 					<!-- 随便看看 -->
 						<volist name="store" id="vo">
-							<div style="float:left;width: 100%;">
+							<div style="float:left;width: 100%;padding-bottom: 2em;padding-top: 1em;">
 								<a href="{$vo.link}">
 									<div style="float: left;display: inline;">
 										<img src="{$vo.show_pic}">
 									</div>
-									<div style="float: left;display: inline;padding: 0.4em">
+									<div style="float: left;display: inline;padding-left: 1em;">
 										<ul>
 											<li>店铺名: {$vo.store_name}</li>
 											<li>

@@ -9,6 +9,27 @@
 <link type="text/css" rel="stylesheet" href="/tuan/Public/css/style.css">
 <script type="text/javascript" src="/tuan/Public/js/html5.js"></script>
 <script type="text/javascript" src="/tuan/Public/js/jquery.1.4.2-min.js"></script>
+	<style>
+		.input-text{
+			padding: 0.2em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+			margin-left: 1.5em;
+		}
+		.input-select{
+			padding: 0.2em;
+			margin-left: 1.5em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+		}
+		.input-submit{
+			background-color: #313131;
+			padding: 4px 7px 4px 7px !important;
+			border-radius: 0.3em;
+			border: 1px solid #313131;
+			color: #fff !important;
+		}
+	</style>
 </head>
 <body>
 <div class="pw">
@@ -48,25 +69,12 @@
 			</ul>
 		</div>
 		<div class="trip">
-			<div class="index_left">
-				<ul>
-					<li><a href="list.html"><img src="/tuan/Public/images/pro01.jpg"></a></li>
-					<li><a href="list.html"><img src="/tuan/Public/images/tuijian.png"><img src="/tuan/Public/images/pro02.jpg"></a></li>
-					<li><a href="list.html"><img src="/tuan/Public/images/pro03.jpg"><img src="/tuan/Public/images/meiwei.png"></a></li>
-				</ul>
-			</div>
-			<div class="index_right">
-				<ul>
-					<li class="emem"><a href="list.html"><img src="/tuan/Public/images/pro04.jpg"></a></li>
-					<li class="bmbm">
-						<img src="/tuan/Public/images/zzh.png"><br>
-						2013年，餐饮界大洗牌，成为人们关注并认同的话题，无疑，回归理性消费是一直以来社会所】倡导的文明...<br>
-						<span><a href="about.html"><img src="/tuan/Public/images/more.png"></a></span>
-					</li>
-				</ul>
+			<div class="main">
+				<div class="tt">
+					<img src="<?php echo ($pic["path"]); ?>" style="width: 100%;"/>
+				</div>
 			</div>
 		</div>
-	</section>
 </div>
 </body>
 </html>

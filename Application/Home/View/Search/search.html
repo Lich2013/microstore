@@ -1,0 +1,64 @@
+<include file="Public/header" />
+		<div class="trip">
+			<div class="main">
+				<div class="tt">搜索</div>
+				<div class="tc">
+					<form action="{:U('Search/search')}" method="post">
+						<div>
+							学校:<select name="school_id" class="input-select" >
+										<option value="0">全部</option>
+									<volist name="school" id="vo">
+										<option value="{$vo.id}">{$vo.school_name}</option>
+									</volist>
+							</select><br/>
+							商品类别:<select name="goods_type" class="input-select" >
+											<option value="0">全部</option>
+										<volist name="goods_type" id="v">
+											<option value="{$v.id}">{$v.type}</option>
+										</volist>
+									</select><br/>
+							标签:<select name="tag" class="input-select" >
+								<option value="0">全部</option>
+								<option value="1">不按标签搜索</option>
+							</select><br/>
+							卖家:<select name="seller" class="input-select" >
+								<option value="0">全部</option>
+								<option value="1">不按卖家搜索</option>
+							</select><br/>
+						</div>
+						<div>
+							搜索内容: <input type="text" name="content" class="input-text" placeholder="如店铺名,标签,卖家">
+						</div>
+						<div><input type="submit" value="搜索" class="input-submit"></div>
+					</form>
+					<!-- 搜索结果展示 -->
+					<div><volist name="store" id="vo">
+						<div style="float:left;width: 100%;padding-bottom: 2em;padding-top: 1em;">
+							<a href="{$vo.link}">
+								<div style="float: left;display: inline;">
+									<img src="{$vo.show_pic}">
+								</div>
+								<div style="float: left;display: inline;padding-left: 1em;">
+									<ul>
+										<li>店铺名: {$vo.store_name}</li>
+										<li>
+											商品:
+											<php>foreach($vo['goods_type'] as $v){echo $v['type'].'  ';}</php>
+										</li>
+										<li>
+											标签:
+											<php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php>
+										</li>
+										<li>店主:{$vo.nickname}</li>
+									</ul>
+								</div>
+							</a>
+						</div>
+					</volist></div>
+				</div>
+				</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>

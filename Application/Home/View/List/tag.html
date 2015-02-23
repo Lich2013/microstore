@@ -6,7 +6,7 @@
 				<div class="tc">
 					<volist name="tags" id="vo">
 						<div style="padding: 1em;padding-left: 3em">
-							<a href="#" style="font-size: 2em; color: #FF9933;font-family: monospace;">
+							<a href="{:U('Search/tag')}?tag_name={$vo.tag_name}" style="font-size: 2em; color: #FF9933;font-family: monospace;">
 								{$i}.&nbsp&nbsp {$vo.tag_name}
 							</a>
 						</div>

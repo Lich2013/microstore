@@ -9,6 +9,27 @@
 <link type="text/css" rel="stylesheet" href="/tuan/Public/css/style.css">
 <script type="text/javascript" src="/tuan/Public/js/html5.js"></script>
 <script type="text/javascript" src="/tuan/Public/js/jquery.1.4.2-min.js"></script>
+	<style>
+		.input-text{
+			padding: 0.2em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+			margin-left: 1.5em;
+		}
+		.input-select{
+			padding: 0.2em;
+			margin-left: 1.5em;
+			border-radius: 0.3em;
+			border: 1px solid #d5d5d5;
+		}
+		.input-submit{
+			background-color: #313131;
+			padding: 4px 7px 4px 7px !important;
+			border-radius: 0.3em;
+			border: 1px solid #313131;
+			color: #fff !important;
+		}
+	</style>
 </head>
 <body>
 <div class="pw">
@@ -55,48 +76,48 @@
 					<form action="<?php echo U('User/update');;?>" method="post" enctype="multipart/form-data">
 						<div></div>
 						<div>微店信息修改</div>
-						<div>微店名: <input type="text" value="<?php echo ($info["store"]["store_name"]); ?>" name="store_name"/></div>
-						<div>微店链接: <input type="text" value="<?php echo ($info["store"]["link"]); ?>" name="store_link"/></div>
+						<div>微店名: <input type="text" value="<?php echo ($info["store"]["store_name"]); ?>" name="store_name" class="input-text" /></div>
+						<div>微店链接: <input type="text" value="<?php echo ($info["store"]["link"]); ?>" name="store_link" class="input-text" /></div>
 						<div>
 							商品类型:
-							<select name="goods_type" id="">
+							<select name="goods_type"  class="input-select" >
 								<?php if(is_array($goods)): $i = 0; $__LIST__ = $goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>" <?php $a = $vo['id']==$info['goods']['id']? 'selected="selected"':'';echo $a; ?>><?php echo ($vo["type"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 							</select>
 						</div>
 						<div>标签1:
 							<input type="hidden" value="<?php echo ($info["tags"]["0"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["0"]["tag_name"]); ?>" name="tags[]"/>
+							<input type="text" value="<?php echo ($info["tags"]["0"]["tag_name"]); ?>" name="tags[]" class="input-text" />
 						</div>
 						<div>标签2:
 							<input type="hidden" value="<?php echo ($info["tags"]["1"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["1"]["tag_name"]); ?>" name="tags[]"/>
+							<input type="text" value="<?php echo ($info["tags"]["1"]["tag_name"]); ?>" name="tags[]" class="input-text" />
 						</div>
 						<div>标签3:
 							<input type="hidden" value="<?php echo ($info["tags"]["2"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["2"]["tag_name"]); ?>" name="tags[]"/>
+							<input type="text" value="<?php echo ($info["tags"]["2"]["tag_name"]); ?>" name="tags[]" class="input-text" />
 						</div>
 						<div>标签4:
 							<input type="hidden" value="<?php echo ($info["tags"]["3"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["3"]["tag_name"]); ?>" name="tags[]"/>
+							<input type="text" value="<?php echo ($info["tags"]["3"]["tag_name"]); ?>" name="tags[]" class="input-text" />
 						</div>
 						<div>标签5:
 							<input type="hidden" value="<?php echo ($info["tags"]["4"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["4"]["tag_name"]); ?>" name="tags[]"/>
+							<input type="text" value="<?php echo ($info["tags"]["4"]["tag_name"]); ?>" name="tags[]" class="input-text" />
 						</div>
 
 						<div>店铺首页图:<input type="file" name="store_pic"/></div>
 
 						<div>个人风采信息修改</div>
-						<div>姓名:<input type="text" value="<?php echo ($info["person"]["name"]); ?>" name="person_name"/></div>
+						<div>姓名:<input type="text" value="<?php echo ($info["person"]["name"]); ?>" name="person_name" class="input-text" /></div>
 						<div>学校:
-							<select name="person_school">
+							<select name="person_school" class="input-select">
 								<?php if(is_array($school)): $i = 0; $__LIST__ = $school;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vs): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vs["id"]); ?>" <?php $a = $vs['id']==$info['person']['school_id']? 'selected="selected"':'';echo $a; ?>><?php echo ($vs["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 							</select>
 						</div>
-						<div>专业:<input type="text" value="<?php echo ($info["person"]["major"]); ?>" name="person_major"/></div>
-						<div>个人介绍:<input type="text" value="<?php echo ($info["person"]["introduce"]); ?>" name="person_introduce"/></div>
+						<div>专业:<input type="text" value="<?php echo ($info["person"]["major"]); ?>" name="person_major" class="input-text" /></div>
+						<div>个人介绍:<input type="text" value="<?php echo ($info["person"]["introduce"]); ?>" name="person_introduce" class="input-text" /></div>
 						<div>相关配图:<input type="file" value="" name="person_pic"/></div>
-						<div><input type="submit"/></div>
+						<div><input type="submit" class="input-submit"/></div>
 					</form>
 				</div>
 			</div>
