@@ -35,12 +35,13 @@ class JoinController extends BaseController {
         if(strlen($store_name)==0){
             $this->error('店铺名不能为空');
         }
-        if(strlen($store_name)>8){
+        if(mb_strlen($store_name, 'utf-8')>10){
             $this->error('店铺名过长');
         }
+       
         foreach($tag_name as $v)
         {
-            if(strlen(trim($v))>5){
+            if(mb_strlen($v, 'utf-8')>5){
                 $this->error('标签名过长');
             }
         }
@@ -50,19 +51,19 @@ class JoinController extends BaseController {
         if(strlen($id_num)!=13){//TODO:验证数字和最后一位
             $this->error('身份证号码有误');
         }
-        if(strlen($manage_major)==0||strlen($person_major)==0){
+        if(mb_strlen($manage_major, 'utf-8')==0||mb_strlen($person_major, 'utf-8')==0){
             $this->error('专业不能为空');
         }
-        if(strlen($manage_major)>10||strlen($person_major)>10){
+        if(mb_strlen($manage_major, 'utf-8')>10||mb_strlen($person_major, 'utf-8')>10){
             $this->error('专业名过长');
         }
-        if(strlen($realname)==0||strlen($person_name)==0){
+        if(mb_strlen($realname, 'utf-8')==0||mb_strlen($person_name, 'utf-8')==0){
             $this->error('姓名不能为空');
         }
-        if(strlen($person_name)>6||strlen($realname)>6){
+        if(mb_strlen($person_name, 'utf-8')>6||mb_strlen($realname, 'utf-8')>6){
             $this->error('姓名过长');
         }
-        if(strlen($person_introduce)>300){
+        if(mb_strlen($person_introduce, 'utf-8')>300){
             $this->error('个人介绍过长');
         }
         $uid = M('users')->where("idcard = $id_num")->field('id')->select();

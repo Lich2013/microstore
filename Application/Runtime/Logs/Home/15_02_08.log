@@ -1,9 +1,0 @@
-[ 2015-02-08T23:28:50+08:00 ] ::1 /tuan/index.php/Home/Join/join.html
-ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'
-
-[ 2015-02-08T23:29:35+08:00 ] ::1 /tuan/index.php/Home/Join/join.html
-ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'
-
-[ 2015-02-08T23:32:54+08:00 ] ::1 /tuan/index.php/Home/Join/join.html
-ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'
-
