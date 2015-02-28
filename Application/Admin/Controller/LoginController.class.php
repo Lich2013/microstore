@@ -29,8 +29,8 @@ class LoginController extends Controller {
         );
         $data = M('admin')->where($where)->select();
         if($data!=null){
-            session('user.uid', $data[0]['id']);
-            session('user.name', $data[0]['username']);
+            session('user.uid1', $data[0]['id']);
+            session('user.name1', $data[0]['username']);
             $this->success('登录成功', U('Index/index'));
         }
         else{
