@@ -29,6 +29,16 @@
 			border: 1px solid #313131;
 			color: #fff !important;
 		}
+        .store{
+            float: left;
+            width: 99%;
+            padding-bottom: 2em;
+            padding-top: 1em;
+            border: 1px solid #b2dba1;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-radius: 0.3em;
+        }
 	</style>
 </head>
 <body>

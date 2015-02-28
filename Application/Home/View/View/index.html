@@ -1,6 +1,10 @@
 <include file="Public/header" />
 		<div class="trip">
 			<div class="main">
+                <div style="  text-align: end;">
+                    <span><a href="{:U('Join/index');}">卖家申请</a></span> |
+                    <span><a href="{:U('Login/index');}">卖家登陆</a> </span>
+                </div>
 				<div class="tt">商品浏览</div>
 				<div class="tc">
 					<form action="{:U('View/view');}" method="post">
@@ -22,14 +26,14 @@
 					</form>
 					<!-- 随便看看 -->
 						<volist name="store" id="vo">
-							<div style="float:left;width: 100%;padding-bottom: 2em;padding-top: 1em;">
+							<div class="store">
 								<a href="{$vo.link}">
-									<div style="float: left;display: inline;">
-										<img src="{$vo.show_pic}">
+									<div style="float: left;display: block;width: 40%; margin-top: 2em;margin-left: 1em;">
+                                        <div><img src="{$vo.show_pic}"></div>
+                                        <div >店铺名: {$vo.store_name} </div>
 									</div>
-									<div style="float: left;display: inline;padding-left: 1em;">
+									<div style="float: left;display: inline;padding-left: 1em; width: 40%">
 										<ul>
-											<li>店铺名: {$vo.store_name}</li>
 											<li>
 												商品:
 												<php>foreach($vo['goods_type'] as $v){echo $v['type'].'  ';}</php>
@@ -38,8 +42,9 @@
 												标签:
 												<php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php>
 											</li>
-											<li>店主: <a href="{:U('Person/index')}?person_id={$vo.person_id}">{$vo.nickname}</a></li>
-										</ul>
+											<li>店主: {$vo.nickname} </li>
+											<li><a href="{:U('Person/index')}?person_id={$vo.person_id}"><span style="color: #337ab7">店主风采</span></a></li>
+                                        </ul>
 									</div>
 								</a>
 							</div>

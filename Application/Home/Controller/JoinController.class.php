@@ -24,8 +24,8 @@ class JoinController extends BaseController {
         $id_num = trim(I('post.id_num'));             //卖家身份证号
         $orign_pwd = trim(I('post.password'));        //卖家密码
         $password = md5(md5($orign_pwd).'Lich');
-        $manage_school_id = I('post.manage_shool');//店铺管理者所在学校/店铺所在学校
-        $manage_major = trim(I('post.manage_major')); //店铺管理者专业
+        $manage_school_id = I('post.person_school');//店铺管理者所在学校/店铺所在学校
+        $manage_major = trim(I('post.person_major')); //店铺管理者专业
 
         $person_name = trim(I('post.person_name'));   //个人姓名
         $person_school = I('post.person_school');//个人学校
@@ -38,7 +38,9 @@ class JoinController extends BaseController {
         if(mb_strlen($store_name, 'utf-8')>10){
             $this->error('店铺名过长');
         }
-       
+        if(strlen($tag_name[0])==0){
+            $this->error('第一个标签为必填');
+        }
         foreach($tag_name as $v)
         {
             if(mb_strlen($v, 'utf-8')>5){
@@ -48,7 +50,7 @@ class JoinController extends BaseController {
         if(strlen($orign_pwd)<6){
             $this->error('密码过短');
         }
-        if(strlen($id_num)!=13){//TODO:验证数字和最后一位
+        if(strlen($id_num)!=18){//TODO:验证数字和最后一位
             $this->error('身份证号码有误');
         }
         if(mb_strlen($manage_major, 'utf-8')==0||mb_strlen($person_major, 'utf-8')==0){
@@ -66,9 +68,9 @@ class JoinController extends BaseController {
         if(mb_strlen($person_introduce, 'utf-8')>300){
             $this->error('个人介绍过长');
         }
-        $uid = M('users')->where("idcard = $id_num")->field('id')->select();
+        $uid = M('users')->where("idcard = $id_num")->field('id')->find();
         if($uid!=null){
-            $id = $uid[0]['id'];
+            $id = $uid['id'];
            $num = M('blackstore')->where("uid = $id")->count();
             if($num != 0){
                 $this->error('你已被拉黑');
@@ -96,7 +98,9 @@ class JoinController extends BaseController {
             }
         }
         $store_img = $img_url[0];
-        $person_img = $img_url[1];
+        $person_img1 = $img_url[1];
+        $person_img2 = $img_url[2];
+        $person_img3 = $img_url[3];
 
         $user = M('users');
         $store = M('store');
@@ -149,7 +153,9 @@ class JoinController extends BaseController {
             'school_id' => $person_school,
             'major'     => $person_major,
             'introduce' => $person_introduce,
-            'photo'     => $person_img,
+            'photo1'     => $person_img1,
+            'photo2'     => $person_img2,
+            'photo3'     => $person_img3,
             'store_id'  => $store_id,
         );
         $person->data($person_data)->add();

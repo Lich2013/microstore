@@ -29,6 +29,16 @@
 			border: 1px solid #313131;
 			color: #fff !important;
 		}
+        .store{
+            float: left;
+            width: 99%;
+            padding-bottom: 2em;
+            padding-top: 1em;
+            border: 1px solid #b2dba1;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-radius: 0.3em;
+        }
 	</style>
 </head>
 <body>
@@ -82,7 +92,7 @@
 							<?php if(is_array($goods_type)): $i = 0; $__LIST__ = $goods_type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$type): $mod = ($i % 2 );++$i;?><option value="<?php echo ($type["id"]); ?>"><?php echo ($type["type"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 						</select>
 					</div>
-					<div>标签1:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填" ></div>
+					<div>标签1:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="向用户介绍店铺业务, 5字以内, 选填" ></div>
 					<div>标签2:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
 					<div>标签3:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
 					<div>标签4:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tag[]" class="input-text" placeholder="5字以内, 选填"></div>
@@ -94,14 +104,7 @@
 					<div>昵称:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="nickname" placeholder="8字以内" class="input-text"></div>
 					<div>真实姓名:  <input type="text" name="realname" class="input-text"></div>
 					<div>身份证号:  <input type="text" name="id_num" class="input-text"></div>
-					<div>登陆密码:  <input type="password" name="password" placeholder="6位以上" class="input-text"></div>
-					<div>学校:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-						<select name="manage_shool" class="input-select">
-							<?php if(is_array($school)): $i = 0; $__LIST__ = $school;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$school): $mod = ($i % 2 );++$i;?><option value="<?php echo ($school["id"]); ?>"><?php echo ($school["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-						</select>
-					</div>
-					<div>专业:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="manage_major" placeholder="10字以内" class="input-text"></div>
-						<div>&nbsp</div>
+					<div>登陆密码:  <input type="password" name="password" placeholder="6位以上" class="input-text"></div><div>&nbsp</div>
 						<!--个人信息-->
 					<div>个人风采展示: </div>	
 					<div>姓名: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_name" class="input-text"></div>
@@ -112,7 +115,11 @@
 					</div>
 					<div>专业: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="person_major" placeholder="8字以内" class="input-text"></div>
 					<div>个人介绍: <input type="text" name="person_introduce" placeholder="300字以内" class="input-text"></div>
-					<div>相关配图: <input type="file" name="person_pic"></div>
+					<div>相关配图:
+                        <input type="file" name="person_pic1">
+                        <input type="file" name="person_pic2">
+                        <input type="file" name="person_pic3">
+                    </div>
 
 					<div>&nbsp</div>
 					<div style="text-align:center"><input type="submit" value="提交" class="input-submit"></div>

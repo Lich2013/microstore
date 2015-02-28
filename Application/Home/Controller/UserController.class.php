@@ -38,31 +38,34 @@ class UserController extends BaseController {
         $person_id = session('person_id');
         $data = I('post.');
 
-        if(strlen($data['store_name'])==0){
+        if(mb_strlen($data['store_name'], 'utf-8')==0){
             $this->error('店铺名不能为空');
         }
-        if(strlen($data['store_name'])>8){
+        if(mb_strlen($data['store_name'], 'utf-8')>8){
             $this->error('店铺名过长');
+        }
+        if(strlen($data['tags'][0])==0){
+            $this->error('第一个标签必填');
         }
         foreach($data['tags'] as $v)
         {
-            if(strlen(trim($v))>5){
+            if(mb_strlen($v, 'utf-8')>5){
                 $this->error('标签名过长');
             }
         }
-        if(strlen($data['person_major'])==0){
+        if(mb_strlen($data['person_major'], 'utf-8')==0){
             $this->error('专业不能为空');
         }
-        if(strlen($data['person_major'])>10){
+        if(mb_strlen($data['person_major'], 'utf-8')>10){
             $this->error('专业名过长');
         }
-        if(strlen($data['person_name'])==0){
+        if(mb_strlen($data['person_name'], 'utf-8')==0){
             $this->error('姓名不能为空');
         }
-        if(strlen($data['person_name'])>6){
+        if(mb_strlen($data['person_name'], 'utf-8')>6){
             $this->error('姓名过长');
         }
-        if(strlen($data['person_introduce'])>300){
+        if(mb_strlen($data['person_introduce'], 'utf-8')>300){
             $this->error('个人介绍过长');
         }
         $upload = new \Think\Upload();// 实例化上传类
@@ -83,7 +86,9 @@ class UserController extends BaseController {
             }
         }
         $store_img = $img_url[0];
-        $person_img = $img_url[1];
+        $person_img1 = $img_url[1];
+        $person_img2 = $img_url[2];
+        $person_img3 = $img_url[3];
         $new_storedata = array(
             'store_name' => trim($data['store_name']),
             'link' => trim($data['store_link']),
@@ -96,7 +101,9 @@ class UserController extends BaseController {
             'name' => trim($data['person_name']),
             'major' => trim($data['person_major']),
             'introduce' => trim($data['person_introduce']),
-            'photo' => $person_img,
+            'photo1' => $person_img1,
+            'photo2' => $person_img2,
+            'photo3' => $person_img3,
             'school_id' => $data['person_school'],
         );
 
