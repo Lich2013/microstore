@@ -23,6 +23,7 @@ class JoinController extends BaseController {
         $realname = trim(I('post.realname'));         //卖家真实姓名
         $id_num = trim(I('post.id_num'));             //卖家身份证号
         $orign_pwd = trim(I('post.password'));        //卖家密码
+        $telephone = trim(I('post.telephone'));        //卖家电话
         $password = md5(md5($orign_pwd).'Lich');
         $manage_school_id = I('post.person_school');//店铺管理者所在学校/店铺所在学校
         $manage_major = trim(I('post.person_major')); //店铺管理者专业
@@ -50,6 +51,9 @@ class JoinController extends BaseController {
         if(strlen($orign_pwd)<6){
             $this->error('密码过短');
         }
+        if(strlen($telephone)!=11){
+            $this->error('请输入正确的手机号码');
+        }
         if(strlen($id_num)!=18){//TODO:验证数字和最后一位
             $this->error('身份证号码有误');
         }
@@ -68,7 +72,8 @@ class JoinController extends BaseController {
         if(mb_strlen($person_introduce, 'utf-8')>300){
             $this->error('个人介绍过长');
         }
-        $uid = M('users')->where("idcard = $id_num")->field('id')->find();
+        $map['idcard'] = $id_num;
+        $uid = M('users')->where($map)->field('id')->find();
         if($uid!=null){
             $id = $uid['id'];
            $num = M('blackstore')->where("uid = $id")->count();
@@ -125,6 +130,7 @@ class JoinController extends BaseController {
             'school_id'=> $manage_school_id,
             'click_num'  => 0,
             'status'     => 0,
+            'telephone' => $telephone,
         );
         $store_id = $store->data($store_data)->add();
 

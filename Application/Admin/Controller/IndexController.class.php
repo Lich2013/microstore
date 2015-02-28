@@ -14,7 +14,7 @@ class IndexController extends BaseController {
             ->join('JOIN goods ON store_goods.goods_id = goods.id')
             ->join('JOIN school ON store.school_id = school.id')
             ->group('store.id')
-            ->field('store.id as store_id, store_name, type, school_name, realname, idcard')
+            ->field('store.id as store_id, store_name, type, school_name, realname, idcard, telephone')
             ->limit($Page->firstRow.','.$Page->listRows)
             ->select();
     	$this->assign('info', $info);
@@ -34,7 +34,7 @@ class IndexController extends BaseController {
             ->join('JOIN goods ON store_goods.goods_id = goods.id')
             ->join('JOIN school ON store.school_id = school.id')
             ->group('store.id')
-            ->field('store.id as store_id, store_name, type, school_name, realname, idcard')
+            ->field('store.id as store_id, store_name, type, school_name, realname, idcard, telephone')
             ->limit($Page->firstRow.','.$Page->listRows)
             ->select();
         $this->assign('info', $info);
@@ -53,7 +53,7 @@ class IndexController extends BaseController {
             ->join('JOIN store_goods ON blackstore.origin_store_id = store_goods.store_id')
             ->join('JOIN goods ON store_goods.goods_id = goods.id')
             ->join('JOIN school ON blackstore.school_id = school.id')
-            ->field('blackstore.id as store_id, store_name, type, school_name, realname, idcard')
+            ->field('blackstore.id as store_id, store_name, type, school_name, realname, idcard, telephone')
             ->group('store_id')
             ->select();
         $this->assign('info', $info);
@@ -148,6 +148,7 @@ class IndexController extends BaseController {
                 'show_pic' => $info[0]['show_pic'],
                 'click_num' => 0,
                 'status' => 1,
+                'telephone' => $info[0]['telephone'],
             );
             M('store')->data($data)->add();
         }
@@ -184,6 +185,7 @@ class IndexController extends BaseController {
                     'link' => $info[0]['link'],
                     'school_id' => $info[0]['school_id'],
                     'show_pic' => $info[0]['show_pic'],
+                    'telephone' => $info[0]['telephone'],
                 );
         M('blackstore')->data($data)->add();
      }

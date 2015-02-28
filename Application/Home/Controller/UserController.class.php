@@ -41,7 +41,7 @@ class UserController extends BaseController {
         if(mb_strlen($data['store_name'], 'utf-8')==0){
             $this->error('店铺名不能为空');
         }
-        if(mb_strlen($data['store_name'], 'utf-8')>8){
+        if(mb_strlen($data['store_name'], 'utf-8')>10){
             $this->error('店铺名过长');
         }
         if(strlen($data['tags'][0])==0){
@@ -52,6 +52,9 @@ class UserController extends BaseController {
             if(mb_strlen($v, 'utf-8')>5){
                 $this->error('标签名过长');
             }
+        }
+        if(strlen($data['telephone'])!=11){
+            $this->error('请输入正确的手机号码');
         }
         if(mb_strlen($data['person_major'], 'utf-8')==0){
             $this->error('专业不能为空');
@@ -93,6 +96,7 @@ class UserController extends BaseController {
             'store_name' => trim($data['store_name']),
             'link' => trim($data['store_link']),
             'show_pic'=> $store_img,
+            'telephone' => trim($data['telephone']),
         );
         $new_goodstype = array(
             'type_id' => $data['goods_type'],

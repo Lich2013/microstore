@@ -131,6 +131,7 @@
                         <th>学校</th>
                         <th>管理者真名</th>
                         <th>身份证号码</th>
+                        <th>联系电话</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -169,6 +170,7 @@
                                 <td><?php echo ($vo["school_name"]); ?></td>
                                 <td><?php echo ($vo["realname"]); ?></td>
                                 <td><?php echo ($vo["idcard"]); ?></td>
+                                <td><?php echo ($vo["telephone"]); ?></td>
                                 <td>
                                     <!-- Icons -->
                                     <a href="#" title="通过" class="pass" value="1"><img src="/tuan/Public/resources/images/icons/tick_circle.png" alt="通过" /></a>

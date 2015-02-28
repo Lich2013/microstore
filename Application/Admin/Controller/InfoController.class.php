@@ -14,7 +14,7 @@ class InfoController extends BaseController {
             ->join('JOIN goods ON store_goods.goods_id = goods.id')
             ->join('JOIN school ON store.school_id = school.id')
             ->group('store.id')
-            ->field('store.id as store_id, store_name, type, school_name, realname, idcard, school.id as school_id, goods.id as goods_id, link')
+            ->field('store.id as store_id, store_name, type, school_name, realname, idcard, school.id as school_id, goods.id as goods_id, link, telephone')
             ->limit($Page->firstRow.','.$Page->listRows)
             ->select();
         $goods_type = M('goods')->select();
@@ -72,11 +72,13 @@ class InfoController extends BaseController {
                 $store_link = $data['link'];
                 $goods_type_id = $data['goods_type_id'];
                 $school_id = $data['school_id'];
+                $telephone = $data['telephone'];
 
                     $new_data = array(
                         'store_name' => $store_name,
                         'school_id'  => $school_id,
                         'link'       => $store_link,
+                        'telephone'  => $telephone,
                     );
                 M('store')->where("id = $store_id")->data($new_data)->save();
                 $new_goods = array('goods_id' => $goods_type_id);

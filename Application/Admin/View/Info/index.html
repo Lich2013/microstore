@@ -30,6 +30,7 @@
                         <th>学校</th>
                         <th>管理者真名</th>
                         <th>身份证号码</th>
+                        <th>联系电话</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -81,6 +82,7 @@
                                 </td>
                                 <td>{$vo.realname}</td>
                                 <td>{$vo.idcard}</td>
+                                <td><input type="text" value="{$vo.telephone}" name="telephone"/></td>
                                 <td>
                                     <a href="#" title="通过" class="pass" value="1"><img src="__PUBLIC__/resources/images/icons/tick_circle.png" alt="通过" /></a>
                                 </td>
@@ -101,6 +103,7 @@
 </div>
 <script>
     $(".pass").live("click",function(){
+        var telephone = $(this).parent().prev().children(":first").val();
         var store_id = $(this).parent().parent().children(":first").children(":first").val();
         var store_name = $(this).parent().parent().children(":first").next().children(":first").val();
         var link = $(this).parent().parent().children(":first").next().next().children(":first").val();
@@ -111,7 +114,7 @@
 
             type: 'post',
 
-            data:{"store_id":store_id, "store_name":store_name, "link":link, "goods_type_id":goods_type, "school_id":school_id},
+            data:{"store_id":store_id, "store_name":store_name, "link":link, "goods_type_id":goods_type, "school_id":school_id, "telephone":telephone},
 
             dataType: 'json',
 

@@ -29,6 +29,16 @@
 			border: 1px solid #313131;
 			color: #fff !important;
 		}
+        .store{
+            float: left;
+            width: 99%;
+            padding-bottom: 2em;
+            padding-top: 1em;
+            border: 1px solid #b2dba1;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-radius: 0.3em;
+        }
 	</style>
 </head>
 <body>
@@ -78,7 +88,8 @@
 						<div>微店信息修改</div>
 						<div>微店名: <input type="text" value="<?php echo ($info["store"]["store_name"]); ?>" name="store_name" class="input-text" /></div>
 						<div>微店链接: <input type="text" value="<?php echo ($info["store"]["link"]); ?>" name="store_link" class="input-text" /></div>
-						<div>
+                        <div>联系方式:  <input type="text" name="telephone" placeholder="联系电话(手机)" class="input-text" value="<?php echo ($info["store"]["telephone"]); ?>"></div>
+                        <div>
 							商品类型:
 							<select name="goods_type"  class="input-select" >
 								<?php if(is_array($goods)): $i = 0; $__LIST__ = $goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>" <?php $a = $vo['id']==$info['goods']['id']? 'selected="selected"':'';echo $a; ?>><?php echo ($vo["type"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
