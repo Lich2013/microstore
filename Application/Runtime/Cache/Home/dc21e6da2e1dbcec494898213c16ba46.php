@@ -113,23 +113,24 @@
 					<!-- 搜索结果展示 -->
 					<div><?php if(is_array($store)): $i = 0; $__LIST__ = $store;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="store">
 							<a href="<?php echo ($vo["link"]); ?>">
-								<div style="float: left;display: inline;">
-									<img src="<?php echo ($vo["show_pic"]); ?>">
-								</div>
-								<div style="float: left;display: inline;padding-left: 1em;">
-									<ul>
-										<li>店铺名: <?php echo ($vo["store_name"]); ?></li>
-										<li>
-											商品:
-											<?php foreach($vo['goods_type'] as $v){echo $v['type'].'  ';} ?>
-										</li>
-										<li>
-											标签:
-											<?php foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';} ?>
-										</li>
-                                        <li>店主: <a href="<?php echo U('Person/index');?>?person_id=<?php echo ($vo["person_id"]); ?>"><?php echo ($vo["nickname"]); ?> <span style="color: #337ab7">(店主风采)</span></a></li>
-									</ul>
-								</div>
+                                <div style="float: left;display: block;width: 40%; margin-top: 2em;margin-left: 1em;">
+                                    <div><img src="<?php echo ($vo["show_pic"]); ?>"></div>
+                                    <div >店铺名: <?php echo ($vo["store_name"]); ?> </div>
+                                </div>
+                                <div style="float: left;display: inline;padding-left: 1em; width: 40%">
+                                    <ul>
+                                        <li>
+                                            商品:
+                                            <?php foreach($vo['goods_type'] as $v){echo $v['type'].'  ';} ?>
+                                        </li>
+                                        <li>
+                                            标签:
+                                            <?php foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';} ?>
+                                        </li>
+                                        <li>店主: <?php echo ($vo["nickname"]); ?> </li>
+                                        <li><a href="<?php echo U('Person/index');?>?person_id=<?php echo ($vo["person_id"]); ?>"><button style="color: #fff; font-size: 2em; border: 1px solid transparent;border-radius: 4px;background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);padding: 0.3em;font: inherit;">店主风采展示</button></a></li>
+                                    </ul>
+                                </div>
 							</a>
 						</div><?php endforeach; endif; else: echo "" ;endif; ?></div>
 				</div>

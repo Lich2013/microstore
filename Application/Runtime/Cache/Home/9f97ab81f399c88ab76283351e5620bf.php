@@ -104,7 +104,7 @@
 								<a href="<?php echo ($vo["link"]); ?>">
 									<div style="float: left;display: block;width: 40%; margin-top: 2em;margin-left: 1em;">
                                         <div><img src="<?php echo ($vo["show_pic"]); ?>"></div>
-                                        <div >店铺名: <?php echo ($vo["store_name"]); ?> </div>
+                                        <div>店铺名: <span  style="color: #337ab7; font-size: 1.3em;"><?php echo ($vo["store_name"]); ?></span> </div>
 									</div>
 									<div style="float: left;display: inline;padding-left: 1em; width: 40%">
 										<ul>
@@ -117,7 +117,7 @@
 												<?php foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';} ?>
 											</li>
 											<li>店主: <?php echo ($vo["nickname"]); ?> </li>
-											<li><a href="<?php echo U('Person/index');?>?person_id=<?php echo ($vo["person_id"]); ?>"><span style="color: #337ab7">店主风采</span></a></li>
+											<li><a href="<?php echo U('Person/index');?>?person_id=<?php echo ($vo["person_id"]); ?>"><button style="color: #fff; font-size: 2em; border: 1px solid transparent;border-radius: 4px;background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);padding: 0.3em;font: inherit;">店主风采展示</button></a></li>
                                         </ul>
 									</div>
 								</a>
