@@ -80,6 +80,10 @@
 		</div>
 		<div class="trip">
 			<div class="main">
+                <div style="  text-align: end;">
+                    <span><a href="<?php echo U('Join/index');;?>">卖家申请</a></span> |
+                    <span><a href="<?php echo U('Login/index');;?>">卖家登陆</a> </span>
+                </div>
 				<div class="tt">
 					<img src="<?php echo ($pic["path"]); ?>" style="width: 100%;"/>
 				</div>

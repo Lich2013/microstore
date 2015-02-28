@@ -27,7 +27,7 @@ class ListController extends BaseController {
 
     //标签排行榜
     public function tag(){
-        $tags = M('tags')->order('click_num desc')->limit(10)->select();
+        $tags = M('tags')->where("tag_name is not null")->order('click_num desc')->limit(10)->select();
         $this->assign('tags', $tags);
         $this->display();
     }
