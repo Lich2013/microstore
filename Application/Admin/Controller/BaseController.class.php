@@ -3,7 +3,7 @@ namespace Admin\Controller;
 use Think\Controller;
 class BaseController extends Controller {
     public function _initialize(){
-        if(session('user.uid')==null || session('user.name')==null){
+        if(session('user.uid1')==null || session('user.name1')==null){
             $this->error('请先登录', U('Login/index'));
         }
         else{
