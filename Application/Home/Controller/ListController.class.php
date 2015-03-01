@@ -17,6 +17,7 @@ class ListController extends BaseController {
             $store_id = $v['id'];
             $goods_type = M('store_goods')->where("store_id = $store_id")->join('JOIN goods ON store_goods.goods_id = goods.id')->field('type')->select();
             $tags = M('store_tag')->where("store_id = $store_id")->join('JOIN tags ON store_tag.tag_id = tags.id')->field('tag_name')->select();
+            $store[$j]['person_id'] = M('person')->where("store_id = $store_id")->getField('id');
             $store[$j]['goods_type'] = $goods_type;
             $store[$j]['tags'] = $tags;
             ++$j;
