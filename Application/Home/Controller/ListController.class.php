@@ -28,7 +28,8 @@ class ListController extends BaseController {
 
     //标签排行榜
     public function tag(){
-        $tags = M('tags')->where("tag_name is not null")->order('click_num desc')->limit(10)->select();
+        $map['tag_name'] = array('NEQ', '');
+        $tags = M('tags')->where($map)->order('click_num desc')->group('tag_name')->limit(10)->select();
         $this->assign('tags', $tags);
         $this->display();
     }
