@@ -35,7 +35,7 @@ class ViewController extends BaseController {
         $this->assign('store', $store_info);
         $this->assign('school', $school_name);
         $this->assign('goods', $goods_type);
-        $this->display('index');
+        $this->display('test');
     }
 
 
@@ -145,8 +145,7 @@ class ViewController extends BaseController {
             $this->assign('store', $store_info);
             $this->assign('school', $school_name);
             $this->assign('goods', $goods_type);
-            $this->display('index');
-            return;
+            $this->display('test');
         }
     }
 
