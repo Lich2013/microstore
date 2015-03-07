@@ -54,63 +54,6 @@
         </div>
 
     </div>
-    <!-- pic -->
-    <div class="row" >
-        <div class="col-xs-12" style="padding: inherit;">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active" ></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1" ></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2" ></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="3" ></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-
-                    <div class="item active">
-                        <a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($topic[0]["id"]); ?>">
-                            <img  id="0" src="<?php echo ($topic[0]["pic"]); ?>" class="img-responsive" style="height: 10.4em;">
-                            <div class="carousel-caption">
-
-                            </div>
-                        </a>
-                    </div>
-
-                    <?php if(is_array($topic)): $i = 0; $__LIST__ = array_slice($topic,1,3,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="item">
-                            <a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($vo["id"]); ?>">
-                                <img id="<?php echo ($i); ?>" src="<?php echo ($vo["pic"]); ?>" class="img-responsive" style="height: 10.4em;">
-                                <div class="carousel-caption">
-
-                                </div>
-                            </a>
-                        </div><?php endforeach; endif; else: echo "" ;endif; ?>
-                </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="display: none">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" ></span>
-
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="display: none">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" ></span>
-
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 导航-->
-    <div class="row">
-        <div class="col-xs-12" style="text-align: center; padding-top:10px;">
-            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                <a href="#" class="btn btn-default" id="myactivc" role="button">商品浏览</a>
-                <a href="#" class="btn btn-default" role="button">排行榜</a>
-                <a href="#" class="btn btn-default" role="button">搜索</a>
-            </div>
-        </div>
-    </div>
 
 		<div class="trip">
 			<div class="main">

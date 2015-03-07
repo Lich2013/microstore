@@ -54,81 +54,57 @@
         </div>
 
     </div>
-    <!-- pic -->
+
+		<!--<div class="trip">-->
+			<!--<div class="main">-->
+				<!--<div class="tt">登录</div>-->
+				<!--<div class="tc">-->
+					<!--<form action="<?php echo U('Login/login');;?>" method="post">-->
+						<!--<div>真实姓名: &nbsp;&nbsp;&nbsp;<input type="text" placeholder="真实姓名" name="realname" class="input-text"/></div>-->
+						<!--<div>身份证号码: <input type="text" placeholder="身份证号码" name="idcard" class="input-text"/></div>-->
+						<!--<div>密码: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="密码" name="password" class="input-text"/></div>-->
+						<!--<div style="text-align:center"><input type="submit" value="登录" class="input-submit"></div>-->
+					<!--</form>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</section>-->
+
+<div class="row">
+    <div class="col-xs-12"><h3>登录</h3></div>
+</div>
+<form action="<?php echo U('Login/login');;?>" method="post">
     <div class="row" >
-        <div class="col-xs-12" style="padding: inherit;">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active" ></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1" ></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2" ></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="3" ></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-
-                    <div class="item active">
-                        <a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($topic[0]["id"]); ?>">
-                            <img  id="0" src="<?php echo ($topic[0]["pic"]); ?>" class="img-responsive" style="height: 10.4em;">
-                            <div class="carousel-caption">
-
-                            </div>
-                        </a>
-                    </div>
-
-                    <?php if(is_array($topic)): $i = 0; $__LIST__ = array_slice($topic,1,3,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="item">
-                            <a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($vo["id"]); ?>">
-                                <img id="<?php echo ($i); ?>" src="<?php echo ($vo["pic"]); ?>" class="img-responsive" style="height: 10.4em;">
-                                <div class="carousel-caption">
-
-                                </div>
-                            </a>
-                        </div><?php endforeach; endif; else: echo "" ;endif; ?>
-                </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="display: none">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" ></span>
-
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="display: none">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" ></span>
-
-                </a>
+        <div class="col-xs-4" style="text-align: left;padding-left: inherit;
+      padding-right: inherit;"><h4>真实姓名:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="realname" placeholder="请输入真实姓名">
             </div>
         </div>
     </div>
-
-    <!-- 导航-->
-    <div class="row">
-        <div class="col-xs-12" style="text-align: center; padding-top:10px;">
-            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                <a href="#" class="btn btn-default" id="myactivc" role="button">商品浏览</a>
-                <a href="#" class="btn btn-default" role="button">排行榜</a>
-                <a href="#" class="btn btn-default" role="button">搜索</a>
+    <div class="row" >
+        <div class="col-xs-4" style="text-align: left;padding-left: inherit;
+      padding-right: inherit;"><h4>身份证号码:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="idcard" placeholder="请输入身份证号码">
             </div>
         </div>
     </div>
-
-		<div class="trip">
-			<div class="main">
-				<div class="tt">登录</div>
-				<div class="tc">
-					<form action="<?php echo U('Login/login');;?>" method="post">
-						<div>真实姓名: &nbsp;&nbsp;&nbsp;<input type="text" placeholder="真实姓名" name="realname" class="input-text"/></div>
-						<div>身份证号码: <input type="text" placeholder="身份证号码" name="idcard" class="input-text"/></div>
-						<div>密码: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" placeholder="密码" name="password" class="input-text"/></div>
-						<div style="text-align:center"><input type="submit" value="登录" class="input-submit"></div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- <div class="body_footer">
-		
-	</div> -->
+    <div class="row" >
+        <div class="col-xs-4" style="text-align: left;padding-left: inherit;
+      padding-right: inherit;"><h4>密码:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="请输入密码">
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-xs-12" style="text-align: right;"><input type="submit" class="btn btn-warning" value="登录"/></div>
+    </div>
+</form>
 </div>
 </body>
 </html>

@@ -35,20 +35,26 @@ class SearchController extends BaseController {
             $map1['goods_id'] = array('like',$goods_type);$map2['goods_id'] = array('like',$goods_type);$map3['goods_id'] = array('like',$goods_type);
         }
 
-        if($data['tag']==0 ){
+        if($data['tag']==0){
             $tag = '%'.$content.'%';
         }
         else{
             $tag = null;
         }
 
-        if($data['seller']==0 ){
+        if($data['seller']==0){
             $seller = '%'.$content.'%';
         }
         else{
             $seller = null;
         }
 
+        if($data['order_id']==1){
+            $order = 'store.click_num desc';
+        }
+        else{
+            $order = 'rand()';
+        }
 
         $map1['store_name'] = array('like',array($store_name));
         $map2['tag_name'] = array('like',array($tag));
@@ -65,7 +71,7 @@ class SearchController extends BaseController {
                 ->where($map)
                 ->where('status = 1')
                 ->group('store.id')
-                ->order('store.click_num desc')
+                ->order($order)
                 ->field('store.id, store.uid, show_pic, link, store_name')
                 ->select();
 

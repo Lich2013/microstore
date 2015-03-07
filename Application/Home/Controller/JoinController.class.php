@@ -103,10 +103,7 @@ class JoinController extends BaseController {
             }
         }
         $store_img = $img_url[0];
-        $person_img1 = $img_url[1];
-        $person_img2 = $img_url[2];
-        $person_img3 = $img_url[3];
-
+        $person_img = $img_url[1];
         $user = M('users');
         $store = M('store');
         $tag = M('tags');
@@ -159,9 +156,7 @@ class JoinController extends BaseController {
             'school_id' => $person_school,
             'major'     => $person_major,
             'introduce' => $person_introduce,
-            'photo1'     => $person_img1,
-            'photo2'     => $person_img2,
-            'photo3'     => $person_img3,
+            'photo'     => $person_img,
             'store_id'  => $store_id,
         );
         $person->data($person_data)->add();

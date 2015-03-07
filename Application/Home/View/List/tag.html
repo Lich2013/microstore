@@ -1,46 +1,83 @@
 <include file="Public/header" />
-		<div class="trip">
-			<div class="main">
-                <div style="  text-align: end;">
-                    <span><a href="{:U('Join/index');}">卖家申请</a></span> |
-                    <span><a href="{:U('Login/index');}">卖家登陆</a> </span>
-                </div>
-				<div class="tt">排行榜</div>
-				<div class="tt" style="font-size:1.1em; padding:0.5em"><a href="{:U('List/index');}">商家排行榜</a> | <a href="{:U('List/tag');}">标签排行榜</a></div>
-				<div class="tc">
-                    <div style="float:left;width: 100%; padding-left: 1em">(按搜索热度依次排名)</div>
-                    <volist name="tags" id="vo" offset="0" length='1'>
-                        <div style="padding: 1em; padding-left: 3em">
-                            <a href="{:U('Search/tag')}?tag_name={$vo.tag_name}" style="font-size: 2em; color: #d9534f  ;font-family: monospace;">
-                                {$i}.&nbsp&nbsp {$vo.tag_name}
-                            </a>
-                        </div>
-                    </volist>
-                    <volist name="tags" id="vo" offset="1" length='1'>
-                        <div style="padding: 1em; padding-left: 3em">
-                            <a href="{:U('Search/tag')}?tag_name={$vo.tag_name}" style="font-size: 2em; color: #f0ad4e;font-family: monospace;">
-                                {$i+1}.&nbsp&nbsp {$vo.tag_name}
-                            </a>
-                        </div>
-                    </volist>
-                    <volist name="tags" id="vo" offset="2" length='1'>
-                        <div style="padding: 1em; padding-left: 3em">
-                            <a href="{:U('Search/tag')}?tag_name={$vo.tag_name}" style="font-size: 2em; color: #5bc0de;font-family: monospace;">
-                                {$i+2}.&nbsp&nbsp {$vo.tag_name}
-                            </a>
-                        </div>
-                    </volist>
-					<volist name="tags" id="vo" offset="3" length='7'>
-						<div style="padding: 1em;padding-left: 3em">
-							<a href="{:U('Search/tag')}?tag_name={$vo.tag_name}" style="font-size: 2em; color: #5cb85c;font-family: monospace;">
-								{$i+3}.&nbsp&nbsp {$vo.tag_name}
-							</a>
-						</div>
-					</volist>
-				</div>
-			</div>
-		</div>
-	</section>
+<include file="Public/nav" />
+<!-- 排序方式 -->
+<div class="row" style="padding-top:10px;padding-bottom:10px;text-align: center;">
+
+    <div class="col-xs-6" style="padding-right: inherit">
+        <div class="radio">
+            <label>
+                <a href="{:U('List/index');}" style="color: #000000">
+                    <input type="radio" name="order_id" value="0">
+                    最热店家Top10
+                </a>
+            </label>
+        </div>
+    </div>
+
+    <div class="col-xs-6" style="padding-left: inherit;">
+        <div class="radio">
+            <label>
+                <a href="{:U('List/tag');}" style="color: #000000">
+                    <input type="radio" name="order_id" value="1" checked>
+                    最热标签Top10
+                </a>
+            </label>
+        </div>
+    </div>
 </div>
-</body>
-</html>
+
+<volist name="tags" id="vo" >
+    <a href="{:U('Search/tag')}?tag_name={$vo.tag_name}">
+        <div class="row" style="margin: inherit;margin-bottom: 1em;background: white;  border-radius: 4px;">
+            <div class="col-xs-12" style="padding-bottom: 0.8em;padding-top: 0.8em;font-size: large;">{$i} . {$vo.tag_name}</div>
+        </div>
+    </a>
+</volist>
+		<!--<div class="trip">-->
+			<!--<div class="main">-->
+                <!--<div style="  text-align: end;">-->
+                    <!--<span><a href="{:U('Join/index');}">卖家申请</a></span> |-->
+                    <!--<span><a href="{:U('Login/index');}">卖家登陆</a> </span>-->
+                <!--</div>-->
+				<!--<div class="tt">排行榜</div>-->
+				<!--<div class="tt" style="font-size:1.1em; padding:0.5em"><a href="{:U('List/index');}">商家排行榜</a> | <a href="{:U('List/tag');}">标签排行榜</a></div>-->
+				<!--<div class="tc">-->
+                    <!--<div style="float:left;width: 100%; padding-left: 1em">(按搜索热度依次排名)</div>-->
+                    <!--<volist name="tags" id="vo" offset="0" length='1'>-->
+                        <!--<div style="padding: 1em; padding-left: 3em">-->
+                            <!--<a href="{:U('Search/tag')}?tag_name={$vo.tag_name}" style="font-size: 2em; color: #d9534f  ;font-family: monospace;">-->
+                                <!--{$i}.&nbsp&nbsp {$vo.tag_name}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</volist>-->
+                    <!--<volist name="tags" id="vo" offset="1" length='1'>-->
+                        <!--<div style="padding: 1em; padding-left: 3em">-->
+                            <!--<a href="{:U('Search/tag')}?tag_name={$vo.tag_name}" style="font-size: 2em; color: #f0ad4e;font-family: monospace;">-->
+                                <!--{$i+1}.&nbsp&nbsp {$vo.tag_name}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</volist>-->
+                    <!--<volist name="tags" id="vo" offset="2" length='1'>-->
+                        <!--<div style="padding: 1em; padding-left: 3em">-->
+                            <!--<a href="{:U('Search/tag')}?tag_name={$vo.tag_name}" style="font-size: 2em; color: #5bc0de;font-family: monospace;">-->
+                                <!--{$i+2}.&nbsp&nbsp {$vo.tag_name}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</volist>-->
+					<!--<volist name="tags" id="vo" offset="3" length='7'>-->
+						<!--<div style="padding: 1em;padding-left: 3em">-->
+							<!--<a href="{:U('Search/tag')}?tag_name={$vo.tag_name}" style="font-size: 2em; color: #5cb85c;font-family: monospace;">-->
+								<!--{$i+3}.&nbsp&nbsp {$vo.tag_name}-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</volist>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</section>-->
+<include file="Public/footer" />
+<script>$('input').change(function(){
+    console.log($(this).parent().attr('href'));
+    var link = $(this).parent().attr('href');
+    window.location.href=link;
+})</script>

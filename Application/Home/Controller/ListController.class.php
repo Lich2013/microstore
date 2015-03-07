@@ -4,7 +4,7 @@ use Think\Controller;
 class ListController extends BaseController {
     //商家排行榜
     public function index(){
-        $store = M('store')->order('click_num desc')->where('status = 1')->limit(5)->select();
+        $store = M('store')->order('click_num desc')->where('status = 1')->limit(10)->select();
         $i = 0;
         foreach($store as $v) {
             $uid = $v['uid'];
@@ -23,7 +23,7 @@ class ListController extends BaseController {
             ++$j;
         }
         $this->assign('store', $store);
-        $this->display('test');
+        $this->display();
     }
 
     //标签排行榜

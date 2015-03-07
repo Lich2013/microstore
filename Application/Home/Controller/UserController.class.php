@@ -89,9 +89,7 @@ class UserController extends BaseController {
             }
         }
         $store_img = $img_url[0];
-        $person_img1 = $img_url[1];
-        $person_img2 = $img_url[2];
-        $person_img3 = $img_url[3];
+        $person_img = $img_url[1];
         $new_storedata = array(
             'store_name' => trim($data['store_name']),
             'link' => trim($data['store_link']),
@@ -105,9 +103,8 @@ class UserController extends BaseController {
             'name' => trim($data['person_name']),
             'major' => trim($data['person_major']),
             'introduce' => trim($data['person_introduce']),
-            'photo1' => $person_img1,
-            'photo2' => $person_img2,
-            'photo3' => $person_img3,
+            'photo' => $person_img,
+
             'school_id' => $data['person_school'],
         );
 
