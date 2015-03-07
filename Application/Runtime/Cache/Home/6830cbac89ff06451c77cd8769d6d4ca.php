@@ -1,83 +1,117 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
-<html>
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>团团微店</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link type="text/css" rel="stylesheet" href="/tuan/Public/css/style.css">
-<script type="text/javascript" src="/tuan/Public/js/html5.js"></script>
-<script type="text/javascript" src="/tuan/Public/js/jquery.1.4.2-min.js"></script>
-	<style>
-		.input-text{
-			padding: 0.2em;
-			border-radius: 0.3em;
-			border: 1px solid #d5d5d5;
-			margin-left: 1.5em;
-		}
-		.input-select{
-			padding: 0.2em;
-			margin-left: 1.5em;
-			border-radius: 0.3em;
-			border: 1px solid #d5d5d5;
-		}
-		.input-submit{
-			background-color: #313131;
-			padding: 4px 7px 4px 7px !important;
-			border-radius: 0.3em;
-			border: 1px solid #313131;
-			color: #fff !important;
-		}
-        .store{
-            float: left;
-            width: 99%;
-            padding-bottom: 2em;
-            padding-top: 1em;
-            border: 1px solid #b2dba1;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            border-radius: 0.3em;
-        }
-	</style>
+    <meta charset="UTF-8">
+    <title>团团微店</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/tuan/Public/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!--<link rel="stylesheet" href="/tuan/Public/css/bootstrap-theme.min.css">-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/tuan/Public/css/mystyle.css">
 </head>
 <body>
-<div class="pw">
-	<header class="body_header">
-		<a href="<?php echo U('Index/index');;?>">
-		<div class="top" style="text-align: center">
-			<div style="padding: 0.6em; font-size: 3em; font-family: KaiTi;">团团微店</div> 
-		</div>
-		</a>
-	</header>
-	<section class="body_banner">
-		<!--演示内容开始-->
-		<div class="swipe">
-			<ul id="slider">
-				<a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($topic[0]["id"]); ?>"><li style="display:block"><img width="100%" src="<?php echo ($topic[0]["pic"]); ?>"/></li></a>
-				<?php if(is_array($topic)): $i = 0; $__LIST__ = array_slice($topic,1,3,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($vo["id"]); ?>"><li><img width="100%" src="<?php echo ($vo["pic"]); ?>"/></li></a><?php endforeach; endif; else: echo "" ;endif; ?>
-			</ul>
-			<div id="pagenavi">
-				<a href="javascript:void(0);" class="active">1</a>
-				<a href="javascript:void(0);">2</a>
-				<a href="javascript:void(0);">3</a>
-				<a href="javascript:void(0);">4</a>
-			</div>
-		</div>
-		<script type="text/javascript" src="/tuan/Public/js/touchScroll.js"></script>
-		<script type="text/javascript" src="/tuan/Public/js/touchslider.dev.js"></script>
-		<script type="text/javascript" src="/tuan/Public/js/run.js"></script>
-		<!--演示内容结束-->
-	</section>
-	<section class="body_main">
-		<div class="trip" id="nav">
-			<ul class="nav">
-				<li><a href="<?php echo U('View/index');;?>"><img src="/tuan/Public/images/nov03.png"><br>商品浏览</a></li>
-				<li><a href="<?php echo U('List/index');;?>"><img src="/tuan/Public/images/nov04.png"><br>排行榜</a></li>
-				<li><a href="<?php echo U('Search/index');;?>"><img src="/tuan/Public/images/nov02.png"><br>搜索微商</a></li>
-				<li><a href="<?php echo U('Join/index');;?>"><img src="/tuan/Public/images/nov01.png"><br>申请入驻</a></li>
-			</ul>
-		</div>
+<div class="container-fluid">
+
+    <!-- header -->
+    <div class="row header">
+        <div class="col-xs-3">
+            <img src="/tuan/Public/images/logo.png" class="img-responsive">
+        </div>
+        <div class="col-xs-4 title" style="padding-left: inherit">
+				<span><div class="row" >
+                    <div class="col-xs-12" style="padding-left: inherit;padding-right: inherit">团团微店</div>
+                </div>
+				<div class="row">
+                    <div class="col-xs-12" style="font-size: smaller;padding-left: inherit;padding-right: inherit;padding-top: 0.3em;">重庆学子的创业家园</div>
+                </div></span>
+        </div>
+
+        <div class="col-xs-2" style="padding-left: inherit;padding-top: 0.6em;">
+            <!--<div class="row" style="padding-top:0.5em;">-->
+                <!--<div class="col-xs-12">-->
+                    <a href="<?php echo U('Join/index');;?>"><button class="btn btn-xs btn-warning">申请入驻</button></a>
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="col-xs-2" style="padding-top: 0.6em;">
+            <!--<div class="row" style="padding-top:0.5em;">-->
+                <!--<div class="col-xs-12">-->
+                    <a href="<?php echo U('Login/index');;?>"><button class="btn btn-xs btn-info" style="background: #459BD6;">卖家登陆</button></a>
+                <!--</div>-->
+            <!--</div>-->
+
+        </div>
+
+    </div>
+    <!-- pic -->
+    <div class="row" >
+        <div class="col-xs-12" style="padding: inherit;">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active" ></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1" ></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2" ></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3" ></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="item active">
+                        <a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($topic[0]["id"]); ?>">
+                            <img  id="0" src="<?php echo ($topic[0]["pic"]); ?>" class="img-responsive" style="height: 10.4em;">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <?php if(is_array($topic)): $i = 0; $__LIST__ = array_slice($topic,1,3,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="item">
+                            <a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($vo["id"]); ?>">
+                                <img id="<?php echo ($i); ?>" src="<?php echo ($vo["pic"]); ?>" class="img-responsive" style="height: 10.4em;">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </a>
+                        </div><?php endforeach; endif; else: echo "" ;endif; ?>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="display: none">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" ></span>
+
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="display: none">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" ></span>
+
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航-->
+    <div class="row">
+        <div class="col-xs-12" style="text-align: center; padding-top:10px;">
+            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                <a href="#" class="btn btn-default" id="myactivc" role="button">商品浏览</a>
+                <a href="#" class="btn btn-default" role="button">排行榜</a>
+                <a href="#" class="btn btn-default" role="button">搜索</a>
+            </div>
+        </div>
+    </div>
+
 		<div class="trip">
 			<div class="main">
 				<div style="  text-align: end;"><?php echo ($name); ?>, <a href="<?php echo U('Login/loginout');;?>" style="color: blue">退出</a> </div>

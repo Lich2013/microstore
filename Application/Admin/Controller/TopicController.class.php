@@ -40,7 +40,7 @@ class TopicController extends BaseController {
             //上传封面图
             $upload = new \Think\Upload();// 实例化上传类
             $upload->maxSize   =     3145728 ;// 设置附件上传大小
-            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+            $upload->exts      =     array('jpg', 'jpeg');// 设置附件上传类型
             $upload->rootPath  =     'Public/uploads/'; // 设置附件上传根目录
             // 上传文件
             $info   =   $upload->upload();
@@ -51,7 +51,7 @@ class TopicController extends BaseController {
                     $image = new \Think\Image();
                     $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                     $image->open($path);
-                    $image->thumb(640, 300,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                    $image->thumb(414, 145,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                     $cover = __ROOT__.'/'.$path;
                 }
             }
@@ -94,7 +94,7 @@ class TopicController extends BaseController {
         //上传封面图
         $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize   =     3145728 ;// 设置附件上传大小
-        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->exts      =     array('jpg', 'jpeg');// 设置附件上传类型
         $upload->rootPath  =     'Public/uploads/'; // 设置附件上传根目录
         // 上传文件
         $info   =   $upload->upload();
@@ -105,7 +105,7 @@ class TopicController extends BaseController {
                 $image = new \Think\Image();
                 $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                 $image->open($path);
-                $image->thumb(640, 300,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $image->thumb(414, 145,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                 $cover = __ROOT__.'/'.$path;
             }
         }

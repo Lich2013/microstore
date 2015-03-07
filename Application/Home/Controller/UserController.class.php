@@ -49,7 +49,7 @@ class UserController extends BaseController {
         }
         foreach($data['tags'] as $v)
         {
-            if(mb_strlen($v, 'utf-8')>5){
+            if(mb_strlen($v, 'utf-8')>3){
                 $this->error('标签名过长');
             }
         }
@@ -73,7 +73,7 @@ class UserController extends BaseController {
         }
         $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize   =     3145728 ;// 设置附件上传大小
-        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->exts      =     array('jpg', 'jpeg');// 设置附件上传类型
         $upload->rootPath  =     'Public/uploads/'; // 设置附件上传根目录
         // 上传文件
         $info   =   $upload->upload();
@@ -84,7 +84,7 @@ class UserController extends BaseController {
                 $image = new \Think\Image();
                 $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                 $image->open($path);
-                $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $image->thumb(110, 110,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                 $img_url[] = __ROOT__.'/'.$path;
             }
         }

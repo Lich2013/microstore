@@ -11,7 +11,7 @@ class ViewController extends BaseController {
         $store_num = $store->where('status = 1')->field('id')->select();
         $num = count($store_num);
 
-        for($i = 0; $i < 5; ++$i) {
+        for($i = 0; $i < 20; ++$i) {
             $store_rand[] = rand(0, $num-1);
         }
         $j = 0;
@@ -35,13 +35,20 @@ class ViewController extends BaseController {
         $this->assign('store', $store_info);
         $this->assign('school', $school_name);
         $this->assign('goods', $goods_type);
-        $this->display('test');
+        $this->display('index');
     }
 
 
     public function view(){
         $school_id = I('post.school_id');
         $goods_id = I('post.goods_id');
+        $order_id = I('post.order_id');
+        if($order_id==1){
+            $order = 'click_num desc';
+        }
+        else{
+            $order = 'rand()';
+        }
         //00
         if($school_id==0&&$goods_id==0)
         {
@@ -57,7 +64,7 @@ class ViewController extends BaseController {
         //10
         if($school_id!=0&&$goods_id==0)
         {
-            $store_info = $store->where("school_id = $school_id AND status = 1")->select();
+            $store_info = $store->where("school_id = $school_id AND status = 1")->order($order)->select();
 
             $i = 0;
             foreach($store_info as $v) {
@@ -87,6 +94,7 @@ class ViewController extends BaseController {
         if($school_id==0&&$goods_id!=0){
             $store_info = M('store_goods')->where("goods_id = $goods_id")
                                 ->join('JOIN store ON store_goods.store_id = store.id')
+                                ->order($order)
                                 ->select();
             $i = 0;
             foreach($store_info as $v) {
@@ -119,6 +127,7 @@ class ViewController extends BaseController {
                         ->join('JOIN store_goods ON store.id = store_goods.store_id')
                         ->join('JOIN goods ON store_goods.goods_id = goods.id')
                         ->where("goods_id = $goods_id")
+                        ->order($order)
                         ->select();
 
             $i = 0;
@@ -145,7 +154,7 @@ class ViewController extends BaseController {
             $this->assign('store', $store_info);
             $this->assign('school', $school_name);
             $this->assign('goods', $goods_type);
-            $this->display('test');
+            $this->display('index');
         }
     }
 

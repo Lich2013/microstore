@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Simpla Admin </title>
+  <title>团团微店后台登陆</title>
   <!--                       CSS                       -->
   <!-- Reset Stylesheet -->
   <link rel="stylesheet" href="/tuan/Public/resources/css/reset.css" type="text/css" media="screen" />

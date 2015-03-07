@@ -23,7 +23,7 @@ class ListController extends BaseController {
             ++$j;
         }
         $this->assign('store', $store);
-        $this->display();
+        $this->display('test');
     }
 
     //标签排行榜
