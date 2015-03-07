@@ -63,7 +63,7 @@
 
                 <div class="item active">
                     <a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($topic[0]["id"]); ?>">
-                        <img  id="0" src="<?php echo ($topic[0]["pic"]); ?>" class="img-responsive" style="height: 10.4em;">
+                        <img  id="0" src="<?php echo ($topic[0]["pic"]); ?>" class="img-responsive" style="height: 160px" >
                         <div class="carousel-caption">
 
                         </div>
@@ -72,7 +72,7 @@
 
                 <?php if(is_array($topic)): $i = 0; $__LIST__ = array_slice($topic,1,3,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="item">
                         <a href="<?php echo U('Topic/index');?>?topic_id=<?php echo ($vo["id"]); ?>">
-                            <img id="<?php echo ($i); ?>" src="<?php echo ($vo["pic"]); ?>" class="img-responsive" style="height: 10.4em;">
+                            <img id="<?php echo ($i); ?>" src="<?php echo ($vo["pic"]); ?>" class="img-responsive" style="height: 160px">
                             <div class="carousel-caption">
 
                             </div>
@@ -133,7 +133,7 @@
         <div class="col-xs-5">
             <div class="radio">
                 <label>
-                    <input type="radio" name="order_id" value="0">
+                    <input type="radio" name="order_id" value="0" checked>
                     综合排序
                 </label>
             </div>

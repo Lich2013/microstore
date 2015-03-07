@@ -51,7 +51,7 @@ class TopicController extends BaseController {
                     $image = new \Think\Image();
                     $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                     $image->open($path);
-                    $image->thumb(414, 145,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                    $image->thumb(414, 160,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                     $cover = __ROOT__.'/'.$path;
                 }
             }
@@ -105,7 +105,7 @@ class TopicController extends BaseController {
                 $image = new \Think\Image();
                 $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                 $image->open($path);
-                $image->thumb(414, 145,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $image->thumb(414, 160,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                 $cover = __ROOT__.'/'.$path;
             }
         }

@@ -46,20 +46,6 @@
 
     </div>
 
-<!--<div class="trip">-->
-    <!--<div class="main">-->
-        <!--<div class="tt">店主风采</div>-->
-        <!--<div class="tc">-->
-            <!--<div style="text-align: center">-->
-                <!--<img src="<?php echo ($person_info["photo"]); ?>">-->
-            <!--</div>-->
-
-            <!--<div style="text-align: center"><?php echo ($person_info["name"]); ?></div>-->
-            <!--<div style="text-align: center"><?php echo ($person_info["school_name"]); ?> | <?php echo ($person_info["major"]); ?></div>-->
-            <!--<div><p><?php echo ($person_info["introduce"]); ?></p></div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--</section>-->
 <div class="row">
     <div class="col-xs-12"><h3>卖家风采展示</h3></div>
 </div>
