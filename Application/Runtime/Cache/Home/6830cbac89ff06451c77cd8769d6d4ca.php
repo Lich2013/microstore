@@ -55,69 +55,157 @@
 
     </div>
 
-		<div class="trip">
-			<div class="main">
-				<div style="  text-align: end;"><?php echo ($name); ?>, <a href="<?php echo U('Login/loginout');;?>" style="color: blue">退出</a> </div>
-				<div class="tt">信息修改</div>
-				<div class="tc">
-					<form action="<?php echo U('User/update');;?>" method="post" enctype="multipart/form-data">
-						<div></div>
-						<div>微店信息修改</div>
-						<div>微店名: <input type="text" value="<?php echo ($info["store"]["store_name"]); ?>" name="store_name" class="input-text" /></div>
-						<div>微店链接: <input type="text" value="<?php echo ($info["store"]["link"]); ?>" name="store_link" class="input-text" /></div>
-                        <div>联系方式:  <input type="text" name="telephone" placeholder="联系电话(手机)" class="input-text" value="<?php echo ($info["store"]["telephone"]); ?>"></div>
-                        <div>
-							商品类型:
-							<select name="goods_type"  class="input-select" >
-								<?php if(is_array($goods)): $i = 0; $__LIST__ = $goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>" <?php $a = $vo['id']==$info['goods']['id']? 'selected="selected"':'';echo $a; ?>><?php echo ($vo["type"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-							</select>
-						</div>
-						<div>标签1:
-							<input type="hidden" value="<?php echo ($info["tags"]["0"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["0"]["tag_name"]); ?>" name="tags[]" class="input-text" />
-						</div>
-						<div>标签2:
-							<input type="hidden" value="<?php echo ($info["tags"]["1"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["1"]["tag_name"]); ?>" name="tags[]" class="input-text" />
-						</div>
-						<div>标签3:
-							<input type="hidden" value="<?php echo ($info["tags"]["2"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["2"]["tag_name"]); ?>" name="tags[]" class="input-text" />
-						</div>
-						<div>标签4:
-							<input type="hidden" value="<?php echo ($info["tags"]["3"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["3"]["tag_name"]); ?>" name="tags[]" class="input-text" />
-						</div>
-						<div>标签5:
-							<input type="hidden" value="<?php echo ($info["tags"]["4"]["id"]); ?>" name="tags_id[]"/>
-							<input type="text" value="<?php echo ($info["tags"]["4"]["tag_name"]); ?>" name="tags[]" class="input-text" />
-						</div>
+<div class="row">
+    <div class="col-xs-6" style="padding-left: inherit"><h3>微店管理</h3> </div><div class="col-xs-6" style="text-align: right;"><?php echo ($name); ?>, <a href="<?php echo U('Login/loginout');;?>" style="color: blue">退出</a></div>
+</div>
+<form  action="<?php echo U('User/update');;?>" method="post" enctype="multipart/form-data">
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>店铺名:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="store_name" value="<?php echo ($info["store"]["store_name"]); ?>" placeholder="10字以内">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>店铺链接:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" value="<?php echo ($info["store"]["link"]); ?>" name="store_link" placeholder="如 www.taobao.com">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>商品类型:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <select name="goods_type"  class="form-control" >
+                <?php if(is_array($goods)): $i = 0; $__LIST__ = $goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>" <?php $a = $vo['id']==$info['goods']['id']? 'selected="selected"':'';echo $a; ?>><?php echo ($vo["type"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 0.5em;">
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签1:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="hidden" value="<?php echo ($info["tags"]["0"]["id"]); ?>" name="tags_id[]"/>
+                <input type="text" class="form-control" value="<?php echo ($info["tags"]["0"]["tag_name"]); ?>" name="tags[]" placeholder="向用户介绍店铺业务,3字以内,必填">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签2:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="hidden" value="<?php echo ($info["tags"]["1"]["id"]); ?>" name="tags_id[]"/>
+                <input type="text" class="form-control" value="<?php echo ($info["tags"]["1"]["tag_name"]); ?>" name="tags[]" placeholder="3字以内, 选填">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签3:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="hidden" value="<?php echo ($info["tags"]["2"]["id"]); ?>" name="tags_id[]"/>
+                <input type="text" class="form-control" name="tags[]" value="<?php echo ($info["tags"]["2"]["tag_name"]); ?>" placeholder="3字以内, 选填">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签4:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="hidden" value="<?php echo ($info["tags"]["3"]["id"]); ?>" name="tags_id[]"/>
+                <input type="text" class="form-control" value="<?php echo ($info["tags"]["3"]["tag_name"]); ?>" name="tags[]" placeholder="3字以内, 选填">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签5:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="hidden" value="<?php echo ($info["tags"]["4"]["id"]); ?>" name="tags_id[]"/>
+                <input type="text" class="form-control" name="tags[]" value="<?php echo ($info["tags"]["4"]["tag_name"]); ?>" placeholder="3字以内, 选填">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>联系方式:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="telephone" value="<?php echo ($info["store"]["telephone"]); ?>" placeholder="请输入手机号码">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="form-group">
+            <label><h4>店铺首页图:</h4></label>
+            <input type="file" name="store_pic">
+        </div>
+    </div>
 
-						<div>店铺首页图:<input type="file" name="store_pic"/></div>
 
-						<div>个人风采信息修改</div>
-						<div>姓名:<input type="text" value="<?php echo ($info["person"]["name"]); ?>" name="person_name" class="input-text" /></div>
-						<div>学校:
-							<select name="person_school" class="input-select">
-								<?php if(is_array($school)): $i = 0; $__LIST__ = $school;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vs): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vs["id"]); ?>" <?php $a = $vs['id']==$info['person']['school_id']? 'selected="selected"':'';echo $a; ?>><?php echo ($vs["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-							</select>
-						</div>
-						<div>专业:<input type="text" value="<?php echo ($info["person"]["major"]); ?>" name="person_major" class="input-text" /></div>
-						<div>个人介绍:<input type="text" value="<?php echo ($info["person"]["introduce"]); ?>" name="person_introduce" class="input-text" /></div>
-						<div>相关配图:
-                            <input type="file" value="" name="person_pic1"/>
-                            <input type="file" value="" name="person_pic2"/>
-                            <input type="file" value="" name="person_pic3"/>
-                        </div>
-						<div><input type="submit" class="input-submit"/></div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- <div class="body_footer">
-		
-	</div> -->
+
+    <div class="row">
+        <div class="col-xs-12" style="padding-left: inherit"><h4>个人风采展示</h4></div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>姓名:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" value="<?php echo ($info["person"]["name"]); ?>" name="person_name" placeholder="请输入姓名">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>学校:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <select class="form-control" name="person_school">
+                    <?php if(is_array($school)): $i = 0; $__LIST__ = $school;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vs): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vs["id"]); ?>" <?php $a = $vs['id']==$info['person']['school_id']? 'selected="selected"':'';echo $a; ?>><?php echo ($vs["school_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>专业:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" value="<?php echo ($info["person"]["major"]); ?>" name="person_major" placeholder="8字以内">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>个人介绍:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" value="<?php echo ($info["person"]["introduce"]); ?>" name="person_introduce" placeholder="300字以内">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="form-group">
+            <label><h4>相关配图:</h4></label>
+            <input type="file" name="person_pic">
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-xs-12" style="text-align: right;"><input type="submit" class="btn btn-warning" value="保存" /></div>
+    </div>
+</form>
 </div>
 </body>
 </html>

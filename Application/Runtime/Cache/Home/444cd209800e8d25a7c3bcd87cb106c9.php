@@ -22,12 +22,13 @@
 </head>
 <body>
 <div class="container-fluid">
-
     <!-- header -->
     <div class="row header">
-        <div class="col-xs-3">
-            <img src="/tuan/Public/images/logo.png" class="img-responsive">
-        </div>
+        <a href="<?php echo U('View/index');?>">
+            <div class="col-xs-3">
+                <img src="/tuan/Public/images/logo.png" class="img-responsive">
+            </div>
+        </a>
         <div class="col-xs-4 title" style="padding-left: inherit">
 				<span><div class="row" >
                     <div class="col-xs-12" style="padding-left: inherit;padding-right: inherit">团团微店</div>
@@ -36,39 +37,53 @@
                     <div class="col-xs-12" style="font-size: smaller;padding-left: inherit;padding-right: inherit;padding-top: 0.3em;">重庆学子的创业家园</div>
                 </div></span>
         </div>
-
         <div class="col-xs-2" style="padding-left: inherit;padding-top: 0.6em;">
-            <!--<div class="row" style="padding-top:0.5em;">-->
-                <!--<div class="col-xs-12">-->
                     <a href="<?php echo U('Join/index');;?>"><button class="btn btn-xs btn-warning">申请入驻</button></a>
-                <!--</div>-->
-            <!--</div>-->
         </div>
         <div class="col-xs-2" style="padding-top: 0.6em;">
-            <!--<div class="row" style="padding-top:0.5em;">-->
-                <!--<div class="col-xs-12">-->
-                    <a href="<?php echo U('Login/index');;?>"><button class="btn btn-xs btn-info" style="background: #459BD6;">卖家登陆</button></a>
-                <!--</div>-->
+            <a href="<?php echo U('Login/index');;?>"><button class="btn btn-xs btn-info" style="background: #459BD6;">卖家登陆</button></a>
+        </div>
+
+    </div>
+
+<!--<div class="trip">-->
+    <!--<div class="main">-->
+        <!--<div class="tt">店主风采</div>-->
+        <!--<div class="tc">-->
+            <!--<div style="text-align: center">-->
+                <!--<img src="<?php echo ($person_info["photo"]); ?>">-->
             <!--</div>-->
 
-        </div>
+            <!--<div style="text-align: center"><?php echo ($person_info["name"]); ?></div>-->
+            <!--<div style="text-align: center"><?php echo ($person_info["school_name"]); ?> | <?php echo ($person_info["major"]); ?></div>-->
+            <!--<div><p><?php echo ($person_info["introduce"]); ?></p></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--</section>-->
+<div class="row">
+    <div class="col-xs-12"><h3>卖家风采展示</h3></div>
+</div>
 
-    </div>
+<div class="row">
+    <div class="col-xs-12" style="text-align: center"><h3><?php echo ($person_info["name"]); ?></h3></div>
+</div>
 
-<div class="trip">
-    <div class="main">
-        <div class="tt">店主风采</div>
-        <div class="tc">
-            <div style="text-align: center">
-                <img src="<?php echo ($person_info["photo"]); ?>">
-            </div>
-
-            <div style="text-align: center"><?php echo ($person_info["name"]); ?></div>
-            <div style="text-align: center"><?php echo ($person_info["school_name"]); ?> | <?php echo ($person_info["major"]); ?></div>
-            <div><p><?php echo ($person_info["introduce"]); ?></p></div>
-        </div>
-    </div>
-    </section>
+<div class="row">
+    <div class="col-xs-5" style="text-align: right;padding-right: inherit;"><?php echo ($person_info["school_name"]); ?></div>
+    <div class="col-xs-2" style="text-align: center;color: #3E93CF">|</div>
+    <div class="col-xs-5" style="text-align: left;padding-left: inherit;"><?php echo ($person_info["major"]); ?></div>
+</div>
+<div class="row">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6" style="padding-top: 1em;padding-bottom: inherit;padding-left: inherit;padding-right: inherit;"><img src="<?php echo ($person_info["photo"]); ?>" style="width: 200%;" class="img-responsive"></div>
+    <div class="col-xs-3"></div>
+</div>
+<div class="row">
+    <div class="col-xs-12" style="padding-top: 1em;"><p><?php echo ($person_info["introduce"]); ?></p></div>
+</div>
+<div class="row">
+    <div class="col-xs-12" style="padding-top: 1em;text-align: right"><a href="<?php echo ($link); ?>"><button class="btn btn-warning">进入卖家微店</button></a></div>
+</div>
 </div>
 </body>
 </html>

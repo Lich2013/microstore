@@ -22,12 +22,13 @@
 </head>
 <body>
 <div class="container-fluid">
-
     <!-- header -->
     <div class="row header">
-        <div class="col-xs-3">
-            <img src="/tuan/Public/images/logo.png" class="img-responsive">
-        </div>
+        <a href="<?php echo U('View/index');?>">
+            <div class="col-xs-3">
+                <img src="/tuan/Public/images/logo.png" class="img-responsive">
+            </div>
+        </a>
         <div class="col-xs-4 title" style="padding-left: inherit">
 				<span><div class="row" >
                     <div class="col-xs-12" style="padding-left: inherit;padding-right: inherit">团团微店</div>
@@ -36,21 +37,11 @@
                     <div class="col-xs-12" style="font-size: smaller;padding-left: inherit;padding-right: inherit;padding-top: 0.3em;">重庆学子的创业家园</div>
                 </div></span>
         </div>
-
         <div class="col-xs-2" style="padding-left: inherit;padding-top: 0.6em;">
-            <!--<div class="row" style="padding-top:0.5em;">-->
-                <!--<div class="col-xs-12">-->
                     <a href="<?php echo U('Join/index');;?>"><button class="btn btn-xs btn-warning">申请入驻</button></a>
-                <!--</div>-->
-            <!--</div>-->
         </div>
         <div class="col-xs-2" style="padding-top: 0.6em;">
-            <!--<div class="row" style="padding-top:0.5em;">-->
-                <!--<div class="col-xs-12">-->
-                    <a href="<?php echo U('Login/index');;?>"><button class="btn btn-xs btn-info" style="background: #459BD6;">卖家登陆</button></a>
-                <!--</div>-->
-            <!--</div>-->
-
+            <a href="<?php echo U('Login/index');;?>"><button class="btn btn-xs btn-info" style="background: #459BD6;">卖家登陆</button></a>
         </div>
 
     </div>
@@ -102,17 +93,16 @@
     </div>
 </div>
 
-<!-- 导航-->
+
 <div class="row">
     <div class="col-xs-12" style="text-align: center; padding-top:10px;">
         <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-            <a href="<?php echo U('View/index');;?>" class="btn btn-default" id="myactivc" role="button">商品浏览</a>
-            <a href="<?php echo U('List/index');;?>" class="btn btn-default" role="button">排行榜</a>
-            <a href="<?php echo U('Search/index');;?>" class="btn btn-default" role="button">搜索</a>
+            <a href="<?php echo U('View/index');;?>" class="btn btn-default"  role="button">商品浏览</a>
+            <a href="<?php echo U('List/index');;?>" class="btn btn-default"   role="button">排行榜</a>
+            <a href="<?php echo U('Search/index');;?>" class="btn btn-default" id="myactivc" role="button">搜索</a>
         </div>
     </div>
 </div>
-
 <form action="<?php echo U('Search/search');?>" method="post">
     <div class="row" style="padding-top:10px; width: 99%">
         <div class="col-xs-6" style="padding-right:inherit; text-align:center;">
@@ -166,11 +156,10 @@
 </form>
 <!-- 店铺展示 -->
 <?php if(is_array($store)): $i = 0; $__LIST__ = $store;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="row" style="margin: inherit;padding-bottom: 10px;">
-
         <div class="col-xs-12">
 
             <div class="row" style="background: white;padding-top: 1em;display: flex;">
-                <div class="col-xs-4" style="width: 50%;margin: auto;margin-right: inherit;">
+                <div class="col-xs-4" style="width: 50%;margin: auto;">
                     <img src="<?php echo ($vo["show_pic"]); ?>" class="img-responsive" alt="Responsive image">
                 </div>
                 <div class="col-xs-8" style="padding-left:inherit;width: 50%;">
@@ -188,8 +177,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="row" style="background: white;padding-bottom: 1em;">
                 <div class="col-xs-12" style="padding-top: 1em;">
                     <a href="<?php echo U('Person/index');?>?person_id=<?php echo ($vo["person_id"]); ?>"><button class="btn btn-warning">查看卖家风采</button></a>

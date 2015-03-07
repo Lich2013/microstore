@@ -1,16 +1,19 @@
 <include file="Public/header" />
-<div class="trip">
-    <div class="main">
-        <div class="tt">专题</div>
-        <div class="tc">
-            <div style="text-align: center;font-size: 2em;padding: 0.7em;font-family: monospace;color: #FF9933;">{$data.title}</div>
-            <div style="text-align: center">
-                <img src="{$data.pic}" style="width: 100%">
-            </div>
-            <div><p>{$data.content}</p></div>
-        </div>
+<div class="row">
+    <div class="col-xs-12"><h3>专题阅览</h3></div>
+</div>
+<div class="row" style="text-align: center;">
+    <div class="col-xs-12"><h2>{$data.title}</h2></div>
+</div>
+<div class="row" style="text-align: center;">
+    <div class="col-xs-12"><img src="{$data.pic}" class="img-responsive"></div>
+</div>
+<div class="row" style="padding-top: 2em;">
+    <div class="col-xs-12">
+        <p>{$data.content}</p>
     </div>
-    </section>
+</div>
+
 </div>
 </body>
 </html>

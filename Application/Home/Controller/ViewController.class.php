@@ -2,22 +2,17 @@
 namespace Home\Controller;
 use Think\Controller;
 class ViewController extends BaseController {
-    public function index(){
+    public function index($order = 'rand()'){
         $school = M('school');
         $goods = M('goods');
         $store = M('store');
         $school_name = $school->select();
         $goods_type = $goods->select();
-        $store_num = $store->where('status = 1')->field('id')->select();
-        $num = count($store_num);
-
-        for($i = 0; $i < 20; ++$i) {
-            $store_rand[] = rand(0, $num-1);
-        }
+        $store_num = $store->where('status = 1')->order($order)->field('id')->limit(20)->select();
         $j = 0;
-        foreach($store_rand as $v)
+        foreach($store_num as $key=>$v)
         {
-            $id = $store_num[$v]['id'];
+            $id = $store_num[$key]['id'];
             $type = M('store_goods')->where("store_id = $id")->join('JOIN goods ON store_goods.goods_id = goods.id')->field('type')->select();
             $tags = M('store_tag')->where("store_id = $id")->join('JOIN tags ON store_tag.tag_id = tags.id')->field('tag_name')->select();
             $info = $store->where("id = $id")->select();
@@ -52,7 +47,7 @@ class ViewController extends BaseController {
         //00
         if($school_id==0&&$goods_id==0)
         {
-            $this->index();
+            $this->index($order);
             return;
         }
 

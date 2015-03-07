@@ -160,7 +160,7 @@ class JoinController extends BaseController {
             'store_id'  => $store_id,
         );
         $person->data($person_data)->add();
-        $this->success('申请成功, 请等待审核!', U('Index/index'));
+        $this->success('申请成功, 请等待审核!', U('View/index'));
 
     }
 

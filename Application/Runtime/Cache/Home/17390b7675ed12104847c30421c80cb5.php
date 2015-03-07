@@ -22,12 +22,13 @@
 </head>
 <body>
 <div class="container-fluid">
-
     <!-- header -->
     <div class="row header">
-        <div class="col-xs-3">
-            <img src="/tuan/Public/images/logo.png" class="img-responsive">
-        </div>
+        <a href="<?php echo U('View/index');?>">
+            <div class="col-xs-3">
+                <img src="/tuan/Public/images/logo.png" class="img-responsive">
+            </div>
+        </a>
         <div class="col-xs-4 title" style="padding-left: inherit">
 				<span><div class="row" >
                     <div class="col-xs-12" style="padding-left: inherit;padding-right: inherit">团团微店</div>
@@ -36,21 +37,11 @@
                     <div class="col-xs-12" style="font-size: smaller;padding-left: inherit;padding-right: inherit;padding-top: 0.3em;">重庆学子的创业家园</div>
                 </div></span>
         </div>
-
         <div class="col-xs-2" style="padding-left: inherit;padding-top: 0.6em;">
-            <!--<div class="row" style="padding-top:0.5em;">-->
-                <!--<div class="col-xs-12">-->
                     <a href="<?php echo U('Join/index');;?>"><button class="btn btn-xs btn-warning">申请入驻</button></a>
-                <!--</div>-->
-            <!--</div>-->
         </div>
         <div class="col-xs-2" style="padding-top: 0.6em;">
-            <!--<div class="row" style="padding-top:0.5em;">-->
-                <!--<div class="col-xs-12">-->
-                    <a href="<?php echo U('Login/index');;?>"><button class="btn btn-xs btn-info" style="background: #459BD6;">卖家登陆</button></a>
-                <!--</div>-->
-            <!--</div>-->
-
+            <a href="<?php echo U('Login/index');;?>"><button class="btn btn-xs btn-info" style="background: #459BD6;">卖家登陆</button></a>
         </div>
 
     </div>
@@ -134,7 +125,7 @@
 </div>
 <div class="row" >
     <div class="form-group">
-    <label><h4>店铺首页图:</h4></label>
+    <label><h4>店铺首页图(jpg格式):</h4></label>
     <input type="file" name="store_pic">
     </div>
 </div>
@@ -231,7 +222,7 @@
 </div>
 <div class="row" >
     <div class="form-group">
-        <label><h4>相关配图:</h4></label>
+        <label><h4>相关配图(jpg格式):</h4></label>
         <input type="file" name="person_pic">
     </div>
 </div>
