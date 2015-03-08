@@ -2,12 +2,9 @@
 namespace Admin\Controller;
 use Think\Controller;
 class TopicController extends BaseController {
-
-
        public function index(){
            $this->display();
        }
-
         //管理专题
        public function manage(){
            $store = M('topic');
@@ -27,52 +24,25 @@ class TopicController extends BaseController {
            $this->assign('data', $info[0]);
            $this->display();
        }
-
         public function homepage(){
             $this->display();
         }
-
 
        //发布专题
        public function createTopic(){
             $title = I('post.title');
             $data = $_POST['text'];
             //上传封面图
-            $upload = new \Think\Upload();// 实例化上传类
-            $upload->maxSize   =     3145728 ;// 设置附件上传大小
-            $upload->exts      =     array('jpg', 'jpeg');// 设置附件上传类型
-            $upload->rootPath  =     'Public/uploads/'; // 设置附件上传根目录
+           $setting = C('UPLOAD_SITEIMG_QINIU');
+           $upload = new \Think\Upload($setting);// 实例化上传类
             // 上传文件
             $info   =   $upload->upload();
             if(!$info) {// 上传错误提示错误信息
                 $this->error($upload->getError());
             }else{// 上传成功 获取上传文件信息
                 foreach($info as $file){
-                    $image = new \Think\Image();
-                    $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
-                    $image->open($path);
-                    $image->thumb(414, 160,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
-                    $cover = __ROOT__.'/'.$path;
+                    $cover = $file['url'].'?imageView2/2/h/160/w/414';
                 }
-            }
-
-            $pattern = '/base64,(.*?)"/';
-            preg_match_all($pattern, $data, $match, PREG_PATTERN_ORDER);
-            foreach($match[1] as $v) {
-                $img = base64_decode($v);
-                file_put_contents('Public/tmp.png', $img);
-                $image = new \Think\Image();
-                $name = 'Public/tmp.png';
-                $image->open($name);
-                $time = md5(microtime(true));
-                $path =  'Public/uploads/topic/'.$time.'.png';
-                $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
-                $img_url[] = __ROOT__.'/'.$path;
-                $replace[] = 'src="'.__ROOT__.'/'.$path.'"';
-            }
-           $pattern1 = '/src="data:(.*?)"/';
-            foreach($replace as $r){
-                $data =  preg_replace($pattern1, $r, $data,1);
             }
 
             $topic = array(
@@ -83,50 +53,23 @@ class TopicController extends BaseController {
             );
             M('topic')->data($topic)->add();
             $this->success('成功');
-
         }
-
     //修改专题
     public function updateTopic(){
         $id = I('post.topic_id');
         $title = I('post.title');
         $data = $_POST['text'];
         //上传封面图
-        $upload = new \Think\Upload();// 实例化上传类
-        $upload->maxSize   =     3145728 ;// 设置附件上传大小
-        $upload->exts      =     array('jpg', 'jpeg');// 设置附件上传类型
-        $upload->rootPath  =     'Public/uploads/'; // 设置附件上传根目录
+        $setting = C('UPLOAD_SITEIMG_QINIU');
+        $upload = new \Think\Upload($setting);// 实例化上传类
         // 上传文件
         $info   =   $upload->upload();
         if(!$info) {// 上传错误提示错误信息
             $this->error($upload->getError());
         }else{// 上传成功 获取上传文件信息
             foreach($info as $file){
-                $image = new \Think\Image();
-                $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
-                $image->open($path);
-                $image->thumb(414, 160,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
-                $cover = __ROOT__.'/'.$path;
+                $cover = $file['url'].'?imageView2/2/h/160/w/414';
             }
-        }
-
-        $pattern = '/base64,(.*?)"/';
-        preg_match_all($pattern, $data, $match, PREG_PATTERN_ORDER);
-        foreach($match[1] as $v) {
-            $img = base64_decode($v);
-            file_put_contents('Public/tmp.png', $img);
-            $image = new \Think\Image();
-            $name = 'Public/tmp.png';
-            $image->open($name);
-            $time = md5(microtime(true));
-            $path =  'Public/uploads/topic/'.$time.'.png';
-            $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
-            $img_url[] = __ROOT__.'/'.$path;
-            $replace[] = 'src="'.__ROOT__.'/'.$path.'"';
-        }
-        $pattern1 = '/src="data:(.*?)"/';
-        foreach($replace as $r){
-            $data =  preg_replace($pattern1, $r, $data,1);
         }
 
         $topic = array(
