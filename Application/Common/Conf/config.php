@@ -26,6 +26,7 @@ return array(
         'maxSize' => 5 * 1024 * 1024,//文件大小
         'rootPath' => './',
         'saveName' => array ('uniqid', ''),
+        'exts' => array('jpg', 'jpeg'),
         'driver' => 'Qiniu',
         'driverConfig' => array (
             'secrectKey' => 't8ztPpAFx4YvjLN5euUkewyUobzMuOcbdYhKkn-W',

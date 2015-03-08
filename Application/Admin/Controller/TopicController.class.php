@@ -44,8 +44,26 @@ class TopicController extends BaseController {
                     $cover = $file['url'].'?imageView2/2/h/160/w/414';
                 }
             }
+           $pattern = '/base64,(.*?)"/';
+           preg_match_all($pattern, $data, $match, PREG_PATTERN_ORDER);
+           foreach($match[1] as $v) {
+               $img = base64_decode($v);
+               file_put_contents('Public/tmp.jpg', $img);
+               $image = new \Think\Image();
+               $name = 'Public/tmp.jpg';
+               $image->open($name);
+               $time = md5(microtime(true));
+               $path =  'Public/uploads/topic/'.$time.'.jpg';
+               $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+               $img_url[] = __ROOT__.'/'.$path;
+               $replace[] = 'src="'.__ROOT__.'/'.$path.'"';
+           }
+           $pattern1 = '/src="data:(.*?)"/';
+           foreach($replace as $r){
+               $data =  preg_replace($pattern1, $r, $data,1);
+           }
 
-            $topic = array(
+           $topic = array(
                 'title' => $title,
                 'content' => $data,
                 'pic' => $cover,
@@ -71,7 +89,24 @@ class TopicController extends BaseController {
                 $cover = $file['url'].'?imageView2/2/h/160/w/414';
             }
         }
-
+        $pattern = '/base64,(.*?)"/';
+        preg_match_all($pattern, $data, $match, PREG_PATTERN_ORDER);
+        foreach($match[1] as $v) {
+            $img = base64_decode($v);
+            file_put_contents('Public/tmp.jpg', $img);
+            $image = new \Think\Image();
+            $name = 'Public/tmp.jpg';
+            $image->open($name);
+            $time = md5(microtime(true));
+            $path =  'Public/uploads/topic/'.$time.'.jpg';
+            $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+            $img_url[] = __ROOT__.'/'.$path;
+            $replace[] = 'src="'.__ROOT__.'/'.$path.'"';
+        }
+        $pattern1 = '/src="data:(.*?)"/';
+        foreach($replace as $r){
+            $data =  preg_replace($pattern1, $r, $data,1);
+        }
         $topic = array(
             'title' => $title,
             'content' => $data,
