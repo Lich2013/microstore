@@ -1,0 +1,29 @@
+.header{
+	background-color: #3E93EF;
+	height: 100%;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+}
+.title{
+	padding-left: inherit;
+	color:white;
+    padding-top: 2%;
+	height: 0.9em;
+	line-height: 0.9em;
+}
+
+body{
+	background-color: #F1F1F2;
+	font-family: 'Microsoft YaHei';
+}
+
+#myactivc{
+	background: #3E93CF;
+	color: white;
+	font-family: inherit;
+	text-shadow: none;
+}
+
+a{
+    word-break:break-all;
+}
