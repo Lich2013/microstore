@@ -23,3 +23,7 @@ body{
 	font-family: inherit;
 	text-shadow: none;
 }
+
+a{
+    word-break:break-all;
+}
