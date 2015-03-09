@@ -6,16 +6,16 @@
 <form  action="{:U('Join/join');}" method="post" enctype="multipart/form-data">
 <div class="row" >
     <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>店铺名:</h4></div>
+  padding-right: inherit;"><h4>微店名称:</h4></div>
     <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
         <div class="form-group">
-            <input type="text" class="form-control" name="store_name" placeholder="10字以内">
+            <input type="text" class="form-control" name="store_name" placeholder="10字以内, 必填">
         </div>
     </div>
 </div>
 <div class="row" >
     <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>店铺链接:</h4></div>
+  padding-right: inherit;"><h4>您的微店链接:</h4></div>
     <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
         <div class="form-group">
             <input type="text" class="form-control" name="link" placeholder="如 www.taobao.com">
@@ -173,19 +173,20 @@
   padding-right: inherit;"><h4>个人介绍:</h4></div>
     <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
         <div class="form-group">
-            <input type="text" class="form-control" name="person_introduce" placeholder="300字以内">
+            <input type="text" class="form-control" name="person_introduce" placeholder="300字以内,可以介绍一下您的创业想法
+">
         </div>
     </div>
 </div>
 <div class="row" >
     <div class="form-group">
-        <label><h4>相关配图(jpg/jpeg格式):</h4></label>
+        <label><h4>风采照片(jpg/jpeg格式):</h4></label>
         <input type="file" name="person_pic">
     </div>
 </div>
 
 <div class="row" style="margin-bottom: 30px;">
-    <div class="col-xs-12" style="text-align: right;"><input type="submit" class="btn btn-warning"/></div>
+    <div class="col-xs-12" style="text-align: right;"><input type="submit" class="btn btn-warning" value="申请"/></div>
 </div>
 </form>
 </div>

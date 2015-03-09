@@ -41,7 +41,7 @@ class TopicController extends BaseController {
                 $this->error($upload->getError());
             }else{// 上传成功 获取上传文件信息
                 foreach($info as $file){
-                    $cover = $file['url'].'?imageView2/2/h/160/w/414';
+                    $cover = $file['url'].'?imageView2/2/h/240/w/621';
                 }
             }
            $pattern = '/base64,(.*?)"/';
@@ -54,7 +54,7 @@ class TopicController extends BaseController {
                $image->open($name);
                $time = md5(microtime(true));
                $path =  'Public/uploads/topic/'.$time.'.jpg';
-               $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+               $image->thumb(150, 195,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                $img_url[] = __ROOT__.'/'.$path;
                $replace[] = 'src="'.__ROOT__.'/'.$path.'"';
            }
@@ -86,7 +86,7 @@ class TopicController extends BaseController {
             $this->error($upload->getError());
         }else{// 上传成功 获取上传文件信息
             foreach($info as $file){
-                $cover = $file['url'].'?imageView2/2/h/160/w/414';
+                $cover = $file['url'].'?imageView2/2/h/240/w/621';
             }
         }
         $pattern = '/base64,(.*?)"/';
@@ -99,7 +99,7 @@ class TopicController extends BaseController {
             $image->open($name);
             $time = md5(microtime(true));
             $path =  'Public/uploads/topic/'.$time.'.jpg';
-            $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+            $image->thumb(150, 195,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
             $img_url[] = __ROOT__.'/'.$path;
             $replace[] = 'src="'.__ROOT__.'/'.$path.'"';
         }
