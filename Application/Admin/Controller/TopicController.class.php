@@ -54,7 +54,7 @@ class TopicController extends BaseController {
                $image->open($name);
                $time = md5(microtime(true));
                $path =  'Public/uploads/topic/'.$time.'.jpg';
-               $image->thumb(150, 195,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+               $image->thumb(200, 200,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                $img_url[] = __ROOT__.'/'.$path;
                $replace[] = 'src="'.__ROOT__.'/'.$path.'"';
            }
@@ -99,7 +99,7 @@ class TopicController extends BaseController {
             $image->open($name);
             $time = md5(microtime(true));
             $path =  'Public/uploads/topic/'.$time.'.jpg';
-            $image->thumb(150, 195,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+            $image->thumb(200, 200,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
             $img_url[] = __ROOT__.'/'.$path;
             $replace[] = 'src="'.__ROOT__.'/'.$path.'"';
         }
