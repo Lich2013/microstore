@@ -23,6 +23,7 @@ class JoinController extends BaseController {
         $realname = trim(I('post.realname'));         //卖家真实姓名
         $id_num = trim(I('post.id_num'));             //卖家身份证号
         $orign_pwd = trim(I('post.password'));        //卖家密码
+        $again_pwd = trim(I('post.passwordagain'));        //卖家确认密码
         $telephone = trim(I('post.telephone'));        //卖家电话
         $password = md5(md5($orign_pwd).'Lich');
         $manage_school_id = I('post.person_school');//店铺管理者所在学校/店铺所在学校
@@ -50,6 +51,9 @@ class JoinController extends BaseController {
         }
         if(strlen($orign_pwd)<6){
             $this->error('密码过短');
+        }
+        if($orign_pwd!=$again_pwd){
+            $this->error('两次密码不一致');
         }
         if(strlen($telephone)!=11){
             $this->error('请输入正确的手机号码');
