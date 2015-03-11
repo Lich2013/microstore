@@ -94,8 +94,8 @@ class SearchController extends BaseController {
             $store[$j]['person_id'] =  $person;
             ++$j;
         }
-        $goods_type = M('goods')->select();
-        $school = M('school')->select();
+        $goods_type = M('goods')->order('id asc')->select();
+        $school = M('school')->order('id asc')->select();
         $this->assign('goods_type', $goods_type);
         $this->assign('school', $school);
         $this->assign('store', $store);
@@ -185,7 +185,7 @@ class SearchController extends BaseController {
             $store[$j]['tags'] = $tags;
             ++$j;
         }
-        $goods_type = M('goods')->select();
+        $goods_type = M('goods')->order('id asc')->select();
         $school = M('school')->select();
         $this->assign('goods_type', $goods_type);
         $this->assign('school', $school);
