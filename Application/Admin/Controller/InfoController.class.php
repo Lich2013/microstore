@@ -52,14 +52,14 @@ class InfoController extends BaseController {
     }
 
     public function type(){
-        $info = M('goods')->select();
+        $info = M('goods')->order('id asc')->select();
         $this->assign('info', $info);
         $this->display();
 
     }
 
     public function school(){
-        $info = M('school')->select();
+        $info = M('school')->order('id asc')->select();
         $this->assign('info', $info);
         $this->display();
     }

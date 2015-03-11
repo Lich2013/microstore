@@ -6,8 +6,8 @@ class ViewController extends BaseController {
         $school = M('school');
         $goods = M('goods');
         $store = M('store');
-        $school_name = $school->select();
-        $goods_type = $goods->select();
+        $school_name = $school->order('id asc')->select();
+        $goods_type = $goods->order('id asc')->select();
         $store_num = $store->where('status = 1')->order($order)->field('id')->limit(20)->select();
         $j = 0;
         foreach($store_num as $key=>$v)
@@ -54,8 +54,8 @@ class ViewController extends BaseController {
         $school = M('school');
         $goods = M('goods');
         $store = M('store');
-        $school_name = $school->select();
-        $goods_type = $goods->select();
+        $school_name = $school->order('id asc')->select();
+        $goods_type = $goods->order('id asc')->select();
         //10
         if($school_id!=0&&$goods_id==0)
         {

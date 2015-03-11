@@ -3,8 +3,8 @@ namespace Home\Controller;
 use Think\Controller;
 class SearchController extends BaseController {
     public function index(){
-        $goods_type = M('goods')->select();
-        $school = M('school')->select();
+        $goods_type = M('goods')->order('id asc')->select();
+        $school = M('school')->order('id asc')->select();
         $this->assign('goods_type', $goods_type);
         $this->assign('school', $school);
         $this->display();
