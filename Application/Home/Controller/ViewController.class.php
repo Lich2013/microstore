@@ -15,7 +15,7 @@ class ViewController extends BaseController {
             $id = $store_num[$key]['id'];
             $type = M('store_goods')->where("store_id = $id")->join('JOIN goods ON store_goods.goods_id = goods.id')->field('type')->select();
             $tags = M('store_tag')->where("store_id = $id")->join('JOIN tags ON store_tag.tag_id = tags.id')->field('tag_name')->select();
-            $info = $store->where("id = $id")->select();
+            $info = $store->where("store.id = $id")->join('JOIN school ON store.school_id = school.id')->select();
             $uid = $info[0]['uid'];
             $hoster = M('users')->where("id = $uid")->getField('nickname');
             $person_id = M('person')->where("store_id = $id")->getField('id');
@@ -59,7 +59,11 @@ class ViewController extends BaseController {
         //10
         if($school_id!=0&&$goods_id==0)
         {
-            $store_info = $store->where("school_id = $school_id AND status = 1")->order($order)->select();
+            $store_info = $store->join('JOIN school ON store.school_id = school.id')
+                                ->where("store.school_id = $school_id AND store.status = 1")
+                                ->order($order)
+                                ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name')
+                                ->select();
 
             $i = 0;
             foreach($store_info as $v) {
@@ -72,6 +76,7 @@ class ViewController extends BaseController {
             foreach($store_info as $v) {
                 $store_id = $v['id'];
                 $goods_type1 = M('store_goods')->where("store_id = $store_id")->join('JOIN goods ON store_goods.goods_id = goods.id')->field('type')->select();
+
                 $tags = M('store_tag')->where("store_id = $store_id")->join('JOIN tags ON store_tag.tag_id = tags.id')->field('tag_name')->select();
                 $store_info[$j]['person_id'] = M('person')->where("store_id = $store_id")->getField('id');
                 $store_info[$j]['goods_type'] = $goods_type1;
@@ -89,6 +94,7 @@ class ViewController extends BaseController {
         if($school_id==0&&$goods_id!=0){
             $store_info = M('store_goods')->where("goods_id = $goods_id")
                                 ->join('JOIN store ON store_goods.store_id = store.id')
+                                ->join('JOIN school ON store.school_id = school.id')
                                 ->order($order)
                                 ->select();
             $i = 0;
@@ -121,6 +127,7 @@ class ViewController extends BaseController {
                         ->where("school_id = $school_id AND status = 1")
                         ->join('JOIN store_goods ON store.id = store_goods.store_id')
                         ->join('JOIN goods ON store_goods.goods_id = goods.id')
+                        ->join('JOIN school ON store.school_id = school.id')
                         ->where("goods_id = $goods_id")
                         ->order($order)
                         ->select();
@@ -146,6 +153,7 @@ class ViewController extends BaseController {
                 $store->where("id = $store_id")->setInc('click_num',1);
                 ++$j;
             }
+
             $this->assign('store', $store_info);
             $this->assign('school', $school_name);
             $this->assign('goods', $goods_type);
