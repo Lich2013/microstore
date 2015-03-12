@@ -41,7 +41,7 @@ class TopicController extends BaseController {
                 $this->error($upload->getError());
             }else{// 上传成功 获取上传文件信息
                 foreach($info as $file){
-                    $cover = $file['url'].'?imageView2/2/h/240/w/621';
+                    $cover = $file['url'].'?imageView2/2/h/360/w/932';
                 }
             }
            $pattern = '/base64,(.*?)"/';
@@ -86,7 +86,7 @@ class TopicController extends BaseController {
             $this->error($upload->getError());
         }else{// 上传成功 获取上传文件信息
             foreach($info as $file){
-                $cover = $file['url'].'?imageView2/2/h/240/w/621';
+                $cover = $file['url'].'?imageView2/2/h/360/w/932';
             }
         }
         $pattern = '/base64,(.*?)"/';

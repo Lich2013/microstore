@@ -17,7 +17,18 @@ class JoinController extends BaseController {
         $store_name = trim(I('post.store_name'));     //店铺名
         $goods_type_id = I('post.goods_type');  //商品类型id
         $tag_name = I('post.tag');                   //标签
-        $link = 'http://'.trim(I('post.link'));
+        $link = trim(I('post.link'));
+
+        if(strlen($link)==0){
+            $this->error('链接不能为空');
+        }
+        else{
+            if(strstr($link, 'http://')){
+                $link = $link;
+            }else{
+                $link = 'http://'.$link;
+            }
+        }
 
         $nickname = trim(I('post.nickname'));         //卖家昵称
         $realname = trim(I('post.realname'));         //卖家真实姓名
