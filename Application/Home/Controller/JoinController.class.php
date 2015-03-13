@@ -104,15 +104,18 @@ class JoinController extends BaseController {
 
         // 上传文件
         $info   =   $upload->upload();
+        if(count($info)<2){
+            $this->error('店铺首页图或风采照片未上传');
+        }
         if(!$info) {// 上传错误提示错误信息
             $this->error($upload->getError());
         }else{// 上传成功 获取上传文件信息
             foreach($info as $file){
-                $img_url[] = $file['url'].'?imageView2/2/h/363/w/363';
+                $img_url[] = $file['url'];
             }
         }
-        $store_img = $img_url[0];
-        $person_img = $img_url[1];
+        $store_img = $img_url[0].'?imageView2/5/w/121/h/121';
+        $person_img = $img_url[1].'?imageView2/2/w/363/h/363';
         $user = M('users');
         $store = M('store');
         $tag = M('tags');
