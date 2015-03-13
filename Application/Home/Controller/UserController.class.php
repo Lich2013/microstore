@@ -82,7 +82,7 @@ class UserController extends BaseController {
             $this->error($upload->getError());
         }else{// 上传成功 获取上传文件信息
             foreach($info as $file){
-                $img_url[] = $file['url'].'?imageView2/2/h/363/w/363';
+                $img_url[] = $file['url'];
             }
         }
         $store_img = $img_url[0].'?imageView2/5/w/121/h/121';
