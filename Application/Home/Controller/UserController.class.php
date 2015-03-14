@@ -87,7 +87,8 @@ class UserController extends BaseController {
         }
         $store_img = $img_url[0].'?imageView2/5/w/121/h/121';
         $person_img = $img_url[1].'?imageView2/2/w/363/h/363';
-        $new_storedata = array(
+        $data['person_introduce'] = str_replace(array("\r\n",'\r','\n'), '<br/>',$data['person_introduce']);
+            $new_storedata = array(
             'store_name' => trim($data['store_name']),
             'link' => trim($data['store_link']),
             'show_pic'=> $store_img,

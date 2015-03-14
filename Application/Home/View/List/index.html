@@ -38,33 +38,35 @@
 <volist name="store" id="vo">
     <div class="row" style="margin: inherit;padding-bottom: 10px;">
         <div class="col-xs-12">
-            <div class="row" style="background: white;padding-top: 1em;display: flex;">
-                <div class="col-xs-4" style="width: 50%;margin: auto;">
-                    <img src="{$vo.show_pic}" class="img-responsive" alt="Responsive image">
+            <a href="{$vo.link}">
+                <div class="row" style="background: white;padding-top: 1em;display: flex;">
+                    <div class="col-xs-4" style="width: 50%;margin: auto;">
+                        <img src="{$vo.show_pic}" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-xs-8" style="padding-left:inherit;width: 50%;">
+                        <div class="row">
+                            <div class="col-xs-12"><h4>{$vo.store_name}</h4></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><p>商品: <php>foreach($vo['goods_type'] as $v){echo $v['type'].'  ';}</php></p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><p>学校: {$vo['school_name']}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><p>标签: <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">卖家: {$vo.nickname}</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-8" style="padding-left:inherit;width: 50%;">
-                    <div class="row">
-                        <div class="col-xs-12"><h4>{$vo.store_name}</h4></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12"><p>商品: <php>foreach($vo['goods_type'] as $v){echo $v['type'].'  ';}</php></p></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12"><p>学校: {$vo['school_name']}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12"><p>标签: <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></p></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">卖家: {$vo.nickname}</div>
+                <div class="row" style="background: white;padding-bottom: 1em;">
+                    <div class="col-xs-12" style="padding-top: 1em;">
+                        <a href="{:U('Person/index')}?person_id={$vo.person_id}"><button class="btn btn-warning">查看卖家风采</button></a>
                     </div>
                 </div>
-            </div>
-            <div class="row" style="background: white;padding-bottom: 1em;">
-                <div class="col-xs-12" style="padding-top: 1em;">
-                    <a href="{:U('Person/index')}?person_id={$vo.person_id}"><button class="btn btn-warning">查看卖家风采</button></a>
-                </div>
-            </div>
+            </a>
         </div>
     </div>
 </volist>
