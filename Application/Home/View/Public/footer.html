@@ -15,6 +15,77 @@
         $(".right.carousel-control").click();
     });
 
+    function type(data){
+        for(var j=0;j < data.length; j++)
+        {
+           return data[j].type;
+        }
+    }
+    function tag(data){
+        var tags=" ";
+        for(var j=0;j < data.length; j++)
+        {
+             tags = tags + data[j].tag_name+" ";
+        }
+        return tags;
+    }
+    $("#more").on('click', function(){
+        $.ajax({
+            url: "{:U('View/ajaxview')}",
+
+            type: 'get',
+
+            data:{},
+
+            dataType: 'json',
+
+            timeout: 10000,
+
+            error: function(){alert('出现错误了...刷新一下试试!');},
+
+            success: function(data){
+               console.log(data);
+                for(var i = 0; i < data.length; i++){
+                    var store = "<div class='row add' style='margin: inherit;padding-bottom: 10px;'>"+
+                    "<div class='col-xs-12'>"+
+                    "<a href='"+data[i].link+"'>"+
+                    "<div class='row' style='background: white;padding-top: 1em;display: flex;'>"+
+                    "<div class='col-xs-4' style='width: 50%;margin: auto;'>"+
+                    "<img src='"+data[i].show_pic+"' class='img-responsive' alt='Responsive image'>"+
+                    "</div>"+
+                    "<div class='col-xs-8' style='padding-left:inherit;width: 50%;'>"+
+                    "<div class='row'>"+
+                    "<div class='col-xs-12'><h4>"+data[i].store_name+"</h4></div>"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "<div class='col-xs-12'><p>商品:"+type(data[i].goods_type)+"</p></div>"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "<div class='col-xs-12'><p>学校:"+data[i].school_name+"</p></div>"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "<div class='col-xs-12'><p>标签:"+ tag(data[i].tags)+"</p></div>"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "<div class='col-xs-12'>卖家:"+data[i].nickname+"</div>"+
+                    "</div>"+
+                    "</div>"+
+                    "</div>"+
+                    "<div class='row' style='background: white;padding-bottom: 1em;'>"+
+                    "<div class='col-xs-12' style='padding-top: 1em;'>"+
+                    "<a href='{:U('Person/index')}?person_id="+data[i].person_id+"'><button class='btn btn-warning'>查看卖家风采</button></a>"+
+                    "</div>"+
+                    "</div>"+
+                    "</a>"+
+                    "</div>"+
+                    "</div>";
+                    $("#more").before(store);
+                    $("#more").prev().hide().fadeIn(1500);
+                }
+
+            }
+        });
+    })
 
 </script>
 </body>

@@ -33,6 +33,29 @@ class ViewController extends BaseController {
         $this->display('index');
     }
 
+    public function ajaxview($order = 'rand()'){
+        $store = M('store');
+        $store_num = $store->where('status = 1')->order($order)->field('id')->limit(20)->select();
+        $j = 0;
+        foreach($store_num as $key=>$v)
+        {
+            $id = $store_num[$key]['id'];
+            $type = M('store_goods')->where("store_id = $id")->join('JOIN goods ON store_goods.goods_id = goods.id')->field('type')->select();
+            $tags = M('store_tag')->where("store_id = $id")->join('JOIN tags ON store_tag.tag_id = tags.id')->field('tag_name')->select();
+            $info = $store->where("store.id = $id")->join('JOIN school ON store.school_id = school.id')->select();
+            $uid = $info[0]['uid'];
+            $hoster = M('users')->where("id = $uid")->getField('nickname');
+            $person_id = M('person')->where("store_id = $id")->getField('id');
+            $store_info[$j]= $info[0];
+            $store_info[$j]['goods_type'] = $type;
+            $store_info[$j]['tags'] = $tags;
+            $store_info[$j]['nickname'] = $hoster;
+            $store_info[$j]['person_id'] = $person_id;
+            $store->where("id = $id")->setInc('click_num',1);
+            ++$j;
+        }
+        $this->ajaxReturn($store_info);
+    }
 
     public function view(){
         $school_id = I('post.school_id');
