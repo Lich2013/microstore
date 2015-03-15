@@ -101,8 +101,8 @@
             </div>
         </div>
     </volist>
-
-            <div id="more" class="row" style="background: white;padding-bottom: 1em;margin-left: inherit;margin-right: inherit;text-align: center;">
-                <div class="col-xs-12" style="padding-top: 1em;">点击加载更多</div>
-            </div>
+<php>
+    if("__ACTION__" == "/index.php/Home/View/index")
+    echo '<div id="more" class="row" style="background: white;padding-bottom: 1em;margin-left: inherit;margin-right: inherit;text-align: center;"><div class="col-xs-12" style="padding-top: 1em;">点击加载更多</div></div>'
+</php>
 <include file="Public/footer" />
