@@ -75,19 +75,19 @@
                 </div>
                 <div class="col-xs-8" style="padding-left:inherit;width: 50%;">
                     <div class="row">
-                        <div class="col-xs-12"><h4>{$vo.store_name}</h4></div>
+                        <div class="col-xs-12" style="color: #333333"><h4>{$vo.store_name}</h4></div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12"><p>商品: <php>foreach($vo['goods_type'] as $v){echo $v['type'].'  ';}</php></p></div>
+                        <div class="col-xs-12" style="color: #666666"><p>商品: <php>foreach($vo['goods_type'] as $v){echo $v['type'].'  ';}</php></p></div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12"><p>学校: {$vo['school_name']}</php></p></div>
+                        <div class="col-xs-12" style="color: #666666"><p>学校: {$vo['school_name']}</php></p></div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12"><p>标签: <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></p></div>
+                        <div class="col-xs-12" style="color: #666666"><p>标签: <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></p></div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12">卖家: {$vo.nickname}</div>
+                        <div class="col-xs-12" style="color: #666666">卖家: {$vo.nickname}</div>
                     </div>
                 </div>
             </div>
