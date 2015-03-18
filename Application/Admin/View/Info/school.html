@@ -112,6 +112,8 @@
         });
     });
     $(".delete").live("click",function(){
+        alert('该功能仅供部署时使用');
+        return;
         var id = $(this).parent().parent().children(":first").children(":first").val();
 
         $.ajax({
