@@ -157,11 +157,12 @@ class SearchController extends BaseController {
             ->join('JOIN store_tag ON store.id = store_tag.store_id')
             ->join('JOIN tags ON store_tag.tag_id = tags.id')
             ->join('JOIN users ON store.uid = users.id')
+            ->join('JOIN school ON store.school_id = school.id')
             ->where($map)
             ->where('status = 1')
             ->group('store.id')
             ->order('store.click_num desc')
-            ->field('store.id, store.uid, show_pic, link, store_name')
+            ->field('store.id, store.uid, show_pic, link, store_name, school_name')
             ->select();
 
         $i = 0;
