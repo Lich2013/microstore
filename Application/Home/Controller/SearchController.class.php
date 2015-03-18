@@ -91,7 +91,7 @@ class SearchController extends BaseController {
             $person = M('person')->where("store_id = $store_id")->getField('id');
             $store[$j]['goods_type'] = $goods_type;
             $store[$j]['tags'] = $tags;
-            $store[$j]['person_id'] =  $person;
+            $store[$j]['person_id'] = $person;
             ++$j;
         }
         $goods_type = M('goods')->order('id asc')->select();
@@ -182,8 +182,10 @@ class SearchController extends BaseController {
                 $tag_id = $val['tag_id'];
                 M('tags')->where("id = $tag_id")->setInc('click_num',1);
             }
+            $person = M('person')->where("store_id = $store_id")->getField('id');
             $store[$j]['goods_type'] = $goods_type;
             $store[$j]['tags'] = $tags;
+             $store[$j]['person_id'] = $person;
             ++$j;
         }
         $goods_type = M('goods')->order('id asc')->select();
