@@ -18,7 +18,7 @@ class ViewController extends BaseController {
             $info = $store->where("store.id = $id")->join('JOIN school ON store.school_id = school.id')->select();
             $uid = $info[0]['uid'];
 			$map['id'] = $uid;
-            $hoster = M('users')->where($map)->find()['nickname'];
+            $hoster = M('users')->where($map)->getField('nickname');
             $person_id = M('person')->where("store_id = $id")->getField('id');
             $store_info[$j]= $info[0];
             $store_info[$j]['goods_type'] = $type;
