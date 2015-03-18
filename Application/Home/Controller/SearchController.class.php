@@ -18,7 +18,7 @@ class SearchController extends BaseController {
         $store_name = '%'.$content.'%';
 
         if($data['school_id']!=0){
-            $school_id = $data['school_id'];
+            $school_id = '%'.$data['school_id'].'%';
            $map1['store.school_id'] = array('like',$school_id); $map2['store.school_id'] = array('like',$school_id); $map3['store.school_id'] = array('like',$school_id);
         }
         else{
@@ -27,7 +27,7 @@ class SearchController extends BaseController {
         }
 
         if($data['goods_type']!=0){
-            $goods_type = $data['goods_type'];
+            $goods_type = '%'.$data['goods_type'].'%';
             $map1['goods_id'] = array('like',$goods_type);$map2['goods_id'] = array('like',$goods_type);$map3['goods_id'] = array('like',$goods_type);
         }
         else{
