@@ -75,37 +75,59 @@ class UserController extends BaseController {
         $upload = new \Think\Upload($setting);// 实例化上传类
         // 上传文件
         $info   =   $upload->upload();
-        if(count($info)<2){
+        if($info!=null&&count($info)<2){
             $this->error('店铺首页图或风采照片未上传');
         }
-        if(!$info) {// 上传错误提示错误信息
-            $this->error($upload->getError());
-        }else{// 上传成功 获取上传文件信息
-            foreach($info as $file){
-                $img_url[] = $file['url'];
+        elseif(count($info)==1)
+        {}
+        else{
+            if(!$info) {// 上传错误提示错误信息
+                $this->error($upload->getError());
+            }else{// 上传成功 获取上传文件信息
+                foreach($info as $file){
+                    $img_url[] = $file['url'];
+                }
             }
         }
+        if($img_url[0]!=null)
         $store_img = $img_url[0].'?imageView2/5/w/121/h/121';
+        if($img_url[1]!=null)
         $person_img = $img_url[1].'?imageView2/2/w/363/h/363';
-        $data['person_introduce'] = str_replace(array("\r\n",'\r','\n'), '<br/>',$data['person_introduce']);
+        if($store_img!=null){
+                $new_storedata = array(
+                'store_name' => trim($data['store_name']),
+                'link' => trim($data['store_link']),
+                'show_pic'=> $store_img,
+                'telephone' => trim($data['telephone']),
+            );
+        }
+        else{
             $new_storedata = array(
-            'store_name' => trim($data['store_name']),
-            'link' => trim($data['store_link']),
-            'show_pic'=> $store_img,
-            'telephone' => trim($data['telephone']),
-        );
+                'store_name' => trim($data['store_name']),
+                'link' => trim($data['store_link']),
+                'telephone' => trim($data['telephone']),
+            );
+        }
         $new_goodstype = array(
             'type_id' => $data['goods_type'],
         );
-        $new_persondata = array(
-            'name' => trim($data['person_name']),
-            'major' => trim($data['person_major']),
-            'introduce' => trim($data['person_introduce']),
-            'photo' => $person_img,
-
-            'school_id' => $data['person_school'],
-        );
-
+        if($person_img!=null){
+            $new_persondata = array(
+                'name' => trim($data['person_name']),
+                'major' => trim($data['person_major']),
+                'introduce' => trim($data['person_introduce']),
+                'photo' => $person_img,
+                'school_id' => $data['person_school'],
+            );
+        }
+        else{
+            $new_persondata = array(
+                'name' => trim($data['person_name']),
+                'major' => trim($data['person_major']),
+                'introduce' => trim($data['person_introduce']),
+                'school_id' => $data['person_school'],
+            );
+        }
         foreach($data['tags_id'] as $key => $value){
             $new_tag = array('tag_name' =>trim($data['tags'][$key]));
 

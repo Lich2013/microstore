@@ -103,7 +103,7 @@ class JoinController extends BaseController {
         $upload = new \Think\Upload($setting);// 实例化上传类
 
         // 上传文件
-        $info   =   $upload->upload();
+        $info  =  $upload->upload();
         if(count($info)<2){
             $this->error('店铺首页图或风采照片未上传');
         }
@@ -116,7 +116,6 @@ class JoinController extends BaseController {
         }
         $store_img = $img_url[0].'?imageView2/5/w/121/h/121';
         $person_img = $img_url[1].'?imageView2/2/w/363/h/363';
-        $data['person_introduce'] = str_replace(array("\r\n",'\r','\n'), '<br/>',$data['person_introduce']);
         $user = M('users');
         $store = M('store');
         $tag = M('tags');

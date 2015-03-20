@@ -9,6 +9,7 @@ class PersonController extends BaseController {
         $store_id = $info[0]['store_id'];
 		$map['id'] = $store_id;
         $store = M('store')->where($map)->getField('link');
+        $info[0]['introduce'] = str_replace(array("\r\n",'\r','\n'), '<br/>', $info[0]['introduce']);
         $this->assign('person_info', $info[0]);
         $this->assign('link', $store);
         $this->display();
