@@ -87,7 +87,11 @@ class SearchController extends BaseController {
             $store_id = $v['id'];
             M('store')->where("id = $store_id")->setInc('click_num',1);
             $goods_type = M('store_goods')->where("store_id = $store_id")->join('JOIN goods ON store_goods.goods_id = goods.id')->field('type')->select();
-            $tags = M('store_tag')->where("store_id = $store_id")->join('JOIN tags ON store_tag.tag_id = tags.id')->field('tag_name')->select();
+            $tags = M('store_tag')->where("store_id = $store_id")->join('JOIN tags ON store_tag.tag_id = tags.id')->field('tag_name, tag_id')->select();
+            foreach($tags as $val){
+                $tag_id = $val['tag_id'];
+                M('tags')->where("id = $tag_id")->setInc('click_num',1);
+            }
             $person = M('person')->where("store_id = $store_id")->getField('id');
             $store[$j]['goods_type'] = $goods_type;
             $store[$j]['tags'] = $tags;
