@@ -199,4 +199,28 @@ class SearchController extends BaseController {
         $this->assign('store', $store);
         $this->display('search');
     }
+
+    private $page;
+    private $perpage;
+    public function test(){
+        $page = $_GET['page']? $_GET['page']:'1';
+        $perpage = 10;
+        
+        $Model = new \Think\Model(); // 实例化一个model对象 没有对应任何数据表
+        $totalrows = $Model->query("SELECT count(*) as num FROM `store` LIMIT 1");
+        
+        $totalpages = ceil(($totalrows[0]['num'])/$perpage);
+        $page = $page>$totalpages? $totalpages:$page;
+        
+        $offset = ($page-1) * $perpage;
+        $result = $Model->query("SELECT * FROM `store` order by `id` LIMIT $offset, $perpage ");
+        
+        echo '共'.$totalpages.'页,当前为第'.$page.'页'.'<br/>';
+        echo '<a href="test?page=1">1</a>'.'<br/>'.'<a href="test?page=2">2</a>';
+        var_dump($result);
+    }
+
+    private function getData(){
+
+    }
 }
