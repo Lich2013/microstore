@@ -26,8 +26,8 @@ class SearchController extends BaseController {
            $map1['store.school_id'] = array('like',$school_id); $map2['store.school_id'] = array('like',$school_id); $map3['store.school_id'] = array('like',$school_id);
         }
 
-        if($data['goods_type']!=0){
-            $goods_type = $data['goods_type'];
+        if($data['goods_id']!=0){
+            $goods_type = $data['goods_id'];
             $map1['goods_id'] = array('like',$goods_type);$map2['goods_id'] = array('like',$goods_type);$map3['goods_id'] = array('like',$goods_type);
         }
         else{
@@ -61,7 +61,6 @@ class SearchController extends BaseController {
         $map3['nickname'] = array('like',array($seller));
         $map['_complex'] = array($map1, $map2, $map3,'_logic'=>'or');
         $map['_logic'] = 'and';
-
 
         $store = M('store')
                 ->join('JOIN store_goods ON store.id = store_goods.store_id')
