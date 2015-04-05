@@ -18,7 +18,9 @@
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="__PUBLIC__/css/reset.css"/>
     <link rel="stylesheet" href="__PUBLIC__/css/mystyle.css">
+
 
 </head>
 <body>
@@ -28,25 +30,33 @@
 <div class="container-fluid">
 
     <!-- header -->
+    <div class="row">
+        <div class="col-xs-12 header_margin">
+
+        </div>
+    </div>
+
     <div class="row header">
+
         <a href="{:U('View/index')}">
             <div class="col-xs-3">
                 <img src="__PUBLIC__/images/logo.png" class="img-responsive" style="max-width: 42px;max-height: 42px;">
             </div>
         </a>
         <div class="col-xs-4 title" style="padding-left: inherit">
-				<span><div class="row" >
-                    <div class="col-xs-12" style="padding-left: inherit;padding-right: inherit">团团微店</div>
-                </div>
-				<div class="row">
-                    <div class="col-xs-12" style="font-size: smaller;padding-left: inherit;padding-right: inherit;padding-top: 0.3em;">——重庆学子的创业家园</div>
-                </div></span>
+				<span class="theme">重邮创业谷</span>
         </div>
-        <div class="col-xs-2" style="padding-left: inherit;padding-top: 0.6em;">
-                    <a href="{:U('Join/index');}"><button class="btn btn-xs btn-warning">申请入驻</button></a>
+        <div style="float:right ;margin-right:20px;margin-top:10px">
+            <a href="javascript:void(0)"><img class="slide_down" src="__PUBLIC__/images/slide_down.png" alt=""/></a>
+            <ul>
+                <li><a href="{:U('Join/index');}"><button class="btn btn-xs btn-warning" style="background: #ff6e41;width:60px;height:40px;padding:0">申请入驻</button></a></li>
+                <li><a href="{:U('Login/index');}"><button class="btn btn-xs btn-info" style="background: #ff6e41;width:60px;height:40px;padding:0">卖家登陆</button></a></li>
+            </ul>
+
         </div>
-        <div class="col-xs-2" style="padding-top: 0.6em;">
-            <a href="{:U('Login/index');}"><button class="btn btn-xs btn-info" style="background: #459BD6;">卖家登陆</button></a>
-        </div>
+
+
+
+
 
     </div>
