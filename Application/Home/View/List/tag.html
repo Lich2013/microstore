@@ -1,0 +1,50 @@
+<include file="Public/header" />
+<include file="Public/nav" />
+<div class="row">
+    <div class="col-xs-12" style="text-align: center; padding-top:10px;">
+        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+            <a href="{:U('View/index');}" class="btn btn-default"  role="button">商品浏览</a>
+            <a href="{:U('List/index');}" class="btn btn-default"  id="myactivc" role="button">排行榜</a>
+            <a href="{:U('Search/index');}" class="btn btn-default" role="button">搜索</a>
+        </div>
+    </div>
+</div>
+<!-- 排序方式 -->
+<div class="row" style="padding-top:10px;padding-bottom:10px;text-align: center;">
+
+    <div class="col-xs-6" style="padding-right: inherit">
+        <div class="radio">
+            <label>
+                <a href="{:U('List/index');}" style="color: #000000">
+                    <input type="radio" name="order_id" value="0">
+                    最热店家Top10
+                </a>
+            </label>
+        </div>
+    </div>
+
+    <div class="col-xs-6" style="padding-left: inherit;">
+        <div class="radio">
+            <label>
+                <a href="{:U('List/tag');}" style="color: #000000">
+                    <input type="radio" name="order_id" value="1" checked>
+                    最热标签Top10
+                </a>
+            </label>
+        </div>
+    </div>
+</div>
+
+<volist name="tags" id="vo" >
+    <a href="{:U('Search/tag')}?tag_name={$vo.tag_name}">
+        <div class="row" style="margin: inherit;margin-bottom: 1em;background: white;  border-radius: 4px;">
+            <div class="col-xs-12" style="padding-bottom: 0.8em;padding-top: 0.8em;font-size: large;">{$i} . {$vo.tag_name}</div>
+        </div>
+    </a>
+</volist>
+<include file="Public/footer" />
+<script>$('input').change(function(){
+    console.log($(this).parent().attr('href'));
+    var link = $(this).parent().attr('href');
+    window.location.href=link;
+})</script>

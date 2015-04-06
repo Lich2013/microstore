@@ -1,0 +1,39 @@
+<include file="Public/header" />
+<div class="row">
+    <div class="col-xs-12"><h3>登录</h3></div>
+</div>
+<form action="{:U('Login/login');}" method="post">
+    <div class="row" >
+        <div class="col-xs-4" style="text-align: left;padding-left: inherit;
+      padding-right: inherit;"><h4>真实姓名:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="realname" placeholder="请输入真实姓名">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-4" style="text-align: left;padding-left: inherit;
+      padding-right: inherit;"><h4>身份证号码:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="idcard" placeholder="请输入身份证号码">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-4" style="text-align: left;padding-left: inherit;
+      padding-right: inherit;"><h4>密码:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="请输入密码">
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-xs-12" style="text-align: right;"><input type="submit" class="btn btn-warning" value="登录"/></div>
+    </div>
+</form>
+</div>
+</body>
+</html>

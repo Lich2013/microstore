@@ -1,0 +1,135 @@
+<include file="Public/header" />
+
+<div class="row">
+    <div class="col-xs-12" style="padding-left: inherit"><p style="font-size: 22px;margin-bottom:10px">商户管理</p></div>
+</div>
+<form  action="{:U('Join/join');}" method="post" enctype="multipart/form-data">
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>店铺名:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="text" class="form-control" name="store_name" placeholder="10字以内, 必填">
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>微店链接:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="text" class="form-control" name="link" placeholder="复制粘贴您的微店网址,必填
+">
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>经营商品类型:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <select class="form-control" name="goods_type">
+            <volist name="goods_type" id="type">
+                <option value="{$type.id}">{$type.type}</option>
+            </volist>
+        </select>
+    </div>
+</div>
+<div class="row" style="padding-top: 0.5em;">
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签1:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="text" class="form-control" name="tag[]" placeholder="向用户介绍店铺业务,3字以内,必填">
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签2:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="text" class="form-control" name="tag[]" placeholder="3字以内, 选填">
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签3:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="text" class="form-control" name="tag[]" placeholder="3字以内, 选填">
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签4:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="text" class="form-control" name="tag[]" placeholder="3字以内, 选填">
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>标签5:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="text" class="form-control" name="tag[]" placeholder="3字以内, 选填">
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="form-group">
+    <label><h4>店铺首页图(jpg/jpeg格式, 5M以内):</h4></label>
+    <input type="file" name="store_pic">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12" style="padding-left: inherit"><p style="font-size: 22px;margin-bottom:10px">商户管理者信息</p></div>
+</div>
+
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>密码重置:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="请输入6位以上密码">
+        </div>
+    </div>
+</div>
+
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>联系方式:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="text" class="form-control" name="telephone" placeholder="请输入手机号码">
+        </div>
+    </div>
+</div>
+
+<div class="row" >
+    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>个人风采展示:</h4></div>
+    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="form-group">
+            <input type="text" class="form-control" name="person_name" placeholder="请输入姓名">
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="form-group">
+        <label><h4>风采照片(jpg/jpeg格式, 5M以内):</h4></label>
+        <input type="file" name="person_pic">
+    </div>
+</div>
+
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-xs-12" style="text-align: right;"><input type="submit" class="btn btn-warning" value="申请"/></div>
+</div>
+</form>
+</div>
+</body>
+</html>

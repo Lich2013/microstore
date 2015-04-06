@@ -1,0 +1,140 @@
+<include file="Public/header" />
+<div id="main-content">
+
+    <h2>Welcome</h2>
+
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+    <div class="content-box">
+        <!-- Start Content Box -->
+        <div class="content-box-header">
+            <h3>商品类型管理</h3>
+            <div class="clear"></div>
+        </div>
+        <!-- End .content-box-header -->
+        <div class="content-box-content">
+            <div class="tab-content default-tab" id="tab1">
+                <!-- This is the target div. id must match the href of this div's tab -->
+            </div>
+            <table>
+                    <thead>
+                    <tr>
+                        <!--<th>-->
+                            <!--<input class="check-all" type="checkbox" />-->
+                        <!--</th>-->
+                        <th>商品类型</th>
+                        <th>修改类型</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <td colspan="6">
+                            <div class="bulk-actions align-left">
+                                <form action="{:U('Info/typeAdd')}" method="post">
+                                    <div>------------添加商品类型------------------</div>
+                                    <div>&nbsp;</div>
+                                    <div>
+                                        <input type="text" placeholder="新的商品类型" class="text-input" name="new_type"/>
+                                    </div>
+                                    <div>&nbsp;</div>
+                                    <div><input type="submit" class="button"/></div>
+                                </form>
+                            </div>
+                            <div class="pagination">
+                                <a href="">{$page}</a>
+                                <!--<a href="#" title="First Page">&laquo; First</a>-->
+                                <!--<a href="#" title="Previous Page">&laquo; Previous</a>-->
+                                <!--<a href="#" class="number" title="1">1-->
+                                <!--<a href="#" class="number" title="2">2</a>-->
+                                <!--<a href="#" class="number" title="3">3</a>-->
+                                <!--<a href="#" class="number" title="4">4</a>-->
+                                <!--<a href="#" title="Next Page">Next &raquo;</a><a href="#" title="Last Page">Last &raquo;</a>-->
+                            </div>
+                            <!-- End .pagination -->
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                        <volist name="info" id="vo">
+                            <tr>
+                                <td style="display: none">
+                                    <input type="checkbox" value="{$vo.id}" name="store_id[]"/>
+                                </td>
+                                <td>
+                                    {$vo.type}
+                                </td>
+                                <td>
+                                    <div><input type="text"  name="store_name" placeholder="修改商品类型" style="padding: 6px;border-radius: 4px;border: 1px solid #d5d5d5"/></div></td>
+                                <td>
+                                    <a href="#" title="通过" class="pass" value="1"><img src="__PUBLIC__/resources/images/icons/tick_circle.png" alt="通过" /></a>
+                                    <a href="#" title="删除" class="delete" value="2"><img src="__PUBLIC__/resources/images/icons/cross_circle.png" alt="删除" /></a>
+                                </td>
+                            </tr>
+                        </volist>
+                    </tbody>
+            </table>
+        </div>
+        <!-- End #tab1 -->
+
+    </div>
+    <!-- End .content-box-content -->
+</div>
+<!-- End .content-box -->
+
+<!-- End #main-content -->
+</div>
+<script>
+    $(".pass").live("click",function(){
+        var id = $(this).parent().parent().children(":first").children(":first").val();
+        var new_type = $(this).parent().parent().children(":first").next().next().children(":first").val();
+        $.ajax({
+            url: "{:U('Info/typeUpdate')}",
+
+            type: 'post',
+
+            data:{"id":id, "new_type":new_type},
+
+            dataType: 'json',
+
+            timeout: 10000,
+
+            error: function(){alert('出现错误了...刷新一下试试!');},
+
+            success: function(data){
+                if(data == 200 ){
+                    location.reload();
+                }
+            }
+        });
+    });
+    $(".delete").live("click",function(){
+        alert('该功能仅供部署时使用');
+        return;
+        var id = $(this).parent().parent().children(":first").children(":first").val();
+        $.ajax({
+            url: "{:U('Info/typeDelete')}",
+
+            type: 'post',
+
+            data:{"id":id},
+
+            dataType: 'json',
+
+            timeout: 10000,
+
+            error: function(){alert('出现错误了...刷新一下试试!');},
+
+            success: function(data){
+                if(data == 200 ){
+                    location.reload();
+                }
+            }
+        });
+    });
+</script>
+</body>
+
+</html>
