@@ -16,10 +16,10 @@ class CommentController extends BaseController {
             );
             $this->ajaxReturn($data);
         }
+        $openid = 'ouRCyjsclD159BqGL-CgxtkPo7nM';
         if(!$openid) {
             $this->ajaxReturn('请通过重邮小帮手进入!');
         }
-        $openid = 'ouRCyjsclD159BqGL-CgxtkPo7nM';
         $time = time();
         $string = md5($time);
         $secret = sha1(sha1($time).md5($string)."redrock");
@@ -39,7 +39,6 @@ class CommentController extends BaseController {
         curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
         $return = json_decode(curl_exec ( $ch ));
         curl_close ( $ch );
-
         if($return->status != 200) {
             $data = array(
                 'status' => 200,
@@ -56,7 +55,7 @@ class CommentController extends BaseController {
                 'head' => $return->data->headimgurl,
                 'time' => time()
             );
-           if(M('comment')->data($data)->save()) {
+           if(M('comment')->data($data)->add()) {
             $success = array(
                 'status' => 200,
                 'success' => '评论成功!'
