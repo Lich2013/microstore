@@ -30,8 +30,10 @@ class ListController extends BaseController {
 
     //标签排行榜
     public function tag(){
+        $school_id = I('param.school_id')?I('param.school_id'):'%';
+        $map['school_id']  = array('LIKE',$school_id);
         $map['tag_name'] = array('NEQ', '');
-        $tags = M('tags')->where($map)->order('click_num desc')->group('tag_name')->limit(10)->select();
+        $tags = M('tags')->join('JOIN store_tag ON tags.id = store_tag.tag_id')->join('JOIN store ON store_tag.store_id = store.id')->where($map)->order('tags.click_num desc')->group('tag_name')->limit(10)->select();
         $this->assign('tags', $tags);
         $this->display();
     }
