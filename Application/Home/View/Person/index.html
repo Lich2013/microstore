@@ -71,9 +71,46 @@
 
     </div>
     <p style="margin:20px;font-size:22px">我来评价</p>
-    <input style="width:90%;height:30px;margin:0 auto;display:block" type="text"/>
+    <input id="content" placeholder="100字以内" style="width:90%;height:30px;margin:0 auto;display:block" type="text"/>
     <button style="float:right;margin:20px" class="btn btn-warning">发表</button>
 </div>
 </div>
+<script>
+    $(".btn").onclick(function() {
+        if($("#content").html().length() >100) {
+            alert("您输入的内容超过100字!");
+            return;
+
+        }
+        $.ajax({
+            url:"##",
+            type:"post",
+            data:{
+                "content":$("#content").html(),
+                "openid":{session}
+            },
+            timeout: 10000,
+
+            error: function(){alert('出现错误了...刷新一下试试!');},
+
+            dataType:'json',
+
+            success:function(data){
+                alert(data.info);
+                var comment = "<div class='container' style='border-top:1px #dddddd solid;padding:5px;border-bottom:1px #dddddd solid'>;
+
+                comment+='<div style="float:left;width:40px;height:40px;border-radius:100%;overflow: hidden">';
+                comment+='<img src="__PUBLIC__/images/buyer_logo.png" alt=""/></div>';
+
+                comment+='<div style="float:right;width:85%">';
+                comment+='<p style="color:#333333;margin-bottom:10px;">村里没有巧克力</p>';
+                comment+='<p style="color:#666666">老板人很好，东西也很喜欢</p>';
+                comment+='<span style="float:right" class="time">2015 04 04</span></div></div>'
+
+
+            }
+        })
+    })
+</script>
 </body>
 </html>
