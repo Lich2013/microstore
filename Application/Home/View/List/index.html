@@ -1,5 +1,13 @@
 <include file="Public/header" />
 <include file="Public/nav" />
+<style>
+    .clear:after{
+        content:"";
+        height:0;
+        clear:both;
+        display:block;
+    }
+</style>
 <div class="row">
     <div class="col-xs-12" style="text-align: center; padding-top:10px;">
         <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
@@ -35,6 +43,49 @@
         </div>
     </div>
 <!-- 店铺展示 -->
+
+
+    <div   style="widty:80%;margin:10px auto;background-color:white;border-radius:5px;box-shadow: 0 0 6px #ccc">
+        <a href="#" style="display: inline-block;width:100%">
+            <div class="clear" style="margin:20px">
+                <div style="width:20%">
+                <div  style="float:left;width:50px;height:50px;border-radius:100%;overflow: hidden">
+                    <img src="__PUBLIC__/images/buyer_logo.png" swtyle="width: 50px;" alt=""/>
+                </div>
+                </div>
+                <div style="float:right;height:50px;width:78%">
+                    <p class="store_name" style="font-size: 22px;margin-bottom:4px;color:#333333">村里没有巧克力</p>
+                    <p style="margin:4px" >学校：<span class="kind">淘宝商家</span></p>
+                    <p style="margin:4px" class="intro">简介：<span class="detail">芭芭拉</span></p>
+                </div>
+            </div>
+
+            <div style="width:100%;margin-left:20px;overflow:hidden;margin-top:25px;">
+                <div style="width:51%;float:left">
+                    <img style="width:20px;" src="__PUBLIC__/images/tag.png" alt=""/>
+                    <span style="color:#999999" class="tags">便宜 实用 好看 实惠</span>
+
+                </div>
+                <div style="width:49%;float:right">
+                    <span style="overflow:hidden">店主：<span class="buyer" style="color:#479eff">村里没有巧克力</span></span>
+                </div>
+            </div>
+            <div class="shop_infro" style="width:100%;height:50px;background-color: white">
+                <div style="width:100%;height:45px;background-color:#fbfbfb;border-top:1px solid #999999;padding-top:4px;margin-top:10px;float:right">
+                    <div style="width:240px;;float:right">
+                        <img style="width:28px"  src="__PUBLIC__/images/view.png" alt=""/>
+                        <span class="view_count">213</span>
+                        <img  style="width:24px;margin-left: 15px;" src="__PUBLIC__/images/comments.png" alt=""/>
+                        <span class="comment_count">123</span>
+                        <button class="btn btn-warning">进入卖家店铺</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </a>
+    </div>
+
 <volist name="store" id="vo">
     <div class="row" style="margin: inherit;padding-bottom: 10px;">
         <div class="col-xs-12">

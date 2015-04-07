@@ -1,10 +1,47 @@
 <!-- 导航-->
-<div class="row">
-    <div class="col-xs-12" style="text-align: center; padding-top:10px;">
-        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-            <a href="{:U('View/index');}" class="btn btn-default" id="myactivc" role="button">商品浏览</a>
-            <a href="{:U('List/index');}" class="btn btn-default"   role="button">排行榜</a>
-            <a href="{:U('Search/index');}" class="btn btn-default" role="button">搜索</a>
+<!--<div class="row">-->
+    <!--<div class="col-xs-12" style="text-align: center; padding-top:10px;">-->
+            <!--<div class="col-xs-4"><a href="" class="btn btn-default" id="myactivc" role="button">商品浏览</a></div>-->
+            <!--<div class="col-xs-4"><a href="" class="btn btn-default"   role="button">排行榜</a></div>-->
+            <!--<div class="col-xs-4"><a href="">搜索</a></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<style>
+    @font-face {font-family: 'iconfont';
+        src: url('__PUBLIC__/iconfont/iconfont.eot'); /* IE9*/
+        src: url('__PUBLIC__/iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('__PUBLIC__/iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
+        url('__PUBLIC__/iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('__PUBLIC__/iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+    }
+    .iconfont{
+        font-family:"iconfont" !important;
+        font-size:16px;font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>
+<div class="row" style="background-color: white;margin-top:10px;height:40px">
+
+        <div class="col-xs-4" style="text-align: center;height:40px;">
+            <a style="display:inline-block" href="{:U('View/index');}">
+                <i class="iconfont">&#xe605;</i>
+                <p>商品浏览</p>
+            </a>
         </div>
-    </div>
+        <div class="col-xs-4" style="text-align: center;height:40px;">
+            <a style="display:inline-block" href="{:U('List/index');}">
+                <i class="iconfont">&#xe60b;</i>
+                <p>排行榜</p>
+            </a>
+        </div>
+        <div class="col-xs-4" style="text-align: center;height:40px;">
+            <a style="display:inline-block" href="{:U('Search/index');}">
+                <i class="iconfont">&#xe605;</i>
+                <p>搜索</p>
+            </a>
+        </div>
+
 </div>
