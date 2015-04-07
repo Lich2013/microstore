@@ -4,6 +4,6 @@ use Think\Controller;
 
 class IndexController extends BaseController {
     public function index(){
-        $this->redirect('View/index');
+        $this->display();
     }
 }
