@@ -60,9 +60,9 @@ class ViewController extends BaseController {
     }
 
     public function view(){
-        $school_id = I('post.school_id');
-        $goods_id = I('post.goods_id');
-        $order_id = I('post.order_id');
+        $school_id = I('param.school_id')?I('param.school_id'):0;
+        $goods_id = I('param.goods_id')?I('param.goods_id'):0;
+        $order_id = I('param.order_id')?I('param.goods_id'):0;
         if($order_id==1){
             $order = 'click_num desc';
         }
@@ -178,7 +178,6 @@ class ViewController extends BaseController {
                 $store->where("id = $store_id")->setInc('click_num',1);
                 ++$j;
             }
-
             $this->assign('store', $store_info);
             $this->assign('school', $school_name);
             $this->assign('goods', $goods_type);

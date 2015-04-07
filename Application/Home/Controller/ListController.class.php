@@ -4,7 +4,9 @@ use Think\Controller;
 class ListController extends BaseController {
     //商家排行榜
     public function index(){
-        $store = M('store')->join('JOIN school ON store.school_id = school.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name')->limit(10)->select();
+        $school_id = I('param.school_id')?I('param.school_id'):'%';
+        $map['school_id']  = array('LIKE',$school_id);
+        $store = M('store')->where($map)->join('JOIN school ON store.school_id = school.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name')->limit(10)->select();
         $i = 0;
         foreach($store as $v) {
             $uid = $v['uid'];
