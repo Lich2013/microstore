@@ -3,12 +3,10 @@ namespace Home\Controller;
 use Think\Controller;
 
 class CommentController extends BaseController {
-    public function index(){
-//        M('comment')->
-    }
     public function comment(){
-        $openid = I('post.openid');
+        $openid = session('openId');
         $content = I('post.content');
+        $store_id = I('post.store_id');
         if(mb_strlen($content, 'utf-8') > 200) {
             $data = array(
                 'status' => 200,
@@ -16,7 +14,7 @@ class CommentController extends BaseController {
             );
             $this->ajaxReturn($data);
         }
-        $openid = 'ouRCyjsclD159BqGL-CgxtkPo7nM';
+        $openid = 'ouRCyjkDGe9EfiAdquDVy_LxlSq4';
         if(!$openid) {
             $this->ajaxReturn('请通过重邮小帮手进入!');
         }
@@ -28,7 +26,7 @@ class CommentController extends BaseController {
                         'token' => 'gh_68f0a1ffc303',
                         'timestamp' => $time,
                         'string' => $string,
-                        'secret' => $secret
+                        'secret' => $secret,
             );
         $ch = curl_init ();
         $url = 'http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/userInfo';
@@ -53,13 +51,15 @@ class CommentController extends BaseController {
                 'nickname' => $return->data->nickname,
                 'content' => $content,
                 'head' => $return->data->headimgurl,
-                'time' => time()
+                'time' => Date("Y-m-d H:i:s", time()),
+                'store_id' => $store_id
             );
-           if(M('comment')->data($data)->add()) {
-            $success = array(
-                'status' => 200,
-                'success' => '评论成功!'
-            );
+            $id = M('comment')->data($data)->add();
+            if($id) {
+                $map['id'] = $id;
+                $success = M('comment')->where($map)->find();
+            $success['status'] = 200;
+            $success['success'] = '评论成功!';
             $this->ajaxReturn($success);
            }
             else{

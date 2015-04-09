@@ -10,8 +10,15 @@ class PersonController extends BaseController {
 		$map['id'] = $store_id;
         $store = M('store')->where($map)->getField('link');
         $info[0]['introduce'] = str_replace(array("\r\n",'\r','\n'), '<br/>', $info[0]['introduce']);
+        $ma['store_id'] = $store_id;
+        $comment = M('comment')->where($ma)->select();
+        $comment_num = M('comment')->where($ma)->count();
+//        return print_r($comment);
         $this->assign('person_info', $info[0]);
         $this->assign('link', $store);
+        $this->assign('store_id', $store_id);
+        $this->assign('comment', $comment);
+        $this->assign('comment_num', $comment_num);
         $this->display();
     }
 }
