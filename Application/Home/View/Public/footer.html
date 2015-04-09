@@ -205,5 +205,16 @@
     }
 
 </script>
+<script>
+    var flag = true;
+    $("#slideDown").onclick(function(){
+        this.toggle( flag );
+    })
+    if( flag == flase ){
+        $("slideUl").show();
+    }if( flag == true){
+        $("slideUl").hide();
+    }
+</script>
 </body>
 </html>
