@@ -1,7 +1,7 @@
 <include file="Public/header" />
 
 <div class="row">
-    <div class="col-xs-12" style="padding-left: inherit"><p style="font-size: 22px;margin-bottom:10px">商户管理</p></div>
+    <div class="col-xs-12" style="padding-left: inherit"><p style="font-size: 22px;margin-bottom:10px">申请入驻</p></div>
 </div>
 <form  action="{:U('Join/join');}" method="post" enctype="multipart/form-data">
 <div class="row" >
@@ -62,24 +62,6 @@
     </div>
 </div>
 <div class="row" >
-    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>标签4:</h4></div>
-    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
-        <div class="form-group">
-            <input type="text" class="form-control" name="tag[]" placeholder="3字以内, 选填">
-        </div>
-    </div>
-</div>
-<div class="row" >
-    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>标签5:</h4></div>
-    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
-        <div class="form-group">
-            <input type="text" class="form-control" name="tag[]" placeholder="3字以内, 选填">
-        </div>
-    </div>
-</div>
-<div class="row" >
     <div class="form-group">
     <label><h4>店铺首页图(jpg/jpeg格式, 5M以内):</h4></label>
     <input type="file" name="store_pic">
@@ -90,15 +72,51 @@
     <div class="col-xs-12" style="padding-left: inherit"><p style="font-size: 22px;margin-bottom:10px">商户管理者信息</p></div>
 </div>
 
-<div class="row" >
-    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>密码重置:</h4></div>
-    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
-        <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="请输入6位以上密码">
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>昵称:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="nickname" placeholder="8字以内">
+            </div>
         </div>
     </div>
-</div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>真实姓名:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="realname" placeholder="请输入真实姓名">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>身份证号:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="id_num" placeholder="请输入身份证号码">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>登录密码:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="请输入6位以上密码">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>确认密码:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="password" class="form-control" name="passwordagain" placeholder="请确认密码">
+            </div>
+        </div>
+    </div>
 
 <div class="row" >
     <div class="col-xs-3" style="text-align: left;padding-left: inherit;
@@ -109,16 +127,49 @@
         </div>
     </div>
 </div>
-
-<div class="row" >
-    <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>个人风采展示:</h4></div>
-    <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
-        <div class="form-group">
-            <input type="text" class="form-control" name="person_name" placeholder="请输入姓名">
+    <div class="row">
+        <div class="col-xs-12" style="padding-left: inherit"><p style="font-size: 22px;margin-bottom:10px">个人风采展示</p></div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>姓名:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="person_name" placeholder="请输入姓名">
+            </div>
         </div>
     </div>
-</div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>学校:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <select class="form-control" name="person_school">
+                    <volist name="school_1" id="school_1">
+                        <option value="{$school_1.id}">{$school_1.school_name}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>专业:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <input type="text" class="form-control" name="person_major" placeholder="8字以内">
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>个人介绍:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <div class="form-group">
+                <textarea name="person_introduce" class="form-control" cols="30" rows="10" wrap="hard" placeholder="300字以内,可以介绍一下您的创业想法"></textarea>
+            </div>
+        </div>
+    </div>
 <div class="row" >
     <div class="form-group">
         <label><h4>风采照片(jpg/jpeg格式, 5M以内):</h4></label>

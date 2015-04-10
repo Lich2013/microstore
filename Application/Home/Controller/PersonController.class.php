@@ -11,7 +11,7 @@ class PersonController extends BaseController {
         $store = M('store')->where($map)->getField('link');
         $info[0]['introduce'] = str_replace(array("\r\n",'\r','\n'), '<br/>', $info[0]['introduce']);
         $ma['store_id'] = $store_id;
-        $comment = M('comment')->where($ma)->select();
+        $comment = M('comment')->where($ma)->order('time desc')->select();
         $comment_num = M('comment')->where($ma)->count();
 //        return print_r($comment);
         $this->assign('person_info', $info[0]);

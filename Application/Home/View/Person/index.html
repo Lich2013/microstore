@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col-xs-3"></div>
-    <div class="col-xs-6" style="width:200px;height:200px;overflow:hidden;border-radius:100%;margin-top: 15px;padding-bottom: inherit;padding-left: inherit;padding-right: inherit;"><img src="{$person_info.photo}" style="width: 200%;" class="img-responsive"></div>
+    <div class="col-xs-6" style="height: 100%"><img src="{$person_info.photo}" style="width: 200%;overflow:hidden;border-radius:200%;" class="img-responsive"></div>
     <div class="col-xs-3" ></div>
 </div>
 <dov class="row">
@@ -85,7 +85,7 @@
                     comment+='<p style="color:#333333;margin-bottom:10px;">'+data.nickname+'</p>';
                     comment+='<p style="color:#666666">'+data.content+'</p>';
                     comment+='<span style="float:right" class="time">'+data.time+'</span></div></div>'
-                    $("#com_his").append(comment);
+                    $("#com_his").prepend(comment);
 
                 }
             })
