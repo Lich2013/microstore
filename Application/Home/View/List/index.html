@@ -59,7 +59,7 @@
                     <span style="color:#999999" class="tags"> <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></span>
                 </div>
                 <div style="width:49%;float:right">
-                    <span style="overflow:hidden">店主：<span class="buyer" style="color:#479eff"><a href="{:U('Person/index')}?person_id={$vo.person_id}">村里没有巧克力</a></span></span>
+                    <span style="overflow:hidden">店主：<span class="buyer" style="color:#479eff"><a href="{:U('Person/index')}?person_id={$vo.person_id}">{$vo.nickname}</a></span></span>
                 </div>
             </div>
             <div class="shop_infro" style="width:100%;height:50px;background-color: white">
