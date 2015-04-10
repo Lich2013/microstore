@@ -88,16 +88,16 @@
 
 
 
-    (function checkscrollside(){
-        var oparent = document.getElementById('main');
-        var ochild = getClassName('main','pin');
-
-        var LastHeight = ochild[ochild.length-1].offsetTop+Math.floor(ochild[ochild.length-1]/2);
-        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        var bodyHeight = document.documentElement.clientHeight;
-        var total = bodyHeight+scrollTop;
-        return total > LastHeight ? true :false;
-    })()
+//       (function checkscrollside(){
+//        var oparent = document.getElementById('main');
+//        var ochild = getClassName('main','pin');
+//
+//        var LastHeight = ochild[ochild.length-1].offsetTop+Math.floor(ochild[ochild.length-1]/2);
+//        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+//        var bodyHeight = document.documentElement.clientHeight;
+//        var total = bodyHeight+scrollTop;
+//        return total > LastHeight ? true :false;
+//    })();
 
     window.onload = function() {
         window.scroll = function() {
@@ -123,7 +123,7 @@
                             store += "<div class='img_container' style='overflow:hidden'>";
                             store += "<img style='width:100%;' src='__PUBLIC__/images/1.png' /></div>";
 
-                            store +="<div class='shop_name' style='width:100%;padding:10px;height:50px;background-color: white'>;
+                            store +="<div class='shop_name' style='width:100%;padding:10px;height:50px;background-color: white'>";
                             store +="<div class='seller_logo_container' style='overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%'>";
 
                             store +="<img class='seller_logo' src='__PUBLIC__/images/buyer_logo.png' /></div>";
@@ -205,15 +205,19 @@
 
 </script>
 <script>
-    var flag = true;
-    $("#slideDown").onclick(function(){
-        this.toggle( flag );
+//特效代码
+    $("#slideDown").on('click',function(){
+        if($("#slideUl").css('display') == 'none'){
+            $("#slideUl").show();
+        }else{
+            $("#slideUl").hide();
+        }
     })
-    if( flag == flase ){
-        $("slideUl").show();
-    }if( flag == true){
-        $("slideUl").hide();
-    }
+
+   $(".sec_nav").on('click',function(){
+       $(this).css('color' ,'blue');
+//       $(this).siblings().css('color','black');
+   })
 </script>
 </body>
 </html>
