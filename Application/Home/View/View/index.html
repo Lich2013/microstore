@@ -10,11 +10,18 @@
     }
 </style>
 <volist name="store" id="vo">
+<<<<<<< HEAD
     <div   style="margin:10px auto;background-color:white;padding-top:10px;border-radius:5px;box-shadow: 0 0 6px #ccc">
         <div class="clear" style="margin-left:2%">
+=======
+    <div   style="width:96%;margin:10px auto;background-color:white;padding-top:10px;border-radius:5px;box-shadow: 0 0 6px #ccc">
+
+        <div class="clear" style="margin:2%">
+
+>>>>>>> 5631c4d71e4b1642150c91a889f1541a85c07919
             <div style="width:20%">
                 <div  style="float:left;width:50px;height:50px;border-radius:100%;overflow: hidden">
-                    <img style="width: 100%" src="{$vo.show_pic}" swtyle="width: 50px;" alt=""/>
+                    <img src="{$vo.show_pic}" style="width: 100%;" alt=""/>
                 </div>
             </div>
             <div style="float:right;height:50px;width:78%">
@@ -23,20 +30,28 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <div style="width:100%;margin-left:2%;overflow:hidden;margin-top:15px;">
+=======
+        <div style="width:100%;margin-left:2%;overflow:hidden;margin-top:25px;">
+>>>>>>> 5631c4d71e4b1642150c91a889f1541a85c07919
             <div style="width:51%;float:left">
                 <img style="width:20px;" src="__PUBLIC__/images/tag.png" alt=""/>
                 <span style="color:#999999" class="tags"> <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></span>
-
             </div>
             <div style="width:49%;float:right">
+<<<<<<< HEAD
                 <span style="overflow:hidden">店主：<span class="buyer" ><a style="color:#479eff" href="{:U('Person/index')}?person_id={$vo.person_id}">村里没有巧克力</a></span></span>
+=======
+                <span style="overflow:hidden">店主：<span class="buyer" style="color:#479eff"><a href="{:U('Person/index')}?person_id={$vo.person_id}">{$vo.nickname}</a></span></span>
+>>>>>>> 5631c4d71e4b1642150c91a889f1541a85c07919
             </div>
         </div>
         <div class="shop_infro" style="width:100%;height:50px;background-color: white">
             <div style="width:100%;height:45px;background-color:#fbfbfb;border-top:1px solid #dddddd;padding-top:4px;margin-top:10px;float:right
                 ">
                 <div style="width:180px;;float:right">
+
                     <i class="iconfont">&#xe605;</i>
                     <!--<img style="width:28px"  src="__PUBLIC__/images/view.png" alt=""/>-->
                     <span style="margin-right: 8px" class="view_count">{$vo.click_num}</span>
@@ -44,13 +59,11 @@
                     <i class="iconfont">&#xe7c4;</i>
                     <span style="margin-right: 8px" class="comment_count">{$vo.comment_num}</span>
 
+
                     <a href="{$vo.link}" style="display: inline-block"><button class="btn btn-warning">进入店铺</button></a>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 </volist>
     <div id="more" class="row" style="background: white;padding-bottom: 1em;margin-left: inherit;margin-right: inherit;text-align: center;border-radius: 4px 4px 0 0;"><div class="col-xs-12 btn" style="padding-top: 1em;">点击加载更多</div></div>

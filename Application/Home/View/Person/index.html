@@ -1,6 +1,7 @@
 <include file="Public/header" />
 
 
+
 <div  style="width:100px;height:100px;overflow:hidden;border-radius:100%;margin:15px auto;">
      <img src="{$person_info.photo}" style="width: 100%;">
 </div>
@@ -84,7 +85,7 @@
                     comment+='<p style="color:#333333;margin-bottom:10px;">'+data.nickname+'</p>';
                     comment+='<p style="color:#666666">'+data.content+'</p>';
                     comment+='<span style="float:right" class="time">'+data.time+'</span></div></div>'
-                    $("#com_his").append(comment);
+                    $("#com_his").prepend(comment);
 
                 }
             })

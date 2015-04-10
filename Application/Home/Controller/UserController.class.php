@@ -71,28 +71,27 @@ class UserController extends BaseController {
         if(mb_strlen($data['person_introduce'], 'utf-8')>300){
             $this->error('个人介绍过长');
         }
-        $setting = C('UPLOAD_SITEIMG_QINIU');
-        $upload = new \Think\Upload($setting);// 实例化上传类
+        $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小
+        $upload->exts      =     array('jpg', 'jpeg');// 设置附件上传类型
+        $upload->rootPath  =     'Public/uploads/'; // 设置附件上传根目录
         // 上传文件
         $info   =   $upload->upload();
-        if($info!=null&&count($info)<2){
-            $this->error('店铺首页图或风采照片未上传');
-        }
-        elseif(count($info)==1)
-        {}
-        else{
-            if(!$info) {// 上传错误提示错误信息
-                $this->error($upload->getError());
-            }else{// 上传成功 获取上传文件信息
-                foreach($info as $file){
-                    $img_url[] = $file['url'];
-                }
+        if(!$info) {// 上传错误提示错误信息
+            $this->error($upload->getError());
+        }else{// 上传成功 获取上传文件信息
+            foreach($info as $file){
+                $image = new \Think\Image();
+                $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
+                $image->open($path);
+                $image->thumb(110, 110,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $img_url[] = __ROOT__.'/'.$path;
             }
         }
         if($img_url[0]!=null)
-        $store_img = $img_url[0].'?imageView2/5/w/121/h/121';
+        $store_img = $img_url[0];
         if($img_url[1]!=null)
-        $person_img = $img_url[1].'?imageView2/2/w/363/h/363';
+        $person_img = $img_url[1];
         if($store_img!=null){
                 $new_storedata = array(
                 'store_name' => trim($data['store_name']),
