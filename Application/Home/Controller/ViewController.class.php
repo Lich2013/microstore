@@ -3,12 +3,14 @@ namespace Home\Controller;
 use Think\Controller;
 class ViewController extends BaseController {
     public function index($order = 'rand()'){
+        $school_id = I('get.school_id')? I('get.school_id'):'%';
         $school = M('school');
         $goods = M('goods');
         $store = M('store');
         $school_name = $school->order('id asc')->select();
         $goods_type = $goods->order('id asc')->select();
-        $store_num = $store->where('status = 1')->order($order)->field('id')->limit(20)->select();
+        $m['school_id'] = $school_id;
+        $store_num = $store->where('status = 1')->where($m)->order($order)->field('id')->limit(20)->select();
         $j = 0;
         foreach($store_num as $key=>$v)
         {
@@ -87,7 +89,7 @@ class ViewController extends BaseController {
             $store_info = $store->join('JOIN school ON store.school_id = school.id')
                                 ->where("store.school_id = $school_id AND store.status = 1")
                                 ->order($order)
-                                ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name')
+                                ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name, click_num, comment_num')
                                 ->select();
 
             $i = 0;
