@@ -133,7 +133,25 @@ class IndexController extends BaseController {
                 }
         }
     }
-
+    //删除评论页面
+    public function comment() {
+        $comment = M('comment');
+        $count      = $comment->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+        $info = $comment->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('info', $info);
+        $this->assign('page',$show);
+        $this->display();
+    }
+    //删除评论
+    public function delComment() {
+        $data = I('post.id');
+        $map['id'] = $data;
+        M('comment')->where($map)->delete();
+        $success = array('status' => 200);
+        return $this->ajaxReturn($success);
+    }
     private function forgive($black_id){
         $blackstore = M('blackstore');
         foreach($black_id as $v) {

@@ -142,6 +142,7 @@ class JoinController extends BaseController {
             'click_num'  => 0,
             'status'     => 0,
             'telephone' => $telephone,
+            'comment_num' => 0
         );
         $store_id = $store->data($store_data)->add();
 
@@ -174,7 +175,7 @@ class JoinController extends BaseController {
             'store_id'  => $store_id,
         );
         $person->data($person_data)->add();
-        $this->success('申请成功, 请等待审核!', U('View/index'));
+        $this->success('申请成功, 请等待审核!', U('Index/index'));
 
     }
 
