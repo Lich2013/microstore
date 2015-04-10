@@ -6,7 +6,7 @@ class ListController extends BaseController {
     public function index(){
         $school_id = I('param.school_id')?I('param.school_id'):'%';
         $map['school_id']  = array('LIKE',$school_id);
-        $store = M('store')->where($map)->join('JOIN school ON store.school_id = school.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name')->limit(10)->select();
+        $store = M('store')->where($map)->join('JOIN school ON store.school_id = school.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name, comment_num, click_num')->limit(10)->select();
         $i = 0;
         foreach($store as $v) {
             $uid = $v['uid'];

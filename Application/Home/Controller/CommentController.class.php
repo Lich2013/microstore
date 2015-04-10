@@ -54,6 +54,8 @@ class CommentController extends BaseController {
                 'time' => Date("Y-m-d H:i:s", time()),
                 'store_id' => $store_id
             );
+            $m['id'] = $store_id;
+            M('store')->where($m)->setInc('comment_num');
             $id = M('comment')->data($data)->add();
             if($id) {
                 $map['id'] = $id;
