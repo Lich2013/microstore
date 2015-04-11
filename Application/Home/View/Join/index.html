@@ -1,5 +1,5 @@
 <include file="Public/header" />
-
+<script src="__PUBLIC__/js/jquery.min.js"></script>
 <div class="row">
     <div class="col-xs-12" style="padding-left: inherit"><p style="font-size: 22px;margin-bottom:10px">申请入驻</p></div>
 </div>
@@ -182,5 +182,14 @@
 </div>
 </form>
 </div>
+<script>
+    $("#slideDown").on('click',function(){
+        if($("#slideUl").css('display') == 'none'){
+            $("#slideUl").show();
+        }else{
+            $("#slideUl").hide();
+        }
+    })
+</script>
 </body>
 </html>
