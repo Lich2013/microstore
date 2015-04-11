@@ -57,39 +57,50 @@
 </form>
 <!-- 店铺展示 -->
 <volist name="store" id="vo">
-    <div class="row" style="margin: inherit;padding-bottom: 10px;">
-        <div class="col-xs-12">
-            <a href="{$vo.link}">
-            <div class="row" style="background: white;padding-top: 1em;display: flex;">
-                <div class="col-xs-4" style="width: 50%;margin: auto;">
-                    <img src="{$vo.show_pic}" class="img-responsive" alt="Responsive image">
-                </div>
-                <div class="col-xs-8" style="padding-left:inherit;width: 50%;">
-                    <div class="row">
-                        <div class="col-xs-12" style="color: #333333"><h4>{$vo.store_name}</h4></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12" style="color: #666666"><p>商品: <php>foreach($vo['goods_type'] as $v){echo $v['type'].'  ';}</php></p></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12" style="color: #666666"><p>学校: {$vo['school_name']}</php></p></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12" style="color: #666666"><p>标签: <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></p></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12" style="color: #666666">卖家: {$vo.nickname}</div>
-                    </div>
+
+    <div   style="width:96%;margin:20px auto;background-color:white;padding-top:10px;border-radius:5px;box-shadow: 0 0 6px #ccc">
+
+        <div class="clear" style="margin:2%">
+
+
+            <div style="width:20%">
+                <div  style="float:left;width:50px;height:50px;border-radius:100%;overflow: hidden">
+                    <img src="{$vo.show_pic}" style="width: 100%;" alt=""/>
                 </div>
             </div>
-            <div class="row" style="background: white;padding-bottom: 1em;">
-                <div class="col-xs-12" style="padding-top: 1em;">
-                    <a href="{:U('Person/index')}?person_id={$vo.person_id}"><button class="btn btn-warning">查看卖家风采</button></a>
-                </div>
+            <div style="float:right;height:50px;width:78%">
+                <p class="store_name" style="font-size: 22px;margin-bottom:4px;color:#333333">{$vo.store_name}</p>
+                <p style="margin-top:4px" >商家类型：<span class="kind">{$vo['school_name']}</span></p>
             </div>
-            </a>
         </div>
 
+
+        <div style="width:100%;margin-left:2%;overflow:hidden;margin-top:15px;">
+
+            <div style="width:51%;float:left">
+                <img style="width:20px;" src="__PUBLIC__/images/tag.png" alt=""/>
+                <span style="color:#999999" class="tags"> <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></span>
+            </div>
+            <div style="width:49%;float:right">
+
+                <span style="overflow:hidden">店主：<span class="buyer" ><a style="color:#479eff" href="{:U('Person/index')}?person_id={$vo.person_id}">{$vo.nickname}</a></span></span>
+
+            </div>
+        </div>
+        <div class="shop_infro" style="width:100%;height:50px;background-color: white">
+            <div style="width:100%;height:45px;background-color:#fbfbfb;border-top:1px solid #dddddd;padding-top:4px;margin-top:10px;float:right
+                ">
+                <div style="width:180px;;float:right">
+                    <i class="iconfont">&#xe605;</i>
+                    <span style="margin-right: 8px" class="view_count">{$vo.click_num}</span>
+                    <i class="iconfont">&#xe7c4;</i>
+                    <span style="margin-right: 8px" class="comment_count">{$vo.comment_num}</span>
+
+
+                    <a href="{$vo.link}" style="display: inline-block"><button class="btn btn-warning">进入店铺</button></a>
+                </div>
+            </div>
+        </div>
     </div>
-</volist>
+</volist >
 <include file="Public/footer" />

@@ -30,6 +30,9 @@ class ViewController extends BaseController {
             $store->where("id = $id")->setInc('click_num',1);
             ++$j;
         }
+        /*推荐店铺*/
+        $recommend = $this->getRecommend();
+        $this->assign('recommend', $recommend);
         $this->assign('store', $store_info);
         $this->assign('school', $school_name);
         $this->assign('goods', $goods_type);
@@ -111,6 +114,9 @@ class ViewController extends BaseController {
                 $store->where("id = $store_id")->setInc('click_num',1);
                 ++$j;
             }
+            /*推荐店铺*/
+            $recommend = $this->getRecommend();
+            $this->assign('recommend', $recommend);
             $this->assign('store', $store_info);
             $this->assign('school', $school_name);
             $this->assign('goods', $goods_type);
@@ -142,6 +148,10 @@ class ViewController extends BaseController {
                 $store->where("id = $store_id")->setInc('click_num',1);
                 ++$j;
             }
+            /*推荐店铺*/
+            $recommend = $this->getRecommend();
+
+            $this->assign('recommend', $recommend);
             $this->assign('store', $store_info);
             $this->assign('school', $school_name);
             $this->assign('goods', $goods_type);
@@ -180,6 +190,9 @@ class ViewController extends BaseController {
                 $store->where("id = $store_id")->setInc('click_num',1);
                 ++$j;
             }
+            /*推荐店铺*/
+            $recommend = $this->getRecommend();
+            $this->assign('recommend', $recommend);
             $this->assign('store', $store_info);
             $this->assign('school', $school_name);
             $this->assign('goods', $goods_type);
@@ -187,6 +200,22 @@ class ViewController extends BaseController {
         }
     }
 
+    private function getRecommend(){
+        /*推荐店铺*/
+        $store = M('store');
+        $recommend_store = M('recommend')->order('rand()')->find();
+        $recommend_id = $recommend_store['store_id'];
+        $recommend['type'] = M('store_goods')->where("store_id = $recommend_id")->join('JOIN goods ON store_goods.goods_id = goods.id')->field('type')->select();
+        $recommend['tags'] = M('store_tag')->where("store_id = $recommend_id")->join('JOIN tags ON store_tag.tag_id = tags.id')->field('tag_name')->select();
+        $recommend['info'] = $store->where("store.id = $recommend_id")->join('JOIN school ON store.school_id = school.id')->find();
+        $uid = $recommend['info']['uid'];
+        $ma['id'] = $uid;
+        $recommend['nickname'] = M('users')->where($ma)->getField('nickname');
+        $recommend['person_id'] = M('person')->where("store_id = $recommend_id")->getField('id');
+        $store->where("id = $recommend_id")->setInc('click_num',1);
+        return $recommend;
+        /*end*/
+    }
 
 
 }

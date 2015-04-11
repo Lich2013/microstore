@@ -9,7 +9,32 @@
         display:block;
     }
 </style>
-<volist name="store" id="vo">
+<!-- 筛选 -->
+<form action="{:U('View/view');}" method="post">
+    <div class="row" style="padding-top:10px; width: 99%">
+        <div class="col-xs-5" style="padding-right:inherit; text-align:center;">
+            <select class="form-control" name="school_id">
+                <option value="0">全部学校</option>
+                <volist id="vo" name="school">
+                    <option value="{$vo.id}">{$vo.school_name}</option>
+                </volist>
+            </select>
+        </div>
+        <div class="col-xs-5" style="margin-right: inherit; padding-left: 0.1em; padding-right: inherit">
+            <select class="form-control" name="goods_id">
+                <option value="0">全部类型</option>
+                <volist id="vo" name="goods">
+                    <option value="{$vo.id}">{$vo.type}</option>
+                </volist>
+            </select>
+        </div>
+        <div class="col-xs-1"style="padding-right:inherit;margin-left: 0.1em;">
+            <input type="submit" class="btn btn-warning" value="确定">
+        </div>
+    </div>
+    </form>
+    </div>
+<volist name="store" id="vo" offset="0" length="1">
     
     <div   style="width:96%;margin:20px auto;background-color:white;padding-top:10px;border-radius:5px;box-shadow: 0 0 6px #ccc">
 
@@ -36,7 +61,7 @@
             </div>
             <div style="width:49%;float:right">
 
-                <span style="overflow:hidden">店主：<span class="buyer" ><a style="color:#479eff" href="{:U('Person/index')}?person_id={$vo.person_id}">村里没有巧克力</a></span></span>
+                <span style="overflow:hidden">店主：<span class="buyer" ><a style="color:#479eff" href="{:U('Person/index')}?person_id={$vo.person_id}">{$vo.nickname}</a></span></span>
 
             </div>
         </div>
@@ -44,11 +69,8 @@
             <div style="width:100%;height:45px;background-color:#fbfbfb;border-top:1px solid #dddddd;padding-top:4px;margin-top:10px;float:right
                 ">
                 <div style="width:180px;;float:right">
-
                     <i class="iconfont">&#xe605;</i>
-                    <!--<img style="width:28px"  src="__PUBLIC__/images/view.png" alt=""/>-->
                     <span style="margin-right: 8px" class="view_count">{$vo.click_num}</span>
-                    <!--<img  style="width:24px;margin-left: 15px;" src="__PUBLIC__/images/comments.png" alt=""/>-->
                     <i class="iconfont">&#xe7c4;</i>
                     <span style="margin-right: 8px" class="comment_count">{$vo.comment_num}</span>
 
@@ -58,6 +80,103 @@
             </div>
         </div>
     </div>
-</volist>
+</volist >
+<!--推广-->
+<div   style="width:96%;margin:20px auto;background-color:white;padding-top:10px;border-radius:5px;box-shadow: 0 0 6px #ccc">
+
+    <div class="clear" style="margin:2%">
+
+
+        <div style="width:20%">
+            <div  style="float:left;width:50px;height:50px;border-radius:100%;overflow: hidden">
+                <img src="{$recommend.info.show_pic}" style="width: 100%;" alt=""/>
+            </div>
+        </div>
+        <div style="float:right;height:50px;width:78%">
+            <p class="store_name" style="font-size: 22px;margin-bottom:4px;color:#333333">{$recommend.info.store_name}</p>
+            <p style="margin-top:4px" >商家类型：<span class="kind">{$recommend.info.school_name}</span></p>
+        </div>
+    </div>
+
+
+    <div style="width:100%;margin-left:2%;overflow:hidden;margin-top:15px;">
+
+        <div style="width:51%;float:left">
+            <img style="width:20px;" src="__PUBLIC__/images/tag.png" alt=""/>
+            <span style="color:#999999" class="tags">推广 <php>foreach($recommend['tags'] as $v){echo $v['tag_name'].'  ';}</php></span>
+        </div>
+        <div style="width:49%;float:right">
+
+            <span style="overflow:hidden">店主：<span class="buyer" ><a style="color:#479eff" href="{:U('Person/index')}?person_id={$recommend.person_id}">{$recommend.nickname}</a></span></span>
+
+        </div>
+    </div>
+    <div class="shop_infro" style="width:100%;height:50px;background-color: white">
+        <div style="width:100%;height:45px;background-color:#fbfbfb;border-top:1px solid #dddddd;padding-top:4px;margin-top:10px;float:right
+">
+            <div style="width:180px;;float:right">
+
+                <i class="iconfont">&#xe605;</i>
+                <!--<img style="width:28px"  src="__PUBLIC__/images/view.png" alt=""/>-->
+                <span style="margin-right: 8px" class="view_count">{$recommend.info.click_num}</span>
+                <!--<img  style="width:24px;margin-left: 15px;" src="__PUBLIC__/images/comments.png" alt=""/>-->
+                <i class="iconfont">&#xe7c4;</i>
+                <span style="margin-right: 8px" class="comment_count">{$recommend.info.comment_num}</span>
+
+
+                <a href="{$recommend.link}" style="display: inline-block"><button class="btn btn-warning">进入店铺</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--推广end-->
+<volist name="store" id="vo" offset="1">
+
+    <div   style="width:96%;margin:20px auto;background-color:white;padding-top:10px;border-radius:5px;box-shadow: 0 0 6px #ccc">
+
+        <div class="clear" style="margin:2%">
+
+
+            <div style="width:20%">
+                <div  style="float:left;width:50px;height:50px;border-radius:100%;overflow: hidden">
+                    <img src="{$vo.show_pic}" style="width: 100%;" alt=""/>
+                </div>
+            </div>
+            <div style="float:right;height:50px;width:78%">
+                <p class="store_name" style="font-size: 22px;margin-bottom:4px;color:#333333">{$vo.store_name}</p>
+                <p style="margin-top:4px" >商家类型：<span class="kind">{$vo['school_name']}</span></p>
+            </div>
+        </div>
+
+
+        <div style="width:100%;margin-left:2%;overflow:hidden;margin-top:15px;">
+
+            <div style="width:51%;float:left">
+                <img style="width:20px;" src="__PUBLIC__/images/tag.png" alt=""/>
+                <span style="color:#999999" class="tags"> <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></span>
+            </div>
+            <div style="width:49%;float:right">
+
+                <span style="overflow:hidden">店主：<span class="buyer" ><a style="color:#479eff" href="{:U('Person/index')}?person_id={$vo.person_id}">{$vo.nickname}</a></span></span>
+
+            </div>
+        </div>
+        <div class="shop_infro" style="width:100%;height:50px;background-color: white">
+            <div style="width:100%;height:45px;background-color:#fbfbfb;border-top:1px solid #dddddd;padding-top:4px;margin-top:10px;float:right
+                ">
+                <div style="width:180px;;float:right">
+                    <i class="iconfont">&#xe605;</i>
+                    <span style="margin-right: 8px" class="view_count">{$vo.click_num}</span>
+                    <i class="iconfont">&#xe7c4;</i>
+                    <span style="margin-right: 8px" class="comment_count">{$vo.comment_num}</span>
+
+
+                    <a href="{$vo.link}" style="display: inline-block"><button class="btn btn-warning">进入店铺</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</volist >
     <div id="more" class="row" style="background: white;padding-bottom: 1em;margin-left: inherit;margin-right: inherit;text-align: center;border-radius: 4px 4px 0 0;"><div class="col-xs-12 btn" style="padding-top: 1em;">点击加载更多</div></div>
+
 <include file="Public/footer" />

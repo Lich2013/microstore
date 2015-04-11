@@ -171,9 +171,39 @@ class IndexController extends BaseController {
             M('store')->data($data)->add();
         }
         return true;
-
     }
 
+    public function recommend() {
+        $data = M('recommend')->join('JOIN store ON recommend.store_id = store.id')->select();
+        $this->assign('data', $data);
+        $this->display();
+    }
+
+    public function setRecommend() {
+        $name = I('post.store_name');
+        $map['store_name'] = $name;
+        $data = M('store')->where($map)->find();
+        if($data == null)
+            return $this->error('该店铺不存在!');
+        $ma['store_id'] = $data['id'];
+        $num = M('recommend')->where($ma)->count();
+        if ($num > 0){
+            return $this->error('该店铺已添加!');
+        }
+        $recommend = array('store_id' => $data['id']);
+        if(M('recommend')->data($recommend)->add())
+            return $this->success('添加成功');
+        else
+            return $this->error('好像哪里出问题了TAT...');
+    }
+    public function delRecommend() {
+        $store_id = I('post.store_id');
+        $map['store_id'] = $store_id;
+        if(M('recommend')->where($map)->delete()){
+            $success = array('status' => 200);
+            return $this->ajaxReturn($success);
+        }
+    }
     //通过
     private function pass($store_id){
         foreach($store_id as $v) {

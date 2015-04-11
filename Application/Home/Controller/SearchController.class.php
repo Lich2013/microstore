@@ -72,7 +72,7 @@ class SearchController extends BaseController {
                 ->where('status = 1')
                 ->group('store.id')
                 ->order($order)
-                ->field('store.id, store.uid, show_pic, link, store_name, school_name')
+                ->field('store.id, store.uid, show_pic, link, store_name, school_name, store.click_num, store.comment_num')
                 ->select();
         $i = 0;
         foreach($store as $v) {
