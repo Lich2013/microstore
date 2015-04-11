@@ -112,7 +112,7 @@ class JoinController extends BaseController {
                 $image = new \Think\Image();
                 $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                 $image->open($path);
-                $image->thumb(110, 110,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $image->thumb(440, 440,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                 $img_url[] = __ROOT__.'/'.$path;
             }
         }
