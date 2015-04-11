@@ -86,123 +86,6 @@
         });
     })
 
-
-
-//       (function checkscrollside(){
-//        var oparent = document.getElementById('main');
-//        var ochild = getClassName('main','pin');
-//
-//        var LastHeight = ochild[ochild.length-1].offsetTop+Math.floor(ochild[ochild.length-1]/2);
-//        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-//        var bodyHeight = document.documentElement.clientHeight;
-//        var total = bodyHeight+scrollTop;
-//        return total > LastHeight ? true :false;
-//    })();
-
-    window.onload = function() {
-        window.scroll = function() {
-            if(checkscrollside()){
-                var data_wrapper = document.getElementById("data_wrapper");
-                $.ajax({
-                    url:"{:U('View/ajaxview')}",
-
-                    type:'get',
-
-                    data:{},
-
-                    dataType: 'json',
-
-                    timeout: 10000,
-
-                    error: function(){alert('出现错误了...刷新一下试试!');},
-
-                    success:function(data){
-                        for(var i = 0;i<data.length;i++){
-                            var store = " <div class='col-xs-6 pin' style='padding:15px 0 0 15px;float:left'>";
-                            store +="<a href='#' style='width:100%;height:auto;display:inline-block'>";
-                            store += "<div class='img_container' style='overflow:hidden'>";
-                            store += "<img style='width:100%;' src='__PUBLIC__/images/1.png' /></div>";
-
-                            store +="<div class='shop_name' style='width:100%;padding:10px;height:50px;background-color: white'>";
-                            store +="<div class='seller_logo_container' style='overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%'>";
-
-                            store +="<img class='seller_logo' src='__PUBLIC__/images/buyer_logo.png' /></div>";
-
-
-                           store += "<span>傻逼的零食店</span></div>";
-
-                            store += "<div class='shop_infro' style='width:100%;padding:10px;height:50px;background-color: white'>";
-                            store +="<img style='width:28px'  src='__PUBLIC__/images/view.png'/>";
-                            store +="<span class='view_count'>213</span>";
-                            store +="<img  style='width:24px;margin-left: 15px;'src='__PUBLIC__/images/comments.png'/>";
-                            store+="<span class='comment_count'>123</span></div></a></div>";
-
-
-
-
-                        waterfall('data_wrapper','pin');
-                        }
-                    }
-
-
-                })
-
-            }
-        }
-    }
-
-
-    function waterfall(oParent,pin){
-        var oparent = document.getElementById(oParent);
-        var ochild = getClassName(oParent,pin);
-        var oWidth = ochild[0].offsetWidth;
-        var num = Math.floor(document.documentElement.clientWidth/oWidth);
-        oparent.style.cssText = 'width:'+num*oWidth+'px;margin:0 auto';
-        var _arr = [];
-        for(var i = 0;i<ochild.length;i++){
-            var oHeight = ochild[i].offsetHeight;
-            if(i < num){
-                _arr[i] = oHeight;
-            }else{
-                var minH = Math.min.apply(null,_arr);
-                var minHIndex = getminHIndex(_arr,minH);
-                ochild[i].style.position = 'absolute';
-                ochild[i].style.top = minH+'px';
-
-                ochild[i].style.left = ochild[minHIndex].offsetLeft+'px';
-                _arr[minHIndex] += oHeight;
-                // console.log(_arr);
-            }
-
-
-        }
-    }
-
-    function getminHIndex(arr,height){
-        for(var i in arr){
-            if(arr[i] == height){
-                return i;
-            }
-        }
-    }
-
-
-    function getClassName(oparent,name){
-        var oparent = document.getElementById(oparent);
-
-        var total = oparent.getElementsByTagName('*');
-
-        var _arr = [];
-        for(var i = 0;i < total.length;i++){
-            if(total[i].className == name){
-                _arr.push(total[i]);
-            }
-
-        }
-
-        return _arr;
-    }
-
 </script>
 <script>
 //特效代码
@@ -218,6 +101,46 @@
        $(this).css('color' ,'blue');
 //       $(this).siblings().css('color','black');
    })
+</script>
+<script>
+
+    window.onload = function(){
+        var pin = document.getElementsByClassName("pin");
+        function fixedPosition() {
+            var column = 2;
+            var _arr = [];
+            var oWidth;
+            for(var i = 0;i<pin.length;i++){
+                var oHeight = pin[i].offsetHeight;
+                if(i < column){
+                    _arr[i] = oHeight;
+                    oWidth = _arr[i].style.width();
+                }else{
+                    var minH = Math.min.apply(null,_arr);
+                    var minIndex = getMinIndex(_arr,minH);
+                    pin[i].style.position = 'absolute';
+                    pin[i].style.left = pin[minIndex].offsetLeft + 'px';
+                    pin[i].style.top = minH + 'px';
+                    pin[i].style.width = oWidth + 'px';
+                    _arr[minIndex] += oHeight;
+                }
+            }
+//            console.log(_arr);
+        }
+
+        fixedPosition();
+
+        function getMinIndex(arr,height) {
+            for(var i in arr){
+                if(arr[i] == height){
+                    return i;
+                }
+            }
+        }
+    }
+
+
+
 </script>
 </body>
 </html>
