@@ -57,6 +57,7 @@
             alert("您输入的内容超过100字!");
             return;
         }
+
         if( flag == true){
             flag = false;
             $.ajax({
@@ -74,6 +75,7 @@
 
                 success:function(data){
                     flag = true;
+                    $("#content").val('');
                     alert("回复成功!");
                     console.log(data);
                     var comment = "<div class='container' style='border-top:1px #dddddd solid;padding:5px;border-bottom:1px #dddddd solid'>";
