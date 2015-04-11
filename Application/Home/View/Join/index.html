@@ -178,7 +178,7 @@
 </div>
 
 <div class="row" style="margin-bottom: 30px;">
-    <div class="col-xs-12" style="text-align: right;"><input type="submit" class="btn btn-warning" value="申请"/></div>
+    <div class="col-xs-12" style="text-align: right;"><input id="join" type="submit" class="btn btn-warning" value="申请"/></div>
 </div>
 </form>
 </div>
@@ -190,6 +190,28 @@
             $("#slideUl").hide();
         }
     })
+
+    $('#join').on('click',function(ev){
+        var flag = true;
+
+        if($("input").eq(8).val().length < 18){
+            flag = false;
+            alert('身份证号码长度太短');
+        }if($('input').eq(9).val().length < 6){
+            flag = false;
+            alert('密码长度太短');
+        }
+        if(flag == false){
+            ev.preventDefault();
+            ev.cancelBubble = true;
+            ev.stopPropagation();
+            return false;
+        }
+
+
+    });
+
+
 </script>
 </body>
 </html>

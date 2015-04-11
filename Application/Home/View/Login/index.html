@@ -1,7 +1,7 @@
 <include file="Public/header" />
 <script src="__PUBLIC__/js/jquery.min.js"></script>
 <div class="row">
-    <div class="col-xs-12"><h3>登录</h3></div>
+    <div class="col-xs-12" style = 'margin:10px 0px'><h2>登录</h2></div>
 </div>
 <form action="{:U('Login/login');}" method="post">
     <div class="row" >
@@ -32,7 +32,9 @@
         </div>
     </div>
     <div class="row" style="margin-bottom: 30px;">
-        <div class="col-xs-12" style="text-align: right;"><input type="submit" class="btn btn-warning" value="登录"/></div>
+        <div class="col-xs-12" style="text-align: right;">
+            <input id="submit" type="submit" class="btn btn-warning" value="登录"/>
+        </div>
     </div>
 </form>
 </div>
@@ -46,6 +48,26 @@
             $("#slideUl").hide();
         }
     })
+
+    $('#submit').on('click',function(ev){
+        var flag = true;
+
+        if($("input").eq(1).val().length < 18){
+            flag = false;
+            alert('身份证号码长度太短');
+        }if($('input').eq(2).val().length < 6){
+            flag = false;
+            alert('密码长度太短');
+        }
+        if(flag == false){
+            ev.preventDefault();
+            ev.cancelBubble = true;
+            ev.stopPropagation();
+            return false;
+        }
+
+
+    });
 
 </script>
 </html>
