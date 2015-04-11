@@ -9,7 +9,7 @@
     <div class="content-box">
         <!-- Start Content Box -->
         <div class="content-box-header">
-            <h3>待审核列表</h3>
+            <h3>评论列表</h3>
             <div class="clear"></div>
         </div>
         <!-- End .content-box-header -->
@@ -21,11 +21,10 @@
                 <form action="{:U('Index/judge')}" method="post">
                     <thead>
                     <tr>
-                        <th>
-                            <input class="check-all" type="checkbox" />
-                        </th>
+
                         <th>id</th>
                         <th>评论内容</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -49,9 +48,6 @@
                     <tbody>
                         <volist name="info" id="vo">
                             <tr>
-                                <td>
-                                    <input type="checkbox" value="{$vo.store_id}" name="store_id[]"/>
-                                </td>
                                 <td>{$vo.id}</td>
                                 <td>{$vo.content}</td>
                                 <td>
@@ -75,7 +71,8 @@
 </div>
 <script>
     $(".delete").live("click",function(){
-        var parent = $(this).parent().parent();
+        var id = $(this).parents('tr').find('td').eq(0).html();
+        var parent = $(this).parents('tr');
         $.ajax({
             url: "{:U('Index/delcomment')}",
 
@@ -90,9 +87,7 @@
             error: function(){alert('出现错误了...刷新一下试试!');},
 
             success: function(data){
-
-                if(data == 200){
-
+                if(data.status == 200){
                     parent.remove();
                 }
             }
