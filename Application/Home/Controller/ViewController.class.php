@@ -150,7 +150,6 @@ class ViewController extends BaseController {
             }
             /*推荐店铺*/
             $recommend = $this->getRecommend();
-
             $this->assign('recommend', $recommend);
             $this->assign('store', $store_info);
             $this->assign('school', $school_name);
