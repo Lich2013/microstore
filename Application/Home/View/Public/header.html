@@ -27,6 +27,7 @@
         }
 
         #active{
+            color:#ff6e41;
             border-bottom: solid 3px #ff6e41;
         }
     </style>
@@ -51,9 +52,9 @@
         <div class="col-xs-2" style="float:right ;  margin-top: 10px;">
             <a id="slideDown" href="javascript:void(0)"><img class="slide_down" src="__PUBLIC__/images/slide_down.png" alt=""/></a>
             <if condition="session('user.uid') !== null">
-                <li style="margin-top: 25px"><a href="{:U('Login/loginout');}"><button class="btn btn-xs btn-warning" style="background: #ff6e41;width:60px;height:40px;padding:0">注销</button></a></li>
+                <li class="slideUl" style="display:none;position:absolute;z-index: 1000;margin-left:-23px;margin-top: 25px"><a href="{:U('Login/loginout');}"><button class="btn btn-xs btn-warning" style="background: #ff6e41;width:60px;height:40px;padding:0">注销</button></a></li>
                 <else />
-            <ul id="slideUl" style="margin-left:-23px;">
+            <ul class="slideUl" style="display:none;margin-left:-23px;">
                 <li><a href="{:U('Join/index');}"><button class="btn btn-xs btn-warning" style="background: #ff6e41;width:60px;height:40px;padding:0">申请入驻</button></a></li>
                 <li><a href="{:U('Login/index');}"><button class="btn btn-xs btn-info" style="background: #ff6e41;width:60px;height:40px;padding:0">卖家登陆</button></a></li>
             </ul>
