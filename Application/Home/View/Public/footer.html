@@ -97,14 +97,17 @@
             var column = 2;
             var _arr = [];
             var oWidth;
-            for(var i = 0;i<pin.length;i++){
+            for(var i = 0;i<3;i++){
                 var oHeight = pin[i].offsetHeight;
                 if(i < column){
                     _arr[i] = oHeight;
                     oWidth = _arr[i].style.width();
+                    console.log(_arr[i]);
                 }else{
                     var minH = Math.min.apply(null,_arr);
+                    console.log(minH);
                     var minIndex = getMinIndex(_arr,minH);
+//                    console.log(minIndex);
                     pin[i].style.position = 'absolute';
                     pin[i].style.left = pin[minIndex].offsetLeft + 'px';
                     pin[i].style.top = minH + 'px';

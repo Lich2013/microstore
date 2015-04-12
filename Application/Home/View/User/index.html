@@ -1,7 +1,8 @@
 <include file="Public/header" />
+<script src="__PUBLIC__/js/jquery.min.js"></script>
 <div class="row">
-    <div class="col-xs-6" style="padding-left: inherit"><h2 style="margin:10px 0">微店管理</h2> </div>
-    <div class="col-xs-6" style="text-align: center;height:20px;line-height: 20px;  height: 54px;line-height: 36px;font-size: 20px;"><span>{$name}</span></div>
+    <div class="col-xs-6" style="margin:10px 0;padding-left: inherit"><span style="font-size: 20px">微店管理</span> </div>
+    <div class="col-xs-6" style="margin:10px 0;text-align: center;height:20px;line-height: 20px;  height: 54px;line-height: 36px;font-size: 20px;"><span>你好,{$name}</span></div>
 </div>
 <form  action="{:U('User/update');}" method="post" enctype="multipart/form-data">
     <div class="row" >
@@ -138,6 +139,14 @@
 </form>
 </div>
 <script>
+    //特效代码
+    $("#slideDown").on('click',function(){
+        if($(".slideUl").css('display') == 'none'){
+            $(".slideUl").show();
+        }else{
+            $(".slideUl").hide();
+        }
+    })
 </script>
 </body>
 </html>
