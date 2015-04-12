@@ -90,17 +90,13 @@
 <script>
 //特效代码
     $("#slideDown").on('click',function(){
-        if($("#slideUl").css('display') == 'none'){
-            $("#slideUl").show();
+        if($(".slideUl").css('display') == 'none'){
+            $(".slideUl").show();
         }else{
-            $("#slideUl").hide();
+            $(".slideUl").hide();
         }
     })
 
-   $(".sec_nav").on('click',function(){
-       $(this).css('color' ,'blue');
-//       $(this).siblings().css('color','black');
-   })
 </script>
 <script>
 

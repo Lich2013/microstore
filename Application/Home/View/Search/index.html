@@ -1,4 +1,6 @@
 <include file="Public/header" />
+
+<include file="Public/nav"/>
 <include file="Public/sec_nav" />
 <form action="{:U('Search/search')}" method="post">
     <div class="row" style="padding-top:10px; width: 99%">
@@ -23,7 +25,7 @@
     <input type="hidden" name="tag" value="0"/>
     <input type="hidden" name="seller" value="0"/>
     <div class="row" style="padding-top: 1em; padding-bottom: inherit">
-        <div class="col-xs-10" style="padding-right: 0.5em;">
+        <div class="col-xs-9" style="padding-right: 0.5em;">
             <div class="form-group">
                 <input type="text" class="form-control" name="content" placeholder="输入店名、卖家、姓名或者标签">
             </div>
