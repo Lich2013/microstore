@@ -4,9 +4,9 @@ use Think\Controller;
 class ListController extends BaseController {
     //商家排行榜
     public function index(){
-        $school_id = I('param.school_id')?I('param.school_id'):'%';
-        $map['school_id']  = array('LIKE',$school_id);
-        $store = M('store')->where($map)->join('JOIN school ON store.school_id = school.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name, comment_num, click_num')->limit(10)->select();
+        $goods_id = I('param.goods_id')?I('param.goods_id'):'%';
+        $map['goods_id']  = array('LIKE',$goods_id);
+        $store = M('store')->where($map)->join('JOIN school ON store.school_id = school.id')->join('JOIN store_goods ON store.id = store_goods.store_id')->join('JOIN goods ON store_goods.goods_id = goods.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name, comment_num, click_num')->limit(10)->select();
         $i = 0;
         foreach($store as $v) {
             $uid = $v['uid'];
@@ -30,10 +30,10 @@ class ListController extends BaseController {
 
     //标签排行榜
     public function tag(){
-        $school_id = I('param.school_id')?I('param.school_id'):'%';
-        $map['school_id']  = array('LIKE',$school_id);
+        $school_id = I('param.goods_id')?I('param.goods_id'):'%';
+        $map['goods_id']  = array('LIKE',$school_id);
         $map['tag_name'] = array('NEQ', '');
-        $tags = M('tags')->join('JOIN store_tag ON tags.id = store_tag.tag_id')->join('JOIN store ON store_tag.store_id = store.id')->where($map)->order('tags.click_num desc')->group('tag_name')->limit(10)->select();
+        $tags = M('tags')->join('JOIN store_tag ON tags.id = store_tag.tag_id')->join('JOIN store ON store_tag.store_id = store.id')->join('JOIN store_goods ON store.id = store_goods.store_id')->where($map)->order('tags.click_num desc')->group('tag_name')->limit(10)->select();
         $this->assign('tags', $tags);
         $this->display();
     }
