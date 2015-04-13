@@ -37,7 +37,7 @@ class JoinController extends BaseController {
         $again_pwd = trim(I('post.passwordagain'));        //卖家确认密码
         $telephone = trim(I('post.telephone'));        //卖家电话
         $password = md5(md5($orign_pwd).'Lich');
-        $manage_school_id = 0;//店铺管理者所在学校/店铺所在学校
+        $manage_school_id = I('post.person_school');//店铺管理者所在学校/店铺所在学校
         $manage_major = trim(I('post.person_major')); //店铺管理者专业
         $academy = trim(I('post.academy')); //店铺管理者专业
 
