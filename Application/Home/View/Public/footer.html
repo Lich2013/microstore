@@ -106,7 +106,12 @@
         var page = 1;
 
         function ajaxLoad (){
+<<<<<<< HEAD
 
+=======
+            var page = 2;
+            var store;
+>>>>>>> 8cd192e48a523552a710d699bf5b9d3483b7e0c9
             $.ajax({
                 url:"{:U('Index/ajaxStore')}",
 
@@ -126,9 +131,8 @@
                             var store = '<div class="col-xs-6 pin" style="padding:10px;float:left;">';
                                 store += '<a href="{:U("Person/index")}?person_id={$vo.person.id}" style="width:100%;height:auto;display:inline-block">';
                                 store += '<div class="img_container" style="overflow:hidden">';
-                                store += ' <img style="width:100%" src="'+data[i].show_pic+'" alt=""/></div>';
                                 store += '<div class="shop_name" style="width:100%;padding:10px;height:50px;background-color: white">';
-                                store += '<div class="seller_logo_container" style="overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%">'
+                                store += '<div class="seller_logo_container" style="overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%">';
                                 store += '<img class="seller_logo" style="width: 100%;" src="'+data[i].person.photo+'" alt=""/>';
                                 store += '</div><span>'+data[i].nickname+'</span></div>';
                                 store += '<div class="shop_infro" style="width:100%;padding:10px;height:50px;background-color: white">';
@@ -136,9 +140,10 @@
                                 store += '<i class="iconfont">&#x3438;</i><span class="comment_count">'+data[i].comment_num+'</span>';
                                 store += '</div></a></div>';
 
+                            $(oparent).append(store);
                         }
-                    $(oparent).append(store);
-//                    console.log(store);
+
+
                 }
 
 
