@@ -75,7 +75,7 @@
 
 <!-- 店铺展示 -->
 <div class="row" id="main" style="height:auto;position:relative">
-        <!--<volist name="store" id="vo">-->
+        <volist name="store" id="vo">
             <div class="col-xs-6 pin" style="margin:10px 0;float:left;">
                 <a href="{:U('Person/index')}?person_id={$vo.person.id}" style="width:100%;height:auto;display:inline-block">
                     <div class="img_container" style="overflow:hidden">
@@ -114,7 +114,7 @@
             </div>
         </a>
     </div>
-    <!--</volist>-->
+    </volist>
 </div>
 
 <include file="Public/footer" />
