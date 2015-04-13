@@ -29,7 +29,10 @@
         }
         return tags;
     }
+    var flag = true;
     $("#more").on('click', function(){
+        if(flag == true){
+        flag = false;
         $.ajax({
             url: "{:U('View/ajaxview')}",
 
@@ -44,6 +47,7 @@
             error: function(){alert('出现错误了...刷新一下试试!');},
 
             success: function(data){
+                flag = true;
                 for(var i = 0; i < data.length; i++){
                     var store = '<div style="width:96%;margin:30px auto;background-color:white;padding-top:10px;border-radius:5px;box-shadow: 0 0 6px #ccc">';
                         store +='<div class="clear" style="margin:2%"><div style="width:20%">';
@@ -74,7 +78,9 @@
                 }
 
             }
+
         });
+        }
     })
 
 </script>
@@ -93,7 +99,6 @@
     var oparent = document.getElementById('main');
     var pin = document.getElementsByClassName('pin');
     window.onload = function() {
-
         waterfall();
         window.onscroll = function(){
             if(checkscrollside()){
@@ -102,10 +107,8 @@
             }
         }
 
-
+        var page = 1;
         function ajaxLoad (){
-            var page = 2;
-            var store;
             $.ajax({
                 url:"{:U('Index/ajaxStore')}",
 
@@ -118,10 +121,11 @@
                 error:function(){alert('出现错误了...刷新一下试试!')},
 
                 success:function(data){
-                        page++;
+                    flag = true;
+                    page++;
                         for(var i =0;i<data.length;i++){
-                                store = '<div class="col-xs-6 pin" style="margin:10px 0;float:left;">';
-                                store += '<a href="{:U("Person/index")}?person_id='+data[i].uid+'" style="width:100%;height:auto;display:inline-block">';
+                              var  store = '<div class="col-xs-6 pin" style="padding:10px;float:left;">';
+                                store += '<a href="{:U("Person/index")}?person_id='+data[i].show_pic+'" style="width:100%;height:auto;display:inline-block">';
                                 store += '<div class="img_container" style="overflow:hidden">';
                                 store += '<img style="width:100%" src="'+data[i].show_pic+'" /></div>';
                                 store += '<div class="shop_name" style="width:100%;padding:10px;height:50px;background-color: white">';
@@ -132,14 +136,11 @@
                                 store += '<i class="iconfont">&#xe7c4;</i><span class="view_count">'+data[i].click_num+'</span>';
                                 store += '<i class="iconfont">&#x3438;</i><span class="comment_count">'+data[i].comment_num+'</span>';
                                 store += '</div></a></div>';
-
                         }
                     $(oparent).append(store);
+                    $("#main").children().last().hide().fadeIn(1500);
+                    $("#main").children().last().prev().hide().fadeIn(1500);
                 }
-
-
-
-
           })
         }
 
@@ -150,7 +151,7 @@
         var _arr = [];
         for(var i = 0;i<pin.length;i++){
             var oHeight = pin[i].offsetHeight;
-            if(i <2){
+            if(i < 2){
                 _arr[i] = oHeight;
             }else{
                 var minH = Math.min.apply(null,_arr);
@@ -180,7 +181,7 @@
             var bodyHeight = document.documentElement.clientHeight;
             var total = bodyHeight + scrollTop;
             return total > LastHeight ? true : false;
-        }
+    }
 
 
 
