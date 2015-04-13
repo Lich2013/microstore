@@ -56,7 +56,7 @@
                        store += '<div style="width:51%;float:left"><img style="width:20px;" src="__PUBLIC__/images/tag.png" alt=""/>';
                        store += '<span style="color:#999999" class="tags">'+tag(data[i].tags)+'</span>';
                        store+= '</div><div style="width:49%;float:right"><span style="overflow:hidden">店主：<span class="buyer" >';
-                       store +='<a style="color:#479eff" href="{:U('Person/index')}?person_id='+data[i].person_id+'">'+data[i].nickname+'</a></span></span>';
+                       store +='<a style="color:#479eff" href="{:U("Person/index")}?person_id='+data[i].person_id+'">'+data[i].nickname+'</a></span></span>';
                        store += '</div></div><div class="shop_infro" style="width:100%;height:50px;background-color: white">';
                        store +='<div style="width:100%;height:45px;background-color:#fbfbfb;border-top:1px solid #dddddd;padding-top:4px;margin-top:10px;float:right">';
                        store += '<div style="float:right"><i class="iconfont">&#xe7c4;</i>';
@@ -90,44 +90,97 @@
 
 </script>
 <script>
+    var oparent = document.getElementById('main');
+    var pin = document.getElementsByClassName('pin');
+    window.onload = function() {
 
-    window.onload = function(){
-        var pin = document.getElementsByClassName("pin");
-        function fixedPosition() {
-            var column = 2;
-            var _arr = [];
-            var oWidth;
-            for(var i = 0;i<3;i++){
-                var oHeight = pin[i].offsetHeight;
-                if(i < column){
-                    _arr[i] = oHeight;
-                    oWidth = _arr[i].style.width();
-                    console.log(_arr[i]);
-                }else{
-                    var minH = Math.min.apply(null,_arr);
-                    console.log(minH);
-                    var minIndex = getMinIndex(_arr,minH);
-//                    console.log(minIndex);
-                    pin[i].style.position = 'absolute';
-                    pin[i].style.left = pin[minIndex].offsetLeft + 'px';
-                    pin[i].style.top = minH + 'px';
-                    pin[i].style.width = oWidth + 'px';
-                    _arr[minIndex] += oHeight;
-                }
+        waterfall();
+        window.onscroll = function(){
+            if(checkscrollside()){
+                  ajaxLoad();
+                  waterfall();
             }
-//            console.log(_arr);
         }
 
-        fixedPosition();
 
-        function getMinIndex(arr,height) {
-            for(var i in arr){
-                if(arr[i] == height){
-                    return i;
+        function ajaxLoad (){
+            var page = 1;
+            $.ajax({
+                url:"{:U('Index/ajaxStore')}",
+
+                type:'POST',
+
+                data:{'page':page},
+
+                dataType: 'json',
+
+                error:function(){alert('出现错误了...刷新一下试试!')},
+
+                success:function(data){
+                        page++;
+                        for(var i =0;i<data.length;i++){
+                            var store = '<div class="col-xs-6 pin" style="margin:10px 0;float:left;">';
+                                store += '<a href="{:U("Person/index")}?person_id={$vo.person.id}" style="width:100%;height:auto;display:inline-block">';
+                                store += ' <div class="img_container" style="overflow:hidden">';
+                                store += ' <img style="width:100%" src="'+data[i].show_pic+'" alt=""/></div>';
+                                store += '<div class="shop_name" style="width:100%;padding:10px;height:50px;background-color: white">';
+                                store += '<div class="seller_logo_container" style="overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%">'
+                                store += '<img class="seller_logo" style="width: 100%;" src="'+data[i].person.photo+'" alt=""/>';
+                                store += '</div><span>"+data[i].nickname+"</span></div>';
+                                store += '<div class="shop_infro" style="width:100%;padding:10px;height:50px;background-color: white">';
+                                store += '<i class="iconfont">&#xe7c4;</i><span class="view_count">"+data[i].click_num+"</span>';
+                                store += '<i class="iconfont">&#x3438;</i><span class="comment_count">"+data[i].comment_num+"</span>';
+                               store += '</div></a></div>';
+
+                        }
+                    oparent.append(store);
                 }
+
+
+
+
+          })
+        }
+
+    }
+
+
+    function waterfall(){
+        var _arr = [];
+        for(var i = 0;i<pin.length;i++){
+            var oHeight = pin[i].offsetHeight;
+            if(i <2){
+                _arr[i] = oHeight;
+            }else{
+                var minH = Math.min.apply(null,_arr);
+                var minHIndex = getminHIndex(_arr,minH);
+                pin[i].style.position = 'absolute';
+                pin[i].style.top = minH+'px';
+
+                pin[i].style.left = pin[minHIndex].offsetLeft+'px';
+                _arr[minHIndex] += oHeight;
+            }
+
+
+        }
+    }
+
+    function getminHIndex(arr,height){
+        for(var i in arr){
+            if(arr[i] == height){
+                return i;
             }
         }
     }
+
+    function checkscrollside() {
+            var LastHeight = pin[pin.length - 1].offsetTop + Math.floor(pin[pin.length - 1].offsetHeight / 2) +oparent.offsetTop;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var bodyHeight = document.documentElement.clientHeight;
+            var total = bodyHeight + scrollTop;
+            return total > LastHeight ? true : false;
+        }
+
 
 
 
