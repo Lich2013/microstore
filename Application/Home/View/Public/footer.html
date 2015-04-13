@@ -106,12 +106,8 @@
         var page = 1;
 
         function ajaxLoad (){
-<<<<<<< HEAD
-
-=======
-            var page = 2;
-            var store;
->>>>>>> 8cd192e48a523552a710d699bf5b9d3483b7e0c9
+//            var page = 2;
+//            var store;
             $.ajax({
                 url:"{:U('Index/ajaxStore')}",
 
@@ -140,9 +136,9 @@
                                 store += '<i class="iconfont">&#x3438;</i><span class="comment_count">'+data[i].comment_num+'</span>';
                                 store += '</div></a></div>';
 
-                            $(oparent).append(store);
-                        }
 
+                        }
+                    $(oparent).append(store);
 
                 }
 
