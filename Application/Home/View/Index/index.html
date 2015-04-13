@@ -76,7 +76,7 @@
 <!-- 店铺展示 -->
 <div class="row" id="main" style="height:auto;position:relative">
         <!--<volist name="store" id="vo">-->
-            <div class="col-xs-6 pin" style="margin:10px 0;float:left;">
+            <div class="col-xs-6 pin" style="padding:10px;float:left;">
                 <a href="{:U('Person/index')}?person_id={$vo.person.id}" style="width:100%;height:auto;display:inline-block">
                     <div class="img_container" style="overflow:hidden">
                         <img style="width:100%" src="{$vo.show_pic}" alt=""/>
@@ -95,25 +95,6 @@
                     </div>
                 </a>
             </div>
-    <div class="col-xs-6 pin" style="margin:10px 0;float:left;">
-        <a href="{:U('Person/index')}?person_id={$vo.person.id}" style="width:100%;height:auto;display:inline-block">
-            <div class="img_container" style="overflow:hidden">
-                <img style="width:100%" src="{$vo.show_pic}" alt=""/>
-            </div>
-            <div class="shop_name" style="width:100%;padding:10px;height:50px;background-color: white">
-                <div class="seller_logo_container" style="overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%">
-                    <img class="seller_logo" style="width: 100%;" src="{$vo.person.photo}" alt=""/>
-                </div>
-                <span>{$vo.store_name}</span>
-            </div>
-            <div class="shop_infro" style="width:100%;padding:10px;height:50px;background-color: white">
-                <i class="iconfont">&#xe7c4;</i>
-                <span class="view_count">{$vo.click_num}</span>
-                <i class="iconfont">&#x3438;</i>
-                <span class="comment_count">{$vo.comment_num}</span>
-            </div>
-        </a>
-    </div>
     <!--</volist>-->
 </div>
 

@@ -92,8 +92,9 @@
 <script>
     var oparent = document.getElementById('main');
     var pin = document.getElementsByClassName('pin');
-    window.onload = function() {
 
+
+    window.onload = function() {
         waterfall();
         window.onscroll = function(){
             if(checkscrollside()){
@@ -102,9 +103,10 @@
             }
         }
 
+        var page = 1;
 
         function ajaxLoad (){
-            var page = 1;
+
             $.ajax({
                 url:"{:U('Index/ajaxStore')}",
 
@@ -118,22 +120,25 @@
 
                 success:function(data){
                         page++;
+                    console.log(data)
                         for(var i =0;i<data.length;i++){
-                            var store = '<div class="col-xs-6 pin" style="margin:10px 0;float:left;">';
+//                            console.log(data[i].show_pic);
+                            var store = '<div class="col-xs-6 pin" style="padding:10px;float:left;">';
                                 store += '<a href="{:U("Person/index")}?person_id={$vo.person.id}" style="width:100%;height:auto;display:inline-block">';
-                                store += ' <div class="img_container" style="overflow:hidden">';
+                                store += '<div class="img_container" style="overflow:hidden">';
                                 store += ' <img style="width:100%" src="'+data[i].show_pic+'" alt=""/></div>';
                                 store += '<div class="shop_name" style="width:100%;padding:10px;height:50px;background-color: white">';
                                 store += '<div class="seller_logo_container" style="overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%">'
                                 store += '<img class="seller_logo" style="width: 100%;" src="'+data[i].person.photo+'" alt=""/>';
-                                store += '</div><span>"+data[i].nickname+"</span></div>';
+                                store += '</div><span>'+data[i].nickname+'</span></div>';
                                 store += '<div class="shop_infro" style="width:100%;padding:10px;height:50px;background-color: white">';
-                                store += '<i class="iconfont">&#xe7c4;</i><span class="view_count">"+data[i].click_num+"</span>';
-                                store += '<i class="iconfont">&#x3438;</i><span class="comment_count">"+data[i].comment_num+"</span>';
-                               store += '</div></a></div>';
+                                store += '<i class="iconfont">&#xe7c4;</i><span class="view_count">'+data[i].click_num+'</span>';
+                                store += '<i class="iconfont">&#x3438;</i><span class="comment_count">'+data[i].comment_num+'</span>';
+                                store += '</div></a></div>';
 
                         }
-                    oparent.append(store);
+                    $(oparent).append(store);
+//                    console.log(store);
                 }
 
 
@@ -149,7 +154,7 @@
         var _arr = [];
         for(var i = 0;i<pin.length;i++){
             var oHeight = pin[i].offsetHeight;
-            if(i <2){
+            if(i < 2){
                 _arr[i] = oHeight;
             }else{
                 var minH = Math.min.apply(null,_arr);
@@ -179,7 +184,7 @@
             var bodyHeight = document.documentElement.clientHeight;
             var total = bodyHeight + scrollTop;
             return total > LastHeight ? true : false;
-        }
+    }
 
 
 
