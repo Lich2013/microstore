@@ -79,13 +79,19 @@
             <div class="col-xs-6 pin" style="padding:10px;float:left;">
                 <a href="{:U('Person/index')}?person_id={$vo.person.id}" style="width:100%;height:auto;display:inline-block">
                     <div class="img_container" style="overflow:hidden">
-                        <img style="width:100%" src="{$vo.show_pic}" alt=""/>
+                        <img style="width:100%;max-height:300px" src="{$vo.show_pic}" alt=""/>
                     </div>
-                    <div class="shop_name" style="width:100%;padding:10px;height:50px;background-color: white">
-                        <div class="seller_logo_container" style="overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%">
-                            <img class="seller_logo" style="width: 100%;" src="{$vo.person.photo}" alt=""/>
-                        </div>
-                        <span>{$vo.store_name}</span>
+                    <div class="shop_name" style="width:100%;vertical-align:middle;padding:10px;height:50px;background-color: white">
+                        <ul>
+                            <li style="float:left">
+                                <div class="seller_logo_container" style="overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%">
+                                     <img class="seller_logo" style="width: 100%;" src="{$vo.person.photo}" alt=""/>
+                                </div>
+                            </li >
+                            <li style="float:left;margin-left:4px"><p style="line-height: 30px;">{$vo.store_name}</p></li>
+                        </ul>
+
+
                     </div>
                     <div class="shop_infro" style="width:100%;padding:10px;height:50px;background-color: white">
                         <i class="iconfont">&#xe7c4;</i>
