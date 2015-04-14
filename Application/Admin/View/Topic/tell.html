@@ -9,7 +9,7 @@
     <div class="content-box">
         <!-- Start Content Box -->
         <div class="content-box-header">
-            <h3>首页宣传图管理</h3>
+            <h3>首页宣传标语管理</h3>
             <div class="clear"></div>
         </div>
         <!-- End .content-box-header -->
@@ -18,9 +18,9 @@
                 <!-- This is the target div. id must match the href of this div's tab -->
             </div>
             <table>
-                <form action="{:U('Topic/homepageup')}" method="post" enctype="multipart/form-data">
+                <form action="{:U('Topic/updateTell')}" method="post">
                     <thead>
-                    <div>上传宣传图: <input type="file" name="index"/></div>
+                    <div>新宣传标语: <input type="text" name="index"/></div>
                     <div><br/></div>
                     <div><input type="submit" class="button"/></div>
                     </thead>
