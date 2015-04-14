@@ -39,6 +39,7 @@ class JoinController extends BaseController {
         $password = md5(md5($orign_pwd).'Lich');
         $manage_school_id = I('post.person_school');//店铺管理者所在学校/店铺所在学校
         $manage_major = trim(I('post.person_major')); //店铺管理者专业
+        $academy = trim(I('post.academy')); //店铺管理者专业
 
         $person_name = trim(I('post.person_name'));   //个人姓名
         $person_school = I('post.person_school');//个人学校
@@ -74,6 +75,12 @@ class JoinController extends BaseController {
         }
         if(mb_strlen($manage_major, 'utf-8')==0||mb_strlen($person_major, 'utf-8')==0){
             $this->error('专业不能为空');
+        }
+        if(mb_strlen($academy, 'utf-8')>10){
+            $this->error('学院名过长');
+        }
+        if(mb_strlen($academy, 'utf-8')==10){
+            $this->error('学院名不能为空');
         }
         if(mb_strlen($manage_major, 'utf-8')>10||mb_strlen($person_major, 'utf-8')>10){
             $this->error('专业名过长');
@@ -173,6 +180,7 @@ class JoinController extends BaseController {
             'introduce' => $person_introduce,
             'photo'     => $person_img,
             'store_id'  => $store_id,
+            'academy'   => $academy
         );
         $person->data($person_data)->add();
         $this->success('申请成功, 请等待审核!', U('Index/index'));

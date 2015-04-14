@@ -109,8 +109,12 @@
             }
         }
 
-        var page = 1;
-        var store;
+
+//        var page = 1;
+//        var store;
+
+        var page = 2;
+
         function ajaxLoad (){
             $.ajax({
 
@@ -135,8 +139,8 @@
                     console.log(data);
                     page++;
                         for(var i =0;i<data.length;i++){
-                                store = '<div class="col-xs-6 pin" style="padding:10px;float:left;">';
-                                store += '<a href="{:U("Person/index")}?person_id='+data[i].show_pic+'" style="width:100%;height:auto;display:inline-block">';
+                              var  store = '<div class="col-xs-6 pin" style="padding:10px;float:left;">';
+                                store += '<a href="{:U("Person/index")}?person_id='+data[i].uid+'" style="width:100%;height:auto;display:inline-block">';
                                 store += '<div class="img_container" style="overflow:hidden">';
                                 store += '<img style="width:100%" src="'+data[i].show_pic+'" /></div>';
                                 store += '<div class="shop_name" style="width:100%;padding:10px;height:50px;background-color: white">';
@@ -147,7 +151,6 @@
                                 store += '<i class="iconfont">&#xe7c4;</i><span class="view_count">'+data[i].click_num+'</span>';
                                 store += '<i class="iconfont">&#x3438;</i><span class="comment_count">'+data[i].comment_num+'</span>';
                                 store += '</div></a></div>';
-
                         }
                     $(oparent).append(store);
                     $("#main").children().last().hide().fadeIn(1500);

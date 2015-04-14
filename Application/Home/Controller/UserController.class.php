@@ -56,6 +56,12 @@ class UserController extends BaseController {
         if(strlen($data['telephone'])!=11){
             $this->error('请输入正确的手机号码');
         }
+        if(mb_strlen($data['academy'], 'utf-8')>10){
+            $this->error('学院名过长');
+        }
+        if(mb_strlen($data['academy'], 'utf-8')==0){
+            $this->error('学院名不能为空');
+        }
         if(mb_strlen($data['person_major'], 'utf-8')==0){
             $this->error('专业不能为空');
         }

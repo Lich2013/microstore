@@ -14,7 +14,6 @@ class CommentController extends BaseController {
             );
             $this->ajaxReturn($data);
         }
-        $openid = 'ouRCyjkDGe9EfiAdquDVy_LxlSq4';
         if(!$openid) {
             $this->ajaxReturn('请通过重邮小帮手进入!');
         }

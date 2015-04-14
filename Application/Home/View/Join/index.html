@@ -23,6 +23,17 @@
         </div>
     </div>
 </div>
+    <div class="row" style="padding-bottom: 1em">
+        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4>商家类型:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+            <select class="form-control" name="person_school">
+                <volist name="school_1" id="school_1">
+                    <option value="{$school_1.id}">{$school_1.school_name}</option>
+                </volist>
+            </select>
+        </div>
+    </div>
 <div class="row" >
     <div class="col-xs-3" style="text-align: left;padding-left: inherit;
   padding-right: inherit;"><h4>经营商品类型:</h4></div>
@@ -141,14 +152,10 @@
     </div>
     <div class="row" >
         <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>学校:</h4></div>
+  padding-right: inherit;"><h4>学院:</h4></div>
         <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
             <div class="form-group">
-                <select class="form-control" name="person_school">
-                    <volist name="school_1" id="school_1">
-                        <option value="{$school_1.id}">{$school_1.school_name}</option>
-                    </volist>
-                </select>
+                <input type="text" class="form-control" name="academy" placeholder="请输入学院">
             </div>
         </div>
     </div>

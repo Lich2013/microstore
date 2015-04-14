@@ -23,31 +23,31 @@
     <div class="col-xs-12 nav" style="padding:10px;height:200px">
         <ul >
             <li style="margin:15px 0" class="col-xs-3">
-                <a href="{:U('View/view')}?goods_id=62" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/shorts.png" alt=""/>
+                <a href="{:U('View/view')}?goods_id=1" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/shorts.png" alt=""/>
                     <p style="margin-top:10px;">衣服鞋帽</p></a>
             </li>
             <li style="margin:15px 0"  class="col-xs-3">
-                <a href="#" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/elec.png" alt=""/>
+                <a href="{:U('View/view')}?goods_id=2" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/elec.png" alt=""/>
                     <p style="margin-top:10px;">手机数码</p></a>
             </li>
             <li style="margin:15px 0" class="col-xs-3">
-                <a href="#" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/skin_care.png" alt=""/>
+                <a href="{:U('View/view')}?goods_id=3" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/skin_care.png" alt=""/>
                     <p style="margin-top:10px;">护肤彩妆</p></a>
             </li>
             <li style="margin:15px 0"  class="col-xs-3">
-                <a href="#" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/tec.png" alt=""/>
+                <a href="{:U('View/view')}?goods_id=4" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/tec.png" alt=""/>
                     <p style="margin-top:10px;">技术外包</p></a>
             </li>
             <li  style="margin:15px 0" class="col-xs-3">
-                <a href="#" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/food.png" alt=""/>
+                <a href="{:U('View/view')}?goods_id=5" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/food.png" alt=""/>
                     <p style="margin-top:10px;">生鲜美食</p></a>
             </li>
             <li style="margin:15px 0" class="col-xs-3">
-                <a href="#" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/department.png" alt=""/>
+                <a href="{:U('View/view')}?goods_id=6" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/department.png" alt=""/>
                     <p style="margin-top:10px;">日用百货</p></a>
             </li>
             <li style="margin:15px 0"  class="col-xs-3">
-                <a href="#" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/decoration.png" alt=""/>
+                <a href="{:U('View/view')}?goods_id=7" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/decoration.png" alt=""/>
                     <p style="margin-top:10px;">工艺装饰</p></a>
             </li>
             <li style="margin:15px 0" class="col-xs-3">
@@ -75,7 +75,7 @@
 
 <!-- 店铺展示 -->
 <div class="row" id="main" style="height:auto;position:relative">
-        <!--<volist name="store" id="vo">-->
+        <volist name="store" id="vo">
             <div class="col-xs-6 pin" style="padding:10px;float:left;">
                 <a href="{:U('Person/index')}?person_id={$vo.person.id}" style="width:100%;height:auto;display:inline-block">
                     <div class="img_container" style="overflow:hidden">
@@ -96,7 +96,7 @@
                 </a>
             </div>
 
-    <!--</volist>-->
+    </volist>
 
 
 </div>
