@@ -29,9 +29,7 @@ class IndexController extends BaseController {
     }
 
     public function ajaxStore(){
-        $page = I('post.page')? I('post.page'):'1';
-        $offset = ($page - 1)*2;
-        $store = M('store')->join('JOIN school ON store.school_id = school.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name, click_num, comment_num')->limit($offset, 2)->select();
+        $store = M('store')->join('JOIN school ON store.school_id = school.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name, click_num, comment_num')->limit(10)->select();
         $i = 0;
         foreach($store as $v) {
             $uid = $v['uid'];
