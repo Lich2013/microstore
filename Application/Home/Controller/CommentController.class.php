@@ -17,7 +17,7 @@ class CommentController extends BaseController {
         if(!$openid) {
             $data = array(
                 'status' => 403,
-                'error' => '请通过重邮小帮手进入'
+                'error' => '发表评论请通过重邮小帮手进入!'
             );
             $this->ajaxReturn($data);
         }

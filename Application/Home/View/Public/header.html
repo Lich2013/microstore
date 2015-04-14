@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
 
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <!--<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-theme.min.css">-->
+    <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">-->
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap-theme.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,9 +18,18 @@
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!--微信API-->
+    <script src="__PUBLIC__/js/API.js"></script>
     <link rel="stylesheet" href="__PUBLIC__/css/reset.css"/>
     <link rel="stylesheet" href="__PUBLIC__/css/mystyle.css">
-
+    <script>
+        WeixinApi.shareToTimeline({
+            title: 'test', // 分享标题
+            link: 'www.baidu.com', // 分享链接
+            imgUrl: 'http://bussiness.oschina.mopaas.com/Public/images/logo.png', // 分享图标
+            desc: 'ddddd' // 分享图标
+        },function(){})
+    </script>
     <style>
         #slideUl{
             display:none;
