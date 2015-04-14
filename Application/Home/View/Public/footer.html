@@ -96,13 +96,16 @@
     var oparent = document.getElementById('main');
     var pin = document.getElementsByClassName('pin');
     var page = 1;
-    var store;
+//    var store;
 
-    window.onload = function() {
-        waterfall();
+//    window.onload = function() {
+
         ajaxLoad();
-        waterfall();
-    }
+//        window.onload = function(){
+//            waterfall();
+//        }
+
+//    }
 
     function ajaxLoad (){
         $.ajax({
@@ -120,7 +123,7 @@
                 page++;
                 console.log(data.length);
                 for(var i =0;i<data.length;i++){
-                    store += '<div class="col-xs-6 pin" style="padding:10px;float:left;">';
+                    var  store = '<div class="col-xs-6 pin" style="padding:10px;float:left;">';
                     store += '<a href="{:U("Person/index")}?person_id='+data[i].uid+'" style="width:100%;height:auto;display:inline-block">';
                     store += '<div class="img_container" style="overflow:hidden">';
                     store += '<img style="width:100%" src="'+data[i].show_pic+'" /></div>';
@@ -132,12 +135,12 @@
                     store += '<i class="iconfont">&#xe7c4;</i><span class="view_count">'+data[i].click_num+'</span>';
                     store += '<i class="iconfont" style="margin-left:10px">&#x3438;</i><span class="comment_count">'+data[i].comment_num+'</span>';
                     store += '</div></a></div>';
-
+                    $(oparent).append(store);
                 }
-                $(oparent).append(store);
+
                 $("#main").children().last().hide().fadeIn(1500);
                 $("#main").children().last().prev().hide().fadeIn(1500);
-
+                waterfall();
             }
         })
     }
