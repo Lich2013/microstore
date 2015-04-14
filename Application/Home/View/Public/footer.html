@@ -102,14 +102,19 @@
         waterfall();
         window.onscroll = function(){
             if(checkscrollside()){
+//                console.log(page);
                   ajaxLoad();
                   waterfall();
+                page++;
             }
         }
 
         var page = 1;
+        var store;
         function ajaxLoad (){
             $.ajax({
+
+
                 url:"{:U('Index/ajaxStore')}",
 
                 type:'POST',
@@ -121,10 +126,16 @@
                 error:function(){alert('出现错误了...刷新一下试试!')},
 
                 success:function(data){
-                    flag = true;
+//                    flag = true;
+//                    alert(page);
+                    if(data.length == null){
+                        alert('已经到底啦!');
+                        return;
+                    }
+                    console.log(data);
                     page++;
                         for(var i =0;i<data.length;i++){
-                              var  store = '<div class="col-xs-6 pin" style="padding:10px;float:left;">';
+                                store = '<div class="col-xs-6 pin" style="padding:10px;float:left;">';
                                 store += '<a href="{:U("Person/index")}?person_id='+data[i].show_pic+'" style="width:100%;height:auto;display:inline-block">';
                                 store += '<div class="img_container" style="overflow:hidden">';
                                 store += '<img style="width:100%" src="'+data[i].show_pic+'" /></div>';
@@ -136,25 +147,17 @@
                                 store += '<i class="iconfont">&#xe7c4;</i><span class="view_count">'+data[i].click_num+'</span>';
                                 store += '<i class="iconfont">&#x3438;</i><span class="comment_count">'+data[i].comment_num+'</span>';
                                 store += '</div></a></div>';
-<<<<<<< HEAD
+
                         }
                     $(oparent).append(store);
                     $("#main").children().last().hide().fadeIn(1500);
                     $("#main").children().last().prev().hide().fadeIn(1500);
-=======
 
-
-                        }
-                    $(oparent).append(store);
-
->>>>>>> 2e7eab757f4b3c9408ecb3bfe71a21eb051911c4
                 }
           })
         }
 
     }
-
-
     function waterfall(){
         var _arr = [];
         for(var i = 0;i<pin.length;i++){
@@ -166,12 +169,9 @@
                 var minHIndex = getminHIndex(_arr,minH);
                 pin[i].style.position = 'absolute';
                 pin[i].style.top = minH+'px';
-
                 pin[i].style.left = pin[minHIndex].offsetLeft+'px';
                 _arr[minHIndex] += oHeight;
             }
-
-
         }
     }
 
@@ -184,16 +184,14 @@
     }
 
     function checkscrollside() {
-            var LastHeight = pin[pin.length - 1].offsetTop + Math.floor(pin[pin.length - 1].offsetHeight / 2) +oparent.offsetTop;
+            var LastHeight = pin[pin.length -1].offsetTop + pin[pin.length -1].offsetHeight;
+//            var LastHeight = pin[pin.length - 1].offsetTop + Math.floor(pin[pin.length - 1].offsetHeight / 2) ;
             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             var bodyHeight = document.documentElement.clientHeight;
             var total = bodyHeight + scrollTop;
-            return total > LastHeight ? true : false;
+            return total = LastHeight ? true : false;
+
     }
-
-
-
-
 </script>
 </body>
 </html>
