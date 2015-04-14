@@ -76,18 +76,30 @@
                 success:function(data){
                     flag = true;
                     $("#content").val('');
-                    alert("回复成功!");
-                    console.log(data);
-                    var comment = "<div class='container' style='border-top:1px #dddddd solid;padding:5px;border-bottom:1px #dddddd solid'>";
+//                    alert("回复成功!");
+//                    console.log(data.status);
+                    switch (data.status){
+                        case 200:
+                            alert(data.error);
+                            var comment = "<div class='container' style='border-top:1px #dddddd solid;padding:5px;border-bottom:1px #dddddd solid'>";
 
-                    comment+='<div style="float:left;width:40px;height:40px;border-radius:100%;overflow: hidden">';
-                    comment+='<img src="'+data.head+'" alt=""/></div>';
+                            comment+='<div style="float:left;width:40px;height:40px;border-radius:100%;overflow: hidden">';
+                            comment+='<img src="'+data.head+'" alt=""/></div>';
 
-                    comment+='<div style="float:right;width:85%">';
-                    comment+='<p style="color:#333333;margin-bottom:10px;">'+data.nickname+'</p>';
-                    comment+='<p style="color:#666666">'+data.content+'</p>';
-                    comment+='<span style="float:right" class="time">'+data.time+'</span></div></div>'
-                    $("#com_his").prepend(comment);
+                            comment+='<div style="float:right;width:85%">';
+                            comment+='<p style="color:#333333;margin-bottom:10px;">'+data.nickname+'</p>';
+                            comment+='<p style="color:#666666">'+data.content+'</p>';
+                            comment+='<span style="float:right" class="time">'+data.time+'</span></div></div>'
+                            $("#com_his").prepend(comment);
+                            break;
+                        case 403:
+                            alert(data.error);
+                            return false;
+                            break;
+
+
+                    }
+
 
                 }
             })

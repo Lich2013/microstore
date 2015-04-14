@@ -49,16 +49,16 @@
         </div>
         <div style="float:right;height:50px;width:78%">
             <p class="store_name" style="font-size: 22px;margin-bottom:4px;color:#333333">{$vo.store_name}</p>
-            <p style="margin-top:4px" >商家类型：<span class="kind">{$vo['school_name']}</span></p>
+            <p style="margin-top:10px" >商家类型：<span class="kind">{$vo['school_name']}</span></p>
         </div>
     </div>
 
     <div style="width:100%;margin-left:2%;overflow:hidden;margin-top:15px;">
-        <div style="width:51%;float:left">
+        <div style="width:70%;float:left">
             <img style="width:20px;" src="__PUBLIC__/images/tag.png" alt=""/>
             <span style="color:#999999" class="tags"> <php>foreach($vo['tags'] as $v){echo $v['tag_name'].'  ';}</php></span>
         </div>
-        <div style="width:49%;float:right">
+        <div style="width:30%;float:right">
 
             <span style="overflow:hidden">店主：<span class="buyer" ><a style="color:#479eff" href="{:U('Person/index')}?person_id={$vo.person_id}">{$vo.nickname}</a></span></span>
 
