@@ -9,13 +9,17 @@ class CommentController extends BaseController {
         $store_id = I('post.store_id');
         if(mb_strlen($content, 'utf-8') > 200) {
             $data = array(
-                'status' => 200,
+                'status' => 403,
                 'error' => '评论请在200字以内'
             );
             $this->ajaxReturn($data);
         }
         if(!$openid) {
-            $this->ajaxReturn('请通过重邮小帮手进入!');
+            $data = array(
+                'status' => 403,
+                'error' => '请通过重邮小帮手进入'
+            );
+            $this->ajaxReturn($data);
         }
         $time = time();
         $string = md5($time);
@@ -38,7 +42,7 @@ class CommentController extends BaseController {
         curl_close ( $ch );
         if($return->status != 200) {
             $data = array(
-                'status' => 200,
+                'status' => 403,
                 'error' => '网络错误, 请刷新下试试'
             );
             $this->ajaxReturn($data);
@@ -60,13 +64,13 @@ class CommentController extends BaseController {
                 $map['id'] = $id;
                 $success = M('comment')->where($map)->find();
             $success['status'] = 200;
-            $success['success'] = '评论成功!';
+            $success['error'] = '评论成功!';
             $this->ajaxReturn($success);
            }
             else{
                 $success = array(
-                    'status' => 200,
-                    'success' => '评论失败, 请稍后再试!'
+                    'status' => 403,
+                    'error' => '评论失败, 请稍后再试!'
                 );
                 $this->ajaxReturn($success);
             }
@@ -74,14 +78,14 @@ class CommentController extends BaseController {
         elseif($return->data->errcode) {
             if($return->data->errcode == 40003) {
                 $data = array(
-                                'status' => 200,
+                                'status' => 403,
                                 'error' => '请绑定重邮小帮手后发表评论!'
                             );
                 $this->ajaxReturn($data);
             }
             else {
                 $data = array(
-                    'status' => 200,
+                    'status' => 403,
                     'error' => '未知错误!'
                 );
                 $this->ajaxReturn($data);
@@ -89,7 +93,7 @@ class CommentController extends BaseController {
         }
         else {
                 $data = array(
-                    'status' => 200,
+                    'status' => 403,
                     'error' => '未知错误!'
                 );
                 $this->ajaxReturn($data);
