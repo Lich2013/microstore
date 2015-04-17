@@ -82,6 +82,7 @@
     </div>
 </volist >
 <!--推广-->
+<if condition="($recommend neq null)">
 <div   style="width:96%;margin:20px auto;background-color:white;padding-top:10px;border-radius:5px;box-shadow: 0 0 6px #ccc">
 
     <div class="clear" style="margin:2%">
@@ -129,6 +130,8 @@
         </div>
     </div>
 </div>
+    <else />
+</if>
 <!--推广end-->
 <volist name="store" id="vo" offset="1">
 
