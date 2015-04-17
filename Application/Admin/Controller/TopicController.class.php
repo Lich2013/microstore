@@ -141,7 +141,22 @@ class TopicController extends BaseController {
         }
     }
 
+    public function tell() {
+        $this->display();
+    }
 
+    public function updateTell() {
+        $path = I('post.index');
+        $data = array(
+            'path' => $path,
+            'time' => Date('Y-m-d H:i:s', time())
+        );
+        $index = M('index');
+        $id = $index->find();
+        $map['id'] = $id['id'];
+        $index->where($map)->data($data)->save();
+        $this->success('成功');
+    }
     public function homepageup(){
 
         //上传封面图
@@ -178,12 +193,5 @@ class TopicController extends BaseController {
         }
         return true;
     }
-
-
-
-
-
-
-
 
 }
