@@ -86,12 +86,12 @@
                 <!--<img class="slide_down" src="__PUBLIC__/images/slide_down.png" alt=""/>-->
             </a>
             <if condition="session('user.uid') !== null">
-                <li class="slideUl" style="display:none;position:fixed;z-index: 1000;right:0;top: 55px"><a href="{:U('Login/loginout');}"><button class="btn btn-xs btn-warning" style="background: #ff6e41;width:60px;height:40px;padding:0">注销</button></a></li>
+                <li class="slideUl" style="display:none;position:fixed;z-index: 1000;right:0;top: 55px"><a href="{:U('Login/loginout');}"><button class="btn btn-xs btn-warning" style="border:none;width:74px;background: #ff6e41;width:60px;height:40px;padding:0">注销</button></a></li>
                 <else />
             <ul class="slideUl" style="display:none;position:absolute;right:0;top:30px">
-                <li style="padding: 0;margin:0"><a href="{:U('Join/index');}"><button class="btn btn-xs btn-warning" style="background: #ff6e41;height:40px;padding:0">申请入驻</button></a></li>
-                <li style="padding: 0;margin:0"><a href="{:U('Login/index');}"><button class="btn btn-xs btn-info" style="background: #ff6e41;height:40px;padding:0">卖家登陆</button></a></li>
-                <li style="padding: 0;margin:0"><a href="{:U('Login/index');}"><button class="btn btn-xs btn-info" style="background: #ff6e41;height:40px;padding:0">入驻说明</button></a></li>
+                <li style="padding: 0;margin:0"><a href="{:U('Join/index');}"><button class="btn btn-xs btn-warning" style="width:74px;border:none;background: #ff6e41;height:40px;padding:0">申请入驻</button></a></li>
+                <li style="padding: 0;margin:0"><a href="{:U('Login/index');}"><button class="btn btn-xs btn-info" style="border:none;width:74px;background: #ff6e41;height:40px;padding:0">卖家登陆</button></a></li>
+                <li style="padding: 0;margin:0"><a href="{:U('Login/index');}"><button class="btn btn-xs btn-info" style="width:74px;border:none;background: #ff6e41;height:40px;padding:0">入驻说明</button></a></li>
             </ul>
             </if>
         </div>

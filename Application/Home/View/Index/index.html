@@ -21,29 +21,31 @@
         color:black;
     }
 </style>
+
+<script src="__PUBLIC__/js/jquery.min.js"></script>
 <!--导航-->
 <div class="row">
     <div class="col-xs-12 nav" style="padding:10px;height:200px">
         <ul >
             <li style="margin:15px 0" class="col-xs-3">
                 <a href="{:U('View/view')}?goods_id=1" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/shorts.png" alt=""/>
-                    <p style="margin-top:10px;">衣服鞋帽</p></a>
+                    <p style="color:#333;margin-top:10px;">衣服鞋帽</p></a>
             </li>
             <li style="margin:15px 0"  class="col-xs-3">
                 <a href="{:U('View/view')}?goods_id=2" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/elec.png" alt=""/>
-                    <p style="margin-top:10px;">手机数码</p></a>
+                    <p style="color:#333;margin-top:10px;">手机数码</p></a>
             </li>
             <li style="margin:15px 0" class="col-xs-3">
                 <a href="{:U('View/view')}?goods_id=3" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/skin_care.png" alt=""/>
-                    <p style="margin-top:10px;">护肤彩妆</p></a>
+                    <p style="color:#333;margin-top:10px;">护肤彩妆</p></a>
             </li>
             <li style="margin:15px 0"  class="col-xs-3">
                 <a href="{:U('View/view')}?goods_id=4" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/tec.png" alt=""/>
-                    <p style="margin-top:10px;">技术外包</p></a>
+                    <p style="color:#333;margin-top:10px;">技术外包</p></a>
             </li>
             <li  style="margin:15px 0" class="col-xs-3">
                 <a href="{:U('View/view')}?goods_id=5" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/food.png" alt=""/>
-                    <p style="margin-top:10px;">生鲜美食</p></a>
+                    <p style="color:#333;margin-top:10px;">生鲜美食</p></a>
             </li>
             <li style="margin:15px 0" class="col-xs-3">
                 <a href="{:U('View/view')}?goods_id=6" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/department.png" alt=""/>
@@ -51,11 +53,11 @@
             </li>
             <li style="margin:15px 0"  class="col-xs-3">
                 <a href="{:U('View/view')}?goods_id=7" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/decoration.png" alt=""/>
-                    <p style="margin-top:10px;">工艺装饰</p></a>
+                    <p style="color:#333;margin-top:10px;">工艺装饰</p></a>
             </li>
             <li style="margin:15px 0" class="col-xs-3">
                 <a href="{:U('Search/index')}" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/more_kinds.png" alt=""/>
-                    <p style="margin-top:10px;">更多类别</p></a>
+                    <p style="color:#333;margin-top:10px;">更多类别</p></a>
             </li>
         </ul>
     </div>
@@ -64,18 +66,36 @@
 <!--通知-->
 <div class="row">
     <div style="background:#ffffef;height:30px;margin:20px 0;">
-        <div style="height:30px;
-    background: url('__PUBLIC__/images/inform.png')  no-repeat;background-size: 20px;
+        <div class="scroll" style="overflow:hidden;height:30px;background: url('__PUBLIC__/images/inform.png')  no-repeat;background-size: 20px;
     background-position: 45px 8px;text-align: center;"  class="col-xs-12">
 
-            <span style="font-size:14px;  line-height: 30px;">{$tell.path}</span>
+            <!--<span style="font-size:14px;  line-height: 30px;">{$tell.path}</span>-->
+            <ul class="list" style="margin:0;padding:0;list-style: none">
+                <li style="height:30px;line-height: 30px">今天星期五</li>
+                <li style="height:30px;line-height: 30px">今天星期一</li>
+                <li style="height:30px;line-height: 30px">今天星期日</li>
+                <li style="height:30px;line-height: 30px;">今天星期六</li>
 
+            </ul>
 
         </div>
     </div>
 
 </div>
 
+
+<script>
+    function autoScroll(obj){
+        $(obj).find(".list").animate({
+            marginTop : "-30px"
+        },500,function(){
+            $(this).css({marginTop : "0px"}).find("li:first").appendTo(this);
+        })
+    }
+    $(function(){
+        setInterval('autoScroll(".scroll")',3000)
+    })
+</script>
 <!-- 店铺展示 -->
 <div class="row" id="main" style="height:auto;position:relative">
         <volist name="store" id="vo">
