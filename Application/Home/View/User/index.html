@@ -2,31 +2,31 @@
 <script src="__PUBLIC__/js/jquery.min.js"></script>
 <div class="row">
     <div class="col-xs-6" style="margin:10px 0;padding-left: inherit"><span style="font-size: 20px">微店管理</span> </div>
-    <div class="col-xs-6" style="margin:10px 0;text-align: center;height:20px;line-height: 20px;  height: 54px;line-height: 36px;font-size: 20px;"><span>你好,{$name}</span></div>
+    <div class="col-xs-6" style="margin:10px 0;text-align: center;height:20px;line-height: 20px;  height: 54px;font-size: 20px;"><span>你好,{$name}</span></div>
 </div>
 <form  action="{:U('User/update');}" method="post" enctype="multipart/form-data">
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>店铺名:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4 style="line-height:34px">店铺名:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <input type="text" class="form-control" name="store_name" value="{$info.store.store_name}" placeholder="10字以内">
             </div>
         </div>
     </div>
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>店铺链接:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4  style="line-height: 34px">店铺链接:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <input type="text" class="form-control" value="{$info.store.link}" name="store_link" placeholder="复制粘贴您的微店网址,必填">
             </div>
         </div>
     </div>
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>商家类型:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4 style="line-height: 34px">商家类型:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <select class="form-control" name="person_school">
                     <volist name="school" id="vs">
@@ -37,9 +37,9 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>商品类型:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4 style="line-height: 34px">商品类型:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <select name="goods_type"  class="form-control" >
                 <volist name="goods" id="vo">
                     <option value="{$vo.id}" <php>$a = $vo['id']==$info['goods']['id']? 'selected="selected"':'';echo $a; </php>>{$vo.type}</option>
@@ -48,9 +48,9 @@
         </div>
     </div>
     <div class="row" style="padding-top: 0.5em;">
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>标签1:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4 style="line-height: 34px">标签1:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <input type="hidden" value="{$info.tags.0.id}" name="tags_id[]"/>
                 <input type="text" class="form-control" value="{$info.tags.0.tag_name}" name="tags[]" placeholder="向用户介绍店铺业务,3字以内,必填">
@@ -58,9 +58,9 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>标签2:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4 style="line-height: 34px">标签2:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <input type="hidden" value="{$info.tags.1.id}" name="tags_id[]"/>
                 <input type="text" class="form-control" value="{$info.tags.1.tag_name}" name="tags[]" placeholder="3字以内, 选填">
@@ -68,9 +68,10 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>标签3:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;;;
+  "><h4 style="line-height: 34px">标签3:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <input type="hidden" value="{$info.tags.2.id}" name="tags_id[]"/>
                 <input type="text" class="form-control" name="tags[]" value="{$info.tags.2.tag_name}" placeholder="3字以内, 选填">
@@ -78,9 +79,9 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>联系方式:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4 style="line-height: 34px">联系方式:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <input type="text" class="form-control" name="telephone" value="{$info.store.telephone}" placeholder="请输入手机号码">
             </div>
@@ -99,18 +100,18 @@
         <div class="col-xs-12" style="padding-left: inherit"><h4>个人风采展示</h4></div>
     </div>
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>姓名:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4 style="line-height: 34px">姓名:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <input type="text" class="form-control" value="{$info.person.name}" name="person_name" placeholder="请输入姓名">
             </div>
         </div>
     </div>
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>学院:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4 style="line-height: 34px">学院:</h4></div>
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <div class="form-group">
                     <input type="text" class="form-control" name="academy" placeholder="请输入学院">
@@ -121,15 +122,15 @@
     <div class="row" >
         <div class="col-xs-3" style="text-align: left;padding-left: inherit;
   padding-right: inherit;"><h4>专业:</h4></div>
-        <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
+        <div class="col-xs-8" style="padding-left: inherit;">
             <div class="form-group">
                 <input type="text" class="form-control" value="{$info.person.major}" name="person_major" placeholder="8字以内">
             </div>
         </div>
     </div>
     <div class="row" >
-        <div class="col-xs-3" style="text-align: left;padding-left: inherit;
-  padding-right: inherit;"><h4>个人介绍:</h4></div>
+        <div class="col-xs-3" style="height:34px;text-align: left;padding-left: inherit;
+  padding-right: inherit;"><h4 style="line-height: 34px">个人介绍:</h4></div>
         <div class="col-xs-8" style="padding-left: inherit;padding-top: 0.5em;">
 
             <div class="form-group">
