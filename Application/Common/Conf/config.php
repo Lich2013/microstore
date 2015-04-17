@@ -7,7 +7,6 @@ return array(
 	//'SHOW_PAGE_TRACE'=>true,
     //路由对大小写不敏感
     'URL_CASE_INSENSITIVE'=>true,
-
     /*
      * 数据库配置
     */
