@@ -166,7 +166,7 @@ class TopicController extends BaseController {
             'time' => Date('Y-m-d H:i:s', time())
         );
         $index = M('index');
-        $index->->data($data)->add();
+        $index->data($data)->add();
         $this->success('成功');
     }
     public function homepageup(){
