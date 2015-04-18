@@ -17,10 +17,14 @@ class JoinController extends BaseController {
         $store_name = trim(I('post.store_name'));     //店铺名
         $goods_type_id = I('post.goods_type');  //商品类型id
         $tag_name = I('post.tag');                   //标签
-        $link = trim(I('post.link'));
+        $link = trim(I('post.link')); //店铺链接
+        $person_school = I('post.person_school');//个人学校
 
-        if(strlen($link)==0){
+        if(strlen($link)==0 && $person_school != 4){
             $this->error('链接不能为空');
+        }
+        elseif(strlen($link)==0 && $person_school == 4){
+            $link = "javascript:alert('该店铺没有网络平台~')";
         }
         else{
             if(strstr($link, 'http://')){
@@ -42,7 +46,7 @@ class JoinController extends BaseController {
         $academy = trim(I('post.academy')); //店铺管理者专业
 
         $person_name = trim(I('post.person_name'));   //个人姓名
-        $person_school = I('post.person_school');//个人学校
+
         $person_major = trim(I('post.person_major')); //个人专业
         $person_introduce = trim(I('post.person_introduce'));//个人介绍
 
