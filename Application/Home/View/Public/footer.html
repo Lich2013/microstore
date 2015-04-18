@@ -98,7 +98,6 @@
 
 
    window.onload = function(){
-//       console.log(1);
        waterfall()
    }
     function waterfall(){
@@ -116,7 +115,14 @@
                 _arr[minHIndex] += oHeight;
             }
         }
-//        console.log(_arr)
+        var maxH = Math.max.apply(null,_arr);
+//        console.log(maxH);
+        var fixed = document.getElementsByClassName("fixed")[0];
+        var mainTop = oparent.offsetTop;
+        console.log(mainTop);
+        fixed.style.position = 'absolute';
+        fixed.style.top = maxH + mainTop + 'px';
+
     }
 
     function getminHIndex(arr,height){
