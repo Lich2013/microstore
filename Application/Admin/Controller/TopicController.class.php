@@ -33,17 +33,24 @@ class TopicController extends BaseController {
             $title = I('post.title');
             $data = $_POST['text'];
             //上传封面图
-           $setting = C('UPLOAD_SITEIMG_QINIU');
-           $upload = new \Think\Upload($setting);// 实例化上传类
-            // 上传文件
-            $info   =   $upload->upload();
-            if(!$info) {// 上传错误提示错误信息
-                $this->error($upload->getError());
-            }else{// 上传成功 获取上传文件信息
-                foreach($info as $file){
-                    $cover = $file['url'].'?imageView2/2/h/360/w/932';
-                }
+           $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小
+        $upload->exts      =     array('jpg', 'jpeg');// 设置附件上传类型
+        $upload->rootPath  =     'Public/uploads/'; // 设置附件上传根目录
+        // 上传文件
+        $info   =   $upload->upload();
+        if(!$info) {// 上传错误提示错误信息
+            $this->error($upload->getError());
+        }else{// 上传成功 获取上传文件信息
+            foreach($info as $file){
+                $image = new \Think\Image();
+                $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
+                $image->open($path);
+                $image->thumb(440, 440,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $img_url[] = __ROOT__.'/'.$path;
             }
+        }
+        $cover = $img_url[0];
            $pattern = '/base64,(.*?)"/';
            preg_match_all($pattern, $data, $match, PREG_PATTERN_ORDER);
            foreach($match[1] as $v) {
@@ -78,17 +85,24 @@ class TopicController extends BaseController {
         $title = I('post.title');
         $data = $_POST['text'];
         //上传封面图
-        $setting = C('UPLOAD_SITEIMG_QINIU');
-        $upload = new \Think\Upload($setting);// 实例化上传类
+           $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小
+        $upload->exts      =     array('jpg', 'jpeg');// 设置附件上传类型
+        $upload->rootPath  =     'Public/uploads/'; // 设置附件上传根目录
         // 上传文件
         $info   =   $upload->upload();
         if(!$info) {// 上传错误提示错误信息
             $this->error($upload->getError());
         }else{// 上传成功 获取上传文件信息
             foreach($info as $file){
-                $cover = $file['url'].'?imageView2/2/h/360/w/932';
+                $image = new \Think\Image();
+                $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
+                $image->open($path);
+                $image->thumb(440, 440,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $img_url[] = __ROOT__.'/'.$path;
             }
         }
+        $cover = $img_url[0];
         $pattern = '/base64,(.*?)"/';
         preg_match_all($pattern, $data, $match, PREG_PATTERN_ORDER);
         foreach($match[1] as $v) {
