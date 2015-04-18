@@ -2,6 +2,7 @@
 namespace Home\Controller;
 use Think\Controller;
 class BaseController extends Controller {
+    private $appId = 'wx81a4a4b77ec98ff4';
     public function _initialize(){
         $openId = I('get.openid');
         session('openId', $openId);
