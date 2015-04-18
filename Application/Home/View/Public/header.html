@@ -19,16 +19,33 @@
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!--微信API-->
-    <script src="__PUBLIC__/js/API.js"></script>
+    <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
     <link rel="stylesheet" href="__PUBLIC__/css/reset.css"/>
     <link rel="stylesheet" href="__PUBLIC__/css/mystyle.css">
     <script>
-//        WeixinApi.shareToTimeline({
-//            title: 'test', // 分享标题
-//            link: 'www.baidu.com', // 分享链接
-//            imgUrl: 'http://bussiness.oschina.mopaas.com/Public/images/logo.png', // 分享图标
-//            desc: 'ddddd' // 分享图标
-//        },function(){})
+//        wx.config({
+//            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+//            appId: '', // 必填，公众号的唯一标识
+//            timestamp: , // 必填，生成签名的时间戳
+//            nonceStr: '', // 必填，生成签名的随机串
+//            signature: '',// 必填，签名，见附录1
+//            jsApiList: [ 'onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+//        });
+//        wx.ready(function(){
+//            wx.onMenuShareTimeline({
+//                title: 'test', // 分享标题
+//                link: 'www.baidu.com', // 分享链接
+//                imgUrl: '__PUBLIC__/images/logo.png', // 分享图标
+//                success: function () {
+//                    // 用户确认分享后执行的回调函数
+//                },
+//                cancel: function () {
+//                    // 用户取消分享后执行的回调函数
+//                }
+//            });
+//            // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+//        });
+
     </script>
     <style>
         #slideUl{
@@ -64,7 +81,9 @@
 </head>
 <body style="position: relative">
 <div class="container-fluid" >
-
+    <div style="display: none">
+    <img src="__PUBLIC__/share.jpg"  style="width:300px;height:300px;" alt=""/>
+    </div>
     <!-- header -->
 
     <div class="row header" >
@@ -91,7 +110,7 @@
             <ul class="slideUl" style="display:none;position:absolute;right:0;top:30px">
                 <li style="padding: 0;margin:0"><a href="{:U('Join/index');}"><button class="btn btn-xs btn-warning" style="width:74px;border:none;background: #ff6e41;height:40px;padding:0">申请入驻</button></a></li>
                 <li style="padding: 0;margin:0"><a href="{:U('Login/index');}"><button class="btn btn-xs btn-info" style="border:none;width:74px;background: #ff6e41;height:40px;padding:0">卖家登陆</button></a></li>
-                <li style="padding: 0;margin:0"><a href="{:U('Login/index');}"><button class="btn btn-xs btn-info" style="width:74px;border:none;background: #ff6e41;height:40px;padding:0">入驻说明</button></a></li>
+                <li style="padding: 0;margin:0"><a href="{:U('Topic/index')}?topic_id={$help.id}"><button class="btn btn-xs btn-info" style="width:74px;border:none;background: #ff6e41;height:40px;padding:0">入驻说明</button></a></li>
             </ul>
             </if>
         </div>
