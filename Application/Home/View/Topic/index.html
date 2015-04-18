@@ -19,5 +19,14 @@
 <!-- <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
 <script src="__PUBLIC__/js/bootstrap.min.js"></script>
 <script src="__PUBLIC__/js/mobile.js"></script>
+<script>
+	    $("#slideDown").on('click',function(){
+        if($(".slideUl").css('display') == 'none'){
+            $(".slideUl").show();
+        }else{
+            $(".slideUl").hide();
+        }
+    })
+</script>
 </body>
 </html>
