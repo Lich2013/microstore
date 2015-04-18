@@ -166,9 +166,7 @@ class TopicController extends BaseController {
             'time' => Date('Y-m-d H:i:s', time())
         );
         $index = M('index');
-        $id = $index->find();
-        $map['id'] = $id['id'];
-        $index->where($map)->data($data)->save();
+        $index->->data($data)->add();
         $this->success('成功');
     }
     public function homepageup(){
