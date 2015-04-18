@@ -4,7 +4,7 @@ use Think\Controller;
 
 class IndexController extends BaseController {
     public function index(){
-        $tell = M('index')->order('time desc')->find();
+        $tell = M('index')->order('time desc')->limit(4)->select();
         $store = M('store')->join('JOIN school ON store.school_id = school.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name, click_num, comment_num')->limit(10)->select();
         $i = 0;
         foreach($store as $v) {
