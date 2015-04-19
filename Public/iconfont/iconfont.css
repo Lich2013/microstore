@@ -15,7 +15,8 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-pinglun:before { content: "\3438"; }
+.icon-gerenzhongxin:before { content: "\e600"; }
 .icon-liulan:before { content: "\e7c4"; }
-.icon-icon2:before { content: "\e60b"; }
-.icon-fangdajing:before { content: "\e605"; }
+.icon-pinglun:before { content: "\f003b"; }
+.icon-sousuo:before { content: "\f004c"; }
+.icon-paixing:before { content: "\e631"; }

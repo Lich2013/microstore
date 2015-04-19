@@ -115,15 +115,10 @@
                 _arr[minHIndex] += oHeight;
             }
         }
-        var maxH = Math.max.apply(null,_arr);
-//        console.log(maxH);
-        var fixed = document.getElementsByClassName("fixed")[0];
-        var mainTop = oparent.offsetTop;
-        console.log(mainTop);
-        fixed.style.position = 'absolute';
-        fixed.style.top = maxH + mainTop + 'px';
-
+        pin[pin.length-1].style.marginBottom = 50 + 'px';
+        pin[pin.length-2].style.marginBottom = 50 + 'px';
     }
+
 
     function getminHIndex(arr,height){
         for(var i in arr){
