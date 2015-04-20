@@ -46,7 +46,7 @@ class TopicController extends BaseController {
                 $image = new \Think\Image();
                 $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                 $image->open($path);
-                $image->thumb(440, 440,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $image->thumb(1000, 1833,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                 $img_url[] = __ROOT__.'/'.$path;
             }
         }
@@ -61,7 +61,7 @@ class TopicController extends BaseController {
                $image->open($name);
                $time = md5(microtime(true));
                $path =  'Public/uploads/topic/'.$time.'.jpg';
-               $image->thumb(605, 1100,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+               $image->thumb(414, 736,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                $img_url[] = __ROOT__.'/'.$path;
                $replace[] = 'src="'.__ROOT__.'/'.$path.'"';
            }
@@ -98,7 +98,7 @@ class TopicController extends BaseController {
                 $image = new \Think\Image();
                 $path = 'Public/uploads/'.$file['savepath'].$file['savename'];
                 $image->open($path);
-                $image->thumb(605, 1100,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
+                $image->thumb(1000, 1833,\Think\Image::IMAGE_THUMB_SCALE)->save($path);
                 $img_url[] = __ROOT__.'/'.$path;
             }
         }
