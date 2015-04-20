@@ -9,7 +9,6 @@
         url('__PUBLIC__/iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
         url('__PUBLIC__/iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
     }
-
     .iconfont{
         font-family:"iconfont" !important;
         font-size:16px;font-style:normal;
@@ -19,16 +18,26 @@
     }
     a:link,a:visited{
         color:black;
+        text-decoration-line: none;
+    }
+    .nav:after{
+        content:"";
+        height:0;
+        clear:both;
+        display:block;
     }
     .fixed{
         position: absolute;
+    }
+    .nav li{
+        float: left;
     }
 </style>
 
 <script src="__PUBLIC__/js/jquery.min.js"></script>
 <!--导航-->
 <div class="row">
-    <div class="col-xs-12 nav" style="padding:10px;height:200px">
+    <div class="col-xs-12 nav" style="padding:10px;">
         <ul >
             <li style="margin:15px 0" class="col-xs-3">
                 <a href="{:U('View/view')}?goods_id=1" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/shorts.png" alt=""/>
@@ -75,7 +84,7 @@
             <!--<span style="font-size:14px;  line-height: 30px;">{$tell.path}</span>-->
             <ul class="list" style="margin:0;padding:0;list-style: none">
                 <volist name="tell" id="path">
-                    <li style="height:30px;line-height: 30px">{$path.path}</li>
+                    <li style="color:#666;height:30px;line-height: 30px">{$path.path}</li>
                 </volist>
             </ul>
 
@@ -105,7 +114,7 @@
                     <div class="img_container" style="overflow:hidden">
                         <img style="width:100%;max-height:300px" src="{$vo.show_pic}" alt=""/>
                     </div>
-                    <div class="shop_name" style="width:100%;vertical-align:middle;padding:10px;height:50px;background-color: white">
+                    <div class="shop_name" style="color:#999;width:100%;vertical-align:middle;padding:10px;height:50px;background-color: white">
                         <ul>
                             <li style="float:left">
                                 <div class="seller_logo_container" style="overflow:hidden;display:inline-block;width:30px;height:30px;border-radius:100%">
@@ -117,7 +126,7 @@
 
 
                     </div>
-                    <div class="shop_infro" style="width:100%;padding:10px;height:50px;background-color: white">
+                    <div class="shop_infro" style="color:#999;width:100%;padding:10px;height:50px;background-color: white">
                         <i style="font-size:24px" class="iconfont">&#xe7c4;</i>
                         <span class="view_count">{$vo.click_num}</span>
                         <i class="iconfont" style="margin-left:10px">&#xf003b;</i>
