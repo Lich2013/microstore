@@ -67,7 +67,7 @@ class ViewController extends BaseController {
     public function view(){
         $school_id = I('param.school_id')?I('param.school_id'):0;
         $goods_id = I('param.goods_id')?I('param.goods_id'):0;
-        $order_id = I('param.order_id')?I('param.goods_id'):0;
+        $order_id = I('param.order_id')?I('param.order_id'):0;
         if($order_id==1){
             $order = 'click_num desc';
         }
