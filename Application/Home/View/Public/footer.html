@@ -66,7 +66,7 @@
                        store += '<div style="float:right"><i class="iconfont">&#xe7c4;</i>';
                       store += '<span style="margin-right: 15px" class="view_count">'+data[i].click_num+'</span>';
                       store += '<i class="iconfont">&#xf003b;</i><span style="margin-right: 15px" class="comment_count">'+data[i].comment_num+'</span>';
-                      store += '<a href="{$vo.link}" style="display: inline-block"><button class="btn btn-warning">进入店铺</button></a>';
+                      store += '<a href="'+data[i].link+'" style="display: inline-block"><button class="btn btn-warning">进入店铺</button></a>';
                       store += '</div> </div></div></div>';
                     $("#more").before(store);
                     $("#more").prev().hide().fadeIn(1500);
