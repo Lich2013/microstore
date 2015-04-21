@@ -156,6 +156,8 @@ class JoinController extends BaseController {
         }
         $store_img = $img_url[0];
         $person_img = $img_url[1];
+        if($person_img == null)
+            $this->error('没有文件被上传!');
         $user = M('users');
         $store = M('store');
         $tag = M('tags');
