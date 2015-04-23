@@ -148,6 +148,9 @@ class IndexController extends BaseController {
     public function delComment() {
         $data = I('post.id');
         $map['id'] = $data;
+        $store = M('comment')->where($map)->find();
+        $id =  $store['store_id'];
+        M('store')->where("id = $id")->setDec('comment_num');
         M('comment')->where($map)->delete();
         $success = array('status' => 200);
         return $this->ajaxReturn($success);
