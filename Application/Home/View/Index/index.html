@@ -37,7 +37,7 @@
 <script src="__PUBLIC__/js/jquery.min.js"></script>
 <!--导航-->
 <div class="row">
-    <div class="col-xs-12 nav" style="padding:10px;">
+    <div class="col-xs-12 nav" style="background:white;border-color:#dddddd;padding:10px;">
         <ul >
             <li style="margin:15px 0" class="col-xs-3">
                 <a href="{:U('View/view')}?goods_id=1" style="text-align:center;display: inline-block;  min-width: 50px;"><img style="width:80%" src="__PUBLIC__/images/shorts.png" alt=""/>
@@ -109,7 +109,7 @@
 <!-- 店铺展示 -->
 <div class="row" id="main" style="height:auto;position:relative">
         <volist name="store" id="vo">
-            <div class="col-xs-6 pin" style="padding:10px;float:left;">
+            <div class="col-xs-6 pin" style="border-color:#dddddd;padding:10px;float:left;">
                 <a href="{:U('Person/index')}?person_id={$vo.person.id}" style="width:100%;height:auto;display:inline-block">
                     <div class="img_container" style="overflow:hidden">
                         <img style="width:100%;max-height:300px" src="{$vo.show_pic}" alt=""/>
