@@ -67,7 +67,7 @@ class ViewController extends BaseController {
     public function view(){
         $school_id = I('param.school_id')?I('param.school_id'):0;
         $goods_id = I('param.goods_id')?I('param.goods_id'):0;
-        $order_id = I('param.order_id')?I('param.goods_id'):0;
+        $order_id = I('param.order_id')?I('param.order_id'):0;
         if($order_id==1){
             $order = 'click_num desc';
         }
@@ -128,6 +128,7 @@ class ViewController extends BaseController {
             $store_info = M('store_goods')->where("goods_id = $goods_id")
                                 ->join('JOIN store ON store_goods.store_id = store.id')
                                 ->join('JOIN school ON store.school_id = school.id')
+                                ->where('store.status = 1')
                                 ->order($order)
                                 ->select();
             $i = 0;

@@ -6,6 +6,13 @@ class CommentController extends BaseController {
     public function comment(){
         $openid = session('openId');
         $content = I('post.content');
+        if(trim($content) == null){
+            $data = array(
+                'status' => 403,
+                'error' => '评论不能为空!'
+            );
+            $this->ajaxReturn($data);
+        }
         $store_id = I('post.store_id');
         if(mb_strlen($content, 'utf-8') > 200) {
             $data = array(

@@ -14,6 +14,33 @@ class JoinController extends BaseController {
 
     //入驻信息处理
     public function join(){
+        $openid = session('openId');
+
+        if(!$openid)
+            $this->error('请关注重邮小帮手并从小帮手进入!');
+        $time = time();
+        $string = md5($time);
+        $secret = sha1(sha1($time).md5($string)."redrock");
+        $data = array (
+            'openid' => $openid,
+            'token' => 'gh_68f0a1ffc303',
+            'timestamp' => $time,
+            'string' => $string,
+            'secret' => $secret,
+        );
+        $ch = curl_init ();
+        $url = 'http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/userInfo';
+        curl_setopt ( $ch, CURLOPT_URL, $url );
+        curl_setopt ( $ch, CURLOPT_POST, 1 );
+        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+        $return = json_decode(curl_exec ( $ch ));
+        curl_close ( $ch );
+        if($return->data->errcode == 40003) {
+            $this->error('必须是本校学生才能入驻!');
+        }
+
         $store_name = trim(I('post.store_name'));     //店铺名
         $goods_type_id = I('post.goods_type');  //商品类型id
         $tag_name = I('post.tag');                   //标签
@@ -129,6 +156,8 @@ class JoinController extends BaseController {
         }
         $store_img = $img_url[0];
         $person_img = $img_url[1];
+        if($person_img == null)
+            $this->error('没有文件被上传!');
         $user = M('users');
         $store = M('store');
         $tag = M('tags');
