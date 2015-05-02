@@ -156,7 +156,7 @@ class TopicController extends BaseController {
     }
     //渲染公告管理
     public function tell() {
-        $tell = M('index')->select();
+        $tell = M('index')->order('id asc')->select();
         $this->assign('tell', $tell);
         $this->display();
     }
