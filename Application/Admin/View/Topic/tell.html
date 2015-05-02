@@ -16,11 +16,60 @@
         <div class="content-box-content">
             <div class="tab-content default-tab" id="tab1">
                 <!-- This is the target div. id must match the href of this div's tab -->
+                <table>
+                    <form action="{:U('Info/storeUpdate')}" method="post">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>公告内容</th>
+                            <th>发布时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                <div class="bulk-actions align-left">
+                                    <!--<select name="action">-->
+                                    <!--<option value="1">修改</option>-->
+                                    <!--</select>-->
+                                    <!--<input class="button" type="submit"/> -->
+                                </div>
+                                <div class="pagination">
+                                    <!--<a href="">{$page}</a>-->
+                                    <!--<a href="#" title="First Page">&laquo; First</a>-->
+                                    <!--<a href="#" title="Previous Page">&laquo; Previous</a>-->
+                                    <!--<a href="#" class="number" title="1">1-->
+                                    <!--<a href="#" class="number" title="2">2</a>-->
+                                    <!--<a href="#" class="number" title="3">3</a>-->
+                                    <!--<a href="#" class="number" title="4">4</a>-->
+                                    <!--<a href="#" title="Next Page">Next &raquo;</a><a href="#" title="Last Page">Last &raquo;</a>-->
+                                </div>
+                                <!-- End .pagination -->
+                                <div class="clear"></div>
+                            </td>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <volist name="tell" id="vo">
+                            <tr>
+
+                                <td>{$vo.id}</td>
+                                <td>{$vo.path}</td>
+                                <td>{$vo.time}</td>
+                                <td>
+                                    <a href="#" title="删除" class="delete" value="1"><img src="__PUBLIC__/resources/images/icons/cross_circle.png" alt="删除" /></a>
+                                </td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </form>
+                </table>
             </div>
             <table>
                 <form action="{:U('Topic/updateTell')}" method="post">
                     <thead>
-                    <div>新宣传标语: <input type="text" name="index"/></div>
+                    <div>新宣传标语: <input type="text" name="index" style="padding: 6px;border-radius: 4px;border: 1px solid #d5d5d5"/></div>
                     <div><br/></div>
                     <div><input type="submit" class="button" value="确定"/></div>
                     </thead>
@@ -38,15 +87,14 @@
 <script>
 
     $(".delete").live("click",function(){
-        var action = $(this).attr('value');
-        var store_id = $(this).parent().parent().children(":first").children(":first").val();
+        var id = $(this).parents('tr').find('td').eq(0).html();
         var parent = $(this).parent().parent();
         $.ajax({
-            url: "{:U('Topic/deleteTopic');}",
+            url: "{:U('Topic/delTell');}",
 
             type: 'post',
 
-            data:{"store_id":store_id, "action":action},
+            data:{"id":id},
 
             dataType: 'json',
 
@@ -64,33 +112,7 @@
         });
 
     });
-    $(".black").live("click",function(){
-        var action = $(this).attr('value');
-        var store_id = $(this).parent().parent().children(":first").children(":first").val();
-        var parent = $(this).parent().parent();
-        $.ajax({
-            url: "{:U('Index/judge')}",
 
-            type: 'post',
-
-            data:{"store_id":store_id, "action":action},
-
-            dataType: 'json',
-
-            timeout: 10000,
-
-            error: function(){alert('出现错误了...刷新一下试试!');},
-
-            success: function(data){
-
-                if(data == 200){
-
-                    parent.remove();
-                }
-            }
-        });
-
-    });
 </script>
 </body>
 

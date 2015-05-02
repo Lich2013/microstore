@@ -154,11 +154,13 @@ class TopicController extends BaseController {
                 break;
         }
     }
-
+    //渲染公告管理
     public function tell() {
+        $tell = M('index')->select();
+        $this->assign('tell', $tell);
         $this->display();
     }
-
+    //增加公告
     public function updateTell() {
         $path = I('post.index');
         $data = array(
@@ -169,6 +171,15 @@ class TopicController extends BaseController {
         $index->data($data)->add();
         $this->success('成功');
     }
+    //删除公告
+    public function delTell () {
+        $id = I('post.id');
+        $index = M('index');
+        $m['id'] = $id;
+        $index->where($m)->delete();
+        $this->ajaxReturn(200);
+    }
+
     public function homepageup(){
 
         //上传封面图
