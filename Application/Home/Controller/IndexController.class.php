@@ -4,6 +4,7 @@ use Think\Controller;
 
 class IndexController extends BaseController {
     public function index(){
+        EventController::index('首页');
         $tell = M('index')->order('time asc')->limit(4)->select();
         $store = M('store')->join('JOIN school ON store.school_id = school.id')->order('rand()')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name, click_num, comment_num')->limit(10)->select();
         $i = 0;

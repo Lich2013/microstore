@@ -4,6 +4,7 @@ use Think\Controller;
 class PersonController extends BaseController {
     public function index(){
         $person_id = I('get.person_id');
+        EventController::index('id为'.$person_id.'的个人展示页面');
 		$m['person.id'] = $person_id;
         $info = M('person')->where($m)->join('JOIN school ON person.school_id = school.id')->field('name, major, introduce, photo, school_name, store_id, academy')->select();
         $store_id = $info[0]['store_id'];

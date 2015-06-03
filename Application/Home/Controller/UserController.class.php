@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class UserController extends BaseController {
     public function index(){
+        EventController::index('卖家后台');
         $this->check();
         $uid = session('user.uid');
         $name = session('user.name');

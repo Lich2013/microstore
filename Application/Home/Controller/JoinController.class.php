@@ -4,6 +4,7 @@ use Think\Controller;
 class JoinController extends BaseController {
     //申请入驻页面
     public function index(){
+        EventController::index('申请入驻页面');
         $goods_type = M('goods')->order('id asc')->select();
         $school = M('school')->order('id asc')->select();
         $this->assign('goods_type', $goods_type);

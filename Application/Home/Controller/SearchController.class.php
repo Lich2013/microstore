@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class SearchController extends BaseController {
     public function index(){
+        EventController::index('搜索页面');
         $goods_type = M('goods')->order('id asc')->select();
         $school = M('school')->order('id asc')->select();
         $this->assign('goods_type', $goods_type);
@@ -11,6 +12,7 @@ class SearchController extends BaseController {
     }
 
     public function search(){
+        EventController::index('进行了搜索');
         $data = I('post.');
 
         $content = $data['content'];
@@ -106,6 +108,7 @@ class SearchController extends BaseController {
     }
 
     public function tag(){
+        EventController::index('进行了搜索');
         $data = I('get.');
         $data['content'] = $data['tag_name'];
         $content = $data['content'];

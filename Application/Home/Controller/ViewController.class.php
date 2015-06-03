@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class ViewController extends BaseController {
     public function index($order = 'rand()'){
+        EventController::index('商品浏览页面');
         $goods_id = I('get.goods_id')? I('get.goods_id'):'%';
         $school = M('school');
         $goods = M('goods');
@@ -40,6 +41,7 @@ class ViewController extends BaseController {
     }
 
     public function ajaxview($order = 'rand()'){
+        EventController::index('查看了更多商品');
         $store = M('store');
         $store_num = $store->where('status = 1')->order($order)->field('id')->limit(20)->select();
         $j = 0;
@@ -65,6 +67,7 @@ class ViewController extends BaseController {
     }
 
     public function view(){
+        EventController::index('商品排序后浏览页面');
         $school_id = I('param.school_id')?I('param.school_id'):0;
         $goods_id = I('param.goods_id')?I('param.goods_id'):0;
         $order_id = I('param.order_id')?I('param.order_id'):0;

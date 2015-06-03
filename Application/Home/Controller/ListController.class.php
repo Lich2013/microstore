@@ -4,6 +4,7 @@ use Think\Controller;
 class ListController extends BaseController {
     //商家排行榜
     public function index(){
+        EventController::index('商家排行榜');
         $goods_id = I('param.goods_id')?I('param.goods_id'):'%';
         $map['goods_id']  = array('LIKE',$goods_id);
         $store = M('store')->where($map)->join('JOIN school ON store.school_id = school.id')->join('JOIN store_goods ON store.id = store_goods.store_id')->join('JOIN goods ON store_goods.goods_id = goods.id')->order('click_num desc')->where('status = 1') ->field('store.id as id, store_name, uid, link, school_id, show_pic, school_name, comment_num, click_num')->limit(10)->select();
@@ -30,6 +31,7 @@ class ListController extends BaseController {
 
     //标签排行榜
     public function tag(){
+        EventController::index('标签排行榜');
         $school_id = I('param.goods_id')?I('param.goods_id'):'%';
         $map['goods_id']  = array('LIKE',$school_id);
         $map['tag_name'] = array('NEQ', '');
