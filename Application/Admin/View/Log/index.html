@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <title>test</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 h2 text-center" >
+            重邮创业谷数据统计(beta)
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4" >
+            <code>
+                总页面访问次数由已关注小帮手和未关注小帮手的访问量构成;
+
+                单个页面统计次数仅统计已关注小帮手访问量;
+
+                统计页面不包括卖家登录页面以及卖家管理页面;
+
+                店铺访问量由'商品浏览页面'和'查看了更多商品'计算可得, 约为前两项总和乘以20;
+            </code>
+            <a href="{:U('Log/outPutData')}">点我下载卖家访问量统计</a>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+    <volist name="result" id="v">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 h4 text-center">{$key}({$v.total}次)</div>
+            <div class="col-lg-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 text-right">首页访问量</div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$v['index'] == 0? '0' : $v['index']*100/$v['total']}%">
+                        {$v['index'] == 0? '0' : $v['index']*100/$v['total']} %
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">{$v.index}次</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 text-right">搜索页面</div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$v['search'] == 0? '0' : $v['search']*100/$v['total']}%">
+                        {$v['search'] == 0? '0' : $v['search']*100/$v['total']} %
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">{$v.search}次</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 text-right">商家排行榜</div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$v['storelist'] == 0? '0' : $v['storelist']*100/$v['total']}%">
+                        {$v['storelist'] == 0? '0' : $v['storelist']*100/$v['total']} %
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">{$v.storelist}次</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 text-right">标签排行榜</div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$v['taglist'] == 0? '0' : $v['taglist']*100/$v['total']}%">
+                        {$v['taglist'] == 0? '0' : $v['taglist']*100/$v['total']} %
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">{$v.taglist}次</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 text-right">商品浏览页面</div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$v['goodsview'] == 0? '0' : $v['goodsview']*100/$v['total']}%">
+                        {$v['goodsview'] == 0? '0' : $v['goodsview']*100/$v['total']} %
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">{$v.goodsview}次</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 text-right">查看了更多商品</div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$v['moregoods'] == 0? '0' : $v['moregoods']*100/$v['total']}%">
+                        {$v['moregoods'] == 0? '0' : $v['moregoods']*100/$v['total']} %
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">{$v.moregoods}次</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 text-right">专题页面</div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$v['major'] == 0? '0' : $v['major']*100/$v['total']}%">
+                        {$v['major'] == 0? '0' : $v['major']*100/$v['total']} %
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">{$v.major}次</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 text-right">个人展示页面</div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$v['person'] == 0? '0' : $v['person']*100/$v['total']}%">
+                        {$v['person'] == 0? '0' : $v['person']*100/$v['total']} %
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">{$v.person}次</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 text-right">申请入驻页面</div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$v['apply'] == 0? '0' : $v['apply']*100/$v['total']}%">
+                        {$v['apply'] == 0? '0' : $v['apply']*100/$v['total']} %
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">{$v.apply}次</div>
+        </div>
+    </volist>
+</div>
+</body>
+</html>
