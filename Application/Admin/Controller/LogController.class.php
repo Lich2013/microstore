@@ -14,37 +14,75 @@ class LogController extends BaseController
     {
        $log = M('log');
        $different_people = $log->field('openid')->group("openid")->select();//不同的openid人数
+        $this->assign('different', count($different_people));
+        $repeat = $log->query('SELECT
+	openid
+FROM
+	(
+		SELECT
+			openid,
+			(@date := SUBSTR(time, 1, 10)) date
+		FROM
+			log,
+			(SELECT(@date := 0)) a
+		WHERE
+			openid IN (
+				SELECT
+					openid
+				FROM
+					log
+				GROUP BY
+					openid
+			)
+		GROUP BY
+			openid,
+			date
+	) b
+GROUP BY
+	openid
+HAVING
+	COUNT(openid) > 1');
+
+        $this->assign('repeat', count($repeat));
        // $anymous_people = $log->where("openid is null")->group("page")->select();//没有openid的人数
 
        //总计
 
        $page0['page'] = '首页';
        $page0_num = $log->where($page0)->count();
+       $this->assign('index', $page0_num);
 
        $page1['page'] = '搜索页面';
        $page1_num = $log->where($page1)->count();
+       $this->assign('search', $page1_num);
 
        $page2['page'] = '商家排行榜';
        $page2_num = $log->where($page2)->count();
+       $this->assign('storelist', $page2_num);
 
        $page3['page'] = '商品浏览页面';
        $page3_num = $log->where($page3)->count();
+       $this->assign('goodsview', $page3_num);
 
        $page4['page'] = '查看了更多商品';
        $page4_num = $log->where($page4)->count();
+       $this->assign('moregoods', $page4_num);
 
        $page5['page'] = '专题页面';
        $page5_num = $log->where($page5)->count();
+       $this->assign('major', $page5_num);
 
        $page6['page'] = '申请入驻页面';
        $page6_num = $log->where($page6)->count();
+       $this->assign('apply', $page6_num);
 
        $page7['page'] = '标签排行榜';
        $page7_num = $log->where($page7)->count();
-
+       $this->assign('taglist', $page7_num);
 
        $page8['page'] = array('like','%个人展示页面');
        $page8_num = $log->where($page8)->count();
+       $this->assign('person', $page8_num);
 
         $this->year = date("Y", time());
         $this->month = date("m", time());

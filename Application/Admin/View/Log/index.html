@@ -41,6 +41,46 @@
         </div>
         <div class="col-lg-4"></div>
     </div>
+    <div class="row">
+        <div class="col-lg-1 text-right h4">数据总计</div>
+        <div class="col-lg-10 ">
+            <div class="table-responsive text-center">
+                <table class="table table-condensed table-hover ">
+                    <thead>
+                    <tr>
+                        <th>首页</th>
+                        <th>搜索</th>
+                        <th>商家排行榜</th>
+                        <th>标签排行榜</th>
+                        <th>商品浏览页面</th>
+                        <th>查看了更多商品</th>
+                        <th>专题页面</th>
+                        <th>个人展示页面</th>
+                        <th>申请入驻页面</th>
+                        <th>访问人数总计(不含未关注小帮手)</th>
+                        <th>重复访问人数</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr>
+                        <th>{$index}次</th>
+                        <th>{$search}次</th>
+                        <th>{$storelist}次</th>
+                        <th>{$taglist}次</th>
+                        <th>{$goodsview}次</th>
+                        <th>{$moregoods}次</th>
+                        <th>{$major}次</th>
+                        <th>{$person}次</th>
+                        <th>{$apply}次</th>
+                        <th>{$different}次</th>
+                        <th>{$repeat}次</th>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
     <volist name="result" id="v">
         <div class="row">
             <div class="col-lg-4"></div>
