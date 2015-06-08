@@ -169,8 +169,23 @@ HAVING
         $this->assign('result', $result);
         $this->display();
     }
-
-    public function outPutData() {
+    public function tuan() {
+        $date = I('get.date');
+        $url = 'http://microstore.lcl.deadsoul.net/index.php/home/event/dataReturn?date='.$date;
+        $result= json_decode(file_get_contents($url));
+        $data = array(
+            'goodsview' => $result->goodsview,
+            'moregoods' => $result->moregoods,
+            'person' => $result->person,
+            'major'  => $result->major,
+            'search' => $result->search,
+            'storelist' => $result->storelist,
+            'taglist' => $result->taglist
+        );
+//        print_r($data);
+        $this->assign('data', $data);
+        $this->display();
+    }    public function outPutData() {
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment; filename=info.xls');
         header('Pragma: no-cache');
